@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from 'leaflet';
@@ -37,22 +37,6 @@ const MarkerManager = () => {
       description: "The Eternal City, home to ancient wonders like the Colosseum and Vatican City. A living museum of Western civilization and incredible cuisine."
     }
   ]);
-
-
-  useMapEvents({
-    click(e) {
-      const { lat, lng } = e.latlng;
-      // Add new marker with default values when clicking on map
-      setMarkers([...markers, { 
-        lat, 
-        lng, 
-        title: "New Location",
-        description: "Click to edit this marker's description"
-      }]);
-    },
-  });
-
-
 
   return (
     <>

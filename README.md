@@ -16,3 +16,9 @@ Anchor Abroad is a web application designed for prospective Vanderbilt study abr
 2) `npm i`
 3) `npm start`
 
+### How to create a superuser?
+To create a superuser to test the admin page of Django, run the command:
+```
+python manage.py createsuperuser --username=[your username here] --email=[email]
+```
+Then navigate to `localhost:8000/backend` to see your changes!

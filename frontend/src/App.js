@@ -1,13 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-import { BackgroundMap } from './components/map';
 import { PageTableMap } from './components/MarkerComponent';
+import { Navbar } from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <PageTableMap></PageTableMap>
-    </div>
+      <Navbar />  
+      <PageTableMap />
+    </div>  
   );
 }
 
