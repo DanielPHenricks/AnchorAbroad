@@ -1,12 +1,15 @@
 import './App.css';
 import { PageTableMap } from './components/MarkerComponent';
 import { Navbar } from './components/Navbar';
+import AuthWrapper from './components/AuthWrapper';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />  
-      <PageTableMap />
+      <AuthWrapper>
+        <Navbar />  
+        <PageTableMap />
+      </AuthWrapper>
     </div>  
   );
 }
