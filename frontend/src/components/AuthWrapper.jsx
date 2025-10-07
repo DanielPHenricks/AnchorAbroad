@@ -10,11 +10,11 @@ import apiService from '../services/api';
  */
 const AuthWrapper = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [authMode, setAuthMode] = useState('login'); // 'login' or 'signup'
+  const [authMode, setAuthMode] = useState('login'); // This can be either login or signup
   const [loading, setLoading] = useState(true);
 
   /**
-   * Check if user is already authenticated on component mount
+   * Check if user is already authenticated on load.
    */
   useEffect(() => {
     checkAuthStatus();
@@ -37,28 +37,23 @@ const AuthWrapper = ({ children }) => {
 
   /**
    * Handle successful authentication (login or signup)
-   * @param {Object} userData 
+   * @param {Object} userData: The user data returned from the API
    */
   const handleAuthSuccess = (userData) => {
     setUser(userData);
   };
 
-  /**
-   * Handle logout
-   */
   const handleLogout = async () => {
     try {
       await apiService.logout();
-      setUser(null);
     } catch (error) {
       console.error('Logout failed:', error);
-      // Still clear user state even if API call fails
-      setUser(null);
     }
+    setUser(null);
   };
 
   /**
-   * Switch between login and signup modes
+   * On click of login or signup
    */
   const switchAuthMode = () => {
     setAuthMode(authMode === 'login' ? 'signup' : 'login');
@@ -72,7 +67,6 @@ const AuthWrapper = ({ children }) => {
     );
   }
 
-  // If user is authenticated, show the main application
   if (user) {
     return (
       <Box>

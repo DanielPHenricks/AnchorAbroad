@@ -4,8 +4,6 @@ import apiService from '../services/api';
 
 /**
  * Login component for user authentication
- * @param {Function} onSuccess - Callback function called on successful login
- * @param {Function} onSwitchToSignup - Callback to switch to signup form
  */
 const Login = ({ onSuccess, onSwitchToSignup }) => {
   const [formData, setFormData] = useState({

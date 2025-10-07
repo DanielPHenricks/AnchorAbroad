@@ -6,8 +6,7 @@ import AuthWrapper from './components/AuthWrapper';
 function App() {
   return (
     <div className="App">
-      <AuthWrapper>
-        <Navbar />  
+      <AuthWrapper> 
         <PageTableMap />
       </AuthWrapper>
     </div>  

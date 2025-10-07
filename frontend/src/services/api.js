@@ -2,6 +2,7 @@
  * API service for handling authentication and other backend communication
  */
 
+// This will need to be changed to the actual URL of the backend server when deploying.
 const API_BASE_URL = 'http://localhost:8000/api';
 
 class ApiService {
@@ -11,9 +12,6 @@ class ApiService {
 
   /**
    * Make HTTP request with proper headers and error handling
-   * @param {string} endpoint 
-   * @param {Object} options 
-   * @returns {Promise}
    */
   async request(endpoint, options = {}) {
     const url = `${this.baseURL}${endpoint}`;
@@ -23,7 +21,7 @@ class ApiService {
         'Content-Type': 'application/json',
         ...options.headers,
       },
-      credentials: 'include', // Include cookies for session auth
+      credentials: 'include',
       ...options,
     };
 
@@ -47,19 +45,14 @@ class ApiService {
   }
 
   /**
-   * GET request
-   * @param {string} endpoint 
-   * @returns {Promise}
+   * GET requests use this.
    */
   async get(endpoint) {
     return this.request(endpoint, { method: 'GET' });
   }
 
   /**
-   * POST request
-   * @param {string} endpoint 
-   * @param {Object} data 
-   * @returns {Promise}
+   * POST requests use this.
    */
   async post(endpoint, data) {
     return this.request(endpoint, {
@@ -68,12 +61,10 @@ class ApiService {
     });
   }
 
-  // Authentication methods
+  // Our methods for connecting to the backend go here.
   
   /**
    * User signup
-   * @param {Object} userData - {username, email, password, password_confirm, first_name, last_name}
-   * @returns {Promise}
    */
   async signup(userData) {
     return this.post('/auth/signup/', userData);
@@ -81,8 +72,6 @@ class ApiService {
 
   /**
    * User login
-   * @param {Object} credentials - {username, password}
-   * @returns {Promise}
    */
   async login(credentials) {
     return this.post('/auth/login/', credentials);
@@ -90,7 +79,6 @@ class ApiService {
 
   /**
    * User logout
-   * @returns {Promise}
    */
   async logout() {
     return this.post('/auth/logout/');
@@ -98,13 +86,11 @@ class ApiService {
 
   /**
    * Get current user profile
-   * @returns {Promise}
    */
   async getUserProfile() {
     return this.get('/auth/profile/');
   }
 }
 
-// Create and export a singleton instance
 const apiService = new ApiService();
 export default apiService;

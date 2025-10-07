@@ -4,8 +4,6 @@ import apiService from '../services/api';
 
 /**
  * Signup component for user registration
- * @param {Function} onSuccess - Callback function called on successful signup
- * @param {Function} onSwitchToLogin - Callback to switch to login form
  */
 const Signup = ({ onSuccess, onSwitchToLogin }) => {
   const [formData, setFormData] = useState({
@@ -52,7 +50,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
     
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) { // Email regex
       newErrors.email = 'Please enter a valid email address';
     }
     
