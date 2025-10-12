@@ -39,18 +39,19 @@ const MarkerManager = ({ markers, onMarkerClick }) => {
         <Marker
           key={idx}
           position={[marker.lat, marker.lng]}
-          icon={
-            new Icon({
-              iconUrl: markerIconPng,
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-            })
-          }
-          eventHandlers={{
-            click: () => onMarkerClick(marker),
-          }}
+          icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}
         >
-          <Popup>{marker.title}</Popup>
+          <Popup>
+            <div style={{ minWidth: '200px' }}>
+              <h3 style={{ margin: '0 0 10px 0', color: '#333' }}>{marker.title}</h3>
+              <p style={{ margin: '0 0 10px 0', fontSize: '14px', lineHeight: '1.4' }}>
+                {marker.description}
+              </p>
+              <small style={{ color: '#666', fontSize: '12px' }}>
+                Coordinates: {marker.lat.toFixed(4)}, {marker.lng.toFixed(4)}
+              </small>
+            </div>
+          </Popup>
         </Marker>
       ))}
     </>
