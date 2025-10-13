@@ -9,7 +9,6 @@ from django.utils.decorators import method_decorator
 from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer
 
 
-@csrf_exempt
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def signup_view(request):
@@ -25,8 +24,6 @@ def signup_view(request):
         }, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-@csrf_exempt
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login_view(request):
@@ -43,7 +40,6 @@ def login_view(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@csrf_exempt
 @api_view(['POST'])
 def logout_view(request):
     """Handle user logout"""

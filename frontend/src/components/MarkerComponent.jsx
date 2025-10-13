@@ -127,8 +127,7 @@ export const PageTableMap = ({ mapCenter }) => {
         />
         <MarkerManager markers={markers} onMarkerClick={handleMarkerClick} />
       </MapContainer>
-
-      {/* Sidebar Drawer */}
+      {sidebarOpen && selectedMarker && (
       <Drawer
       variant="permanent"
       sx={{
@@ -142,11 +141,11 @@ export const PageTableMap = ({ mapCenter }) => {
         },
       }}
     >
-      <Toolbar>
-        <Typography variant="h6" noWrap component="div" sx={{ ml: 1 }}>
-          About the Program
-        </Typography>
-      </Toolbar>
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div" sx={{ ml: 1 }}>
+            About the Program
+          </Typography>
+        </Toolbar>
       <Divider />
       <Box sx={{ overflow: "auto" }}>
         <List>
@@ -159,8 +158,9 @@ export const PageTableMap = ({ mapCenter }) => {
             </ListItem>
           ))}
         </List>
-      </Box>
-    </Drawer>
+        </Box>
+      </Drawer>
+      )}
     </Box>
   );
 };
