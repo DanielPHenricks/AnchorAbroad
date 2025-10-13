@@ -8,8 +8,9 @@ Anchor Abroad is a web application designed for prospective Vanderbilt study abr
 1) `cd backend`
 2) `python -m venv .venv`
 3) `source .venv/bin/activate`
-4) `pip install Django`
-5) `python manage.py runserver`
+4) `pip install requirements.txt`
+5) `python manage.py migrate`: creates the db migrations 
+6) `python manage.py runserver`
 
 ### Frontend: 
 1) `cd frontend`

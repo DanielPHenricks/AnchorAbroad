@@ -1,7 +1,6 @@
 /**
  * API service for handling authentication and other backend communication
  */
-
 // This will need to be changed to the actual URL of the backend server when deploying.
 const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -11,11 +10,29 @@ class ApiService {
   }
 
   /**
+   * Get CSRF token from cookies
+   */
+  getCsrfToken() {
+    const name = 'csrftoken';
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  /**
    * Make HTTP request with proper headers and error handling
    */
   async request(endpoint, options = {}) {
     const url = `${this.baseURL}${endpoint}`;
-    
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -24,6 +41,14 @@ class ApiService {
       credentials: 'include',
       ...options,
     };
+
+    // Add CSRF token for non-GET requests
+    if (config.method && config.method !== 'GET') {
+      const csrfToken = this.getCsrfToken();
+      if (csrfToken) {
+        config.headers['X-CSRFToken'] = csrfToken;
+      }
+    }
 
     if (config.body && typeof config.body === 'object') {
       config.body = JSON.stringify(config.body);
@@ -62,7 +87,7 @@ class ApiService {
   }
 
   // Our methods for connecting to the backend go here.
-  
+
   /**
    * User signup
    */
