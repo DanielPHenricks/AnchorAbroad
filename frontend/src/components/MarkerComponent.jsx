@@ -4,6 +4,8 @@ import "leaflet/dist/leaflet.css";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
 import sidebar from "./sidebar";
+import apiService from "../services/api";
+
 import {
   Drawer,
   Toolbar,
@@ -38,7 +40,7 @@ const MarkerManager = ({ markers, onMarkerClick }) => {
       {markers.map((marker, idx) => (
         <Marker
           key={idx}
-          position={[marker.lat, marker.lng]}
+          position={[marker.latitude, marker.longitude]}
           icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}
         >
           <Popup>
@@ -48,7 +50,7 @@ const MarkerManager = ({ markers, onMarkerClick }) => {
                 {marker.description}
               </p>
               <small style={{ color: '#666', fontSize: '12px' }}>
-                Coordinates: {marker.lat.toFixed(4)}, {marker.lng.toFixed(4)}
+                Coordinates: {marker.latitude.toFixed(4)}, {marker.longitude.toFixed(4)}
               </small>
             </div>
           </Popup>
@@ -61,44 +63,16 @@ const MarkerManager = ({ markers, onMarkerClick }) => {
 export const PageTableMap = ({ mapCenter }) => {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const markers = [
-    {
-      lat: 40.4167,
-      lng: -3.7033,
-      title: "Madrid",
-      description:
-        "The vibrant capital of Spain, known for its rich history, world-class museums like the Prado, and bustling nightlife. Home to the Royal Palace and beautiful Retiro Park.",
-    },
-    {
-      lat: 48.8566,
-      lng: 2.3522,
-      title: "Paris",
-      description:
-        "The City of Light, famous for the Eiffel Tower, Louvre Museum, and charming cafés. A global center for art, fashion, and culture.",
-    },
-    {
-      lat: 51.5074,
-      lng: -0.1278,
-      title: "London",
-      description:
-        "Historic capital of the UK, featuring iconic landmarks like Big Ben, Tower Bridge, and Buckingham Palace. A major financial and cultural hub.",
-    },
-    {
-      lat: 52.52,
-      lng: 13.405,
-      title: "Berlin",
-      description:
-        "Germany's dynamic capital, rich in history from the Berlin Wall to modern innovation. Known for its vibrant arts scene and tech startups.",
-    },
-    {
-      lat: 41.9028,
-      lng: 12.4964,
-      title: "Rome",
-      description:
-        "The Eternal City, home to ancient wonders like the Colosseum and Vatican City. A living museum of Western civilization and incredible cuisine.",
-    },
-  ];
+  const [markers, setMarkers] = useState([]);
+    React.useEffect(() => {
+    // Fetch markers from the API
+        apiService.getPrograms()
+      .then((data) => {
+        setMarkers(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching markers:", error);
+      });}, []);
 
   const center = mapCenter || [47.812, 8.4058];
   const zoom = 5;

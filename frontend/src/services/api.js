@@ -115,6 +115,10 @@ class ApiService {
   async getUserProfile() {
     return this.get('/auth/profile/');
   }
+
+  async getPrograms() {
+      return this.get('/programs/');
+  }
 }
 
 const apiService = new ApiService();
