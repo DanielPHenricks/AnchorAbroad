@@ -45,7 +45,7 @@ const MarkerManager = ({ markers, onMarkerClick }) => {
         >
           <Popup>
             <div style={{ minWidth: '200px' }}>
-              <h3 style={{ margin: '0 0 10px 0', color: '#333' }}>{marker.title}</h3>
+              <h3 style={{ margin: '0 0 10px 0', color: '#333' }}>{marker.name}</h3>
               <p style={{ margin: '0 0 10px 0', fontSize: '14px', lineHeight: '1.4' }}>
                 {marker.description}
               </p>
