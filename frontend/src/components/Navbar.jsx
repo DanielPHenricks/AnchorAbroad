@@ -1,3 +1,8 @@
+/**
+ * Names: Daniel, Jacob, Maharshi, Ben
+ * Time: 2 hours
+ */
+
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 

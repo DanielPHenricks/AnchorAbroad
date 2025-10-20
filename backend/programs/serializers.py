@@ -1,3 +1,6 @@
+# Names: Daniel, Jacob, Maharshi, Ben
+# Total time: 15 mins 
+
 from rest_framework import serializers
 from .models import Program
 

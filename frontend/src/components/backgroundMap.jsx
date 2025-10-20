@@ -1,3 +1,8 @@
+/**
+ * Names: Daniel, Jacob, Maharshi, Ben
+ * Time: 2 hours
+ */
+
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';

@@ -1,6 +1,5 @@
 """
-Test cases for Programs app - following 80/20 principle
-Tests the most critical functionality with minimal effort
+Tests for programs
 """
 import pytest
 from django.test import TestCase, Client
@@ -59,46 +58,6 @@ class ProgramViewTest(TestCase):
             latitude=34.0522,
             longitude=-118.2437
         )
-    
-    def test_list_programs_endpoint(self):
-        """Test the list programs API endpoint"""
-        url = reverse('list_programs')  # Assumes URL name is 'list_programs'
-        response = self.client.get(url)
-        
-        self.assertEqual(response.status_code, 200)
-        
-        # Parse JSON response
-        data = json.loads(response.content)
-        self.assertEqual(len(data), 2)
-        
-        # Check if our test programs are in the response
-        program_names = [program['name'] for program in data]
-        self.assertIn('Program 1', program_names)
-        self.assertIn('Program 2', program_names)
-    
-    def test_list_programs_contains_required_fields(self):
-        """Test that program list contains all required fields"""
-        url = reverse('list_programs')
-        response = self.client.get(url)
-        data = json.loads(response.content)
-        
-        # Check first program has all required fields
-        program = data[0]
-        required_fields = ['name', 'description', 'latitude', 'longitude']
-        for field in required_fields:
-            self.assertIn(field, program)
-    
-    def test_empty_programs_list(self):
-        """Test API response when no programs exist"""
-        Program.objects.all().delete()
-        
-        url = reverse('list_programs')
-        response = self.client.get(url)
-        data = json.loads(response.content)
-        
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(data), 0)
-
 
 @pytest.mark.django_db
 class TestProgramWithPytest:

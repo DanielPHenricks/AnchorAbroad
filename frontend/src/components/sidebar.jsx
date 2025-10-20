@@ -1,3 +1,8 @@
+/**
+ * Names: Daniel, Jacob, Maharshi, Ben
+ * Time: 2 hours
+ */
+
 import React, { useState } from 'react';
 import {
   Drawer,

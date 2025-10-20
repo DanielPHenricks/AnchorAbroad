@@ -1,3 +1,6 @@
+# Names: Daniel, Jacob, Maharshi, Ben
+# Total time: 15 mins 
+
 from django.urls import path
 from . import views
 

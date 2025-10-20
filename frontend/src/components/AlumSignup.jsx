@@ -1,6 +1,6 @@
 /**
  * Names: Daniel, Jacob, Maharshi, Ben
- * Time: 2 hours
+ * Time: 1 hour
  */
 
 import React, { useState } from 'react';
@@ -8,9 +8,9 @@ import { Box, TextField, Button, Typography, Alert, Paper, Grid } from '@mui/mat
 import apiService from '../services/api';
 
 /**
- * Signup component for user registration
+ * Signup component for alumni registration
  */
-const Signup = ({ onSuccess, onSwitchToLogin }) => {
+const AlumSignup = ({ onSuccess, onSwitchToLogin }) => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',

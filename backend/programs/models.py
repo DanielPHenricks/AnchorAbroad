@@ -1,3 +1,6 @@
+# Names: Daniel, Jacob, Maharshi, Ben
+# Total time: 15 mins 
+
 from django.db import models
 
 class Program(models.Model):

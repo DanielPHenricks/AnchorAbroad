@@ -12,6 +12,7 @@ const MapPage = ({ mapCenter }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [markers, setMarkers] = useState([]);
 
+  // API is called here 
   useEffect(() => {
     apiService
       .getPrograms()

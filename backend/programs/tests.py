@@ -1,3 +1,6 @@
+# Names: Daniel, Jacob, Maharshi, Ben
+# Total time: 1 hour 
+
 from django.test import TestCase, Client
 from django.urls import reverse
 from .models import Program
