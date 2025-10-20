@@ -19,20 +19,20 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
 
   /**
    * Handle input field changes
-   * @param {Event} e 
+   * @param {Event} e
    */
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: ''
+        [name]: '',
       }));
     }
   };
@@ -43,47 +43,48 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
    */
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.username.trim()) {
       newErrors.username = 'Username is required';
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) { // Email regex
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      // Email regex
       newErrors.email = 'Please enter a valid email address';
     }
-    
+
     if (!formData.password) {
       newErrors.password = 'Password is required';
     } else if (formData.password.length < 8) {
       newErrors.password = 'Password must be at least 8 characters long';
     }
-    
+
     if (!formData.password_confirm) {
       newErrors.password_confirm = 'Please confirm your password';
     } else if (formData.password !== formData.password_confirm) {
       newErrors.password_confirm = 'Passwords do not match';
     }
-    
+
     if (!formData.first_name.trim()) {
       newErrors.first_name = 'First name is required';
     }
-    
+
     if (!formData.last_name.trim()) {
       newErrors.last_name = 'Last name is required';
     }
-    
+
     return newErrors;
   };
 
   /**
    * Handle form submission
-   * @param {Event} e 
+   * @param {Event} e
    */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -96,14 +97,14 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
     try {
       const response = await apiService.signup(formData);
       console.log('Signup successful:', response);
-      
+
       if (onSuccess) {
         onSuccess(response.user);
       }
     } catch (error) {
       console.error('Signup failed:', error);
       setErrors({
-        general: error.message || 'Signup failed. Please try again.'
+        general: error.message || 'Signup failed. Please try again.',
       });
     } finally {
       setLoading(false);
@@ -115,14 +116,14 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
       <Typography variant="h4" component="h1" gutterBottom align="center">
         Sign Up
       </Typography>
-      
+
       <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
         {errors.general && (
           <Alert severity="error" sx={{ mb: 2 }}>
             {errors.general}
           </Alert>
         )}
-        
+
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -149,7 +150,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
             />
           </Grid>
         </Grid>
-        
+
         <TextField
           fullWidth
           name="username"
@@ -161,7 +162,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           margin="normal"
           required
         />
-        
+
         <TextField
           fullWidth
           name="email"
@@ -174,7 +175,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           margin="normal"
           required
         />
-        
+
         <TextField
           fullWidth
           name="password"
@@ -187,7 +188,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           margin="normal"
           required
         />
-        
+
         <TextField
           fullWidth
           name="password_confirm"
@@ -200,7 +201,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           margin="normal"
           required
         />
-        
+
         <Button
           type="submit"
           fullWidth
@@ -210,14 +211,10 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
         >
           {loading ? 'Creating Account...' : 'Sign Up'}
         </Button>
-        
+
         <Typography align="center">
           Already have an account?{' '}
-          <Button
-            variant="text"
-            onClick={onSwitchToLogin}
-            sx={{ textTransform: 'none' }}
-          >
+          <Button variant="text" onClick={onSwitchToLogin} sx={{ textTransform: 'none' }}>
             Login
           </Button>
         </Typography>
