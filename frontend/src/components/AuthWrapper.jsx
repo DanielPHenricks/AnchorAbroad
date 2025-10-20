@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, Typography, AppBar, Toolbar } from '@mui/material';
-import Login from './Login';
-import Signup from './Signup';
+import Login from './login';
+import Signup from './signup';
 import apiService from '../services/api';
 
 /**
