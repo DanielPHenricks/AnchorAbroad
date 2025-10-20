@@ -80,7 +80,13 @@ describe('ApiService', () => {
       json: async () => errorResponse
     });
 
+    // Suppress expected console.error for this test
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+    
     await expect(apiService.get('/test-endpoint')).rejects.toThrow('Test error');
+    
+    // Restore console.error
+    consoleSpy.mockRestore();
   });
 
   test('login method calls correct endpoint', async () => {
