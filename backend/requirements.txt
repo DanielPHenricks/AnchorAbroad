@@ -4,3 +4,5 @@ djangorestframework==3.15.2
 django-cors-headers==4.4.0
 sqlparse==0.5.3
 typing_extensions==4.15.0
+pytest==7.4.3
+pytest-django==4.7.0
