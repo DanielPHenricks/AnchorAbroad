@@ -1,6 +1,8 @@
 /**
- * Basic App smoke tests - keeping it simple
+ * Names: Daniel, Jacob, Maharshi, Ben
+ * Time: 1 hour
  */
+
 
 describe('App Component Tests', () => {
   test('React framework is available', () => {

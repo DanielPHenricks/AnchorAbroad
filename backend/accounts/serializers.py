@@ -1,3 +1,6 @@
+# Names: Daniel, Jacob, Maharshi, Ben
+# Total time: 1 hour
+
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate

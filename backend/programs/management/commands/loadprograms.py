@@ -1,3 +1,6 @@
+# Names: Daniel, Jacob, Maharshi, Ben
+# Total time: 30 mins
+
 import json
 import os
 from django.core.management.base import BaseCommand

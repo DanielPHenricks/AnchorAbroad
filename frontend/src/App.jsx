@@ -1,4 +1,9 @@
-// App.jsx
+/**
+ * Names: Daniel, Jacob, Maharshi, Ben
+ * Time: 1 hour
+ */
+
+
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AuthWrapper from './components/AuthWrapper';

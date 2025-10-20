@@ -1,3 +1,8 @@
+/**
+ * Names: Daniel, Jacob, Maharshi, Ben
+ * Time: 2 hours
+ */
+
 // frontend/src/components/marker.jsx
 import { Marker, Popup } from 'react-leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';

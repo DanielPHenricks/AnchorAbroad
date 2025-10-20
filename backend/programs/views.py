@@ -1,3 +1,6 @@
+# Names: Daniel, Jacob, Maharshi, Ben
+# Total time: 15 mins 
+
 from django.http import JsonResponse
 from django.shortcuts import render
 from .models import Program

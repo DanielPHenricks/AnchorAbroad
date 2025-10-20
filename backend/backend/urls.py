@@ -1,3 +1,6 @@
+# Names: Daniel, Jacob, Maharshi, Ben
+# Total time: 30 mins 
+
 """
 URL configuration for config project.
 

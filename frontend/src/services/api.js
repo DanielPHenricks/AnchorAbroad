@@ -1,6 +1,8 @@
 /**
- * API service for handling authentication and other backend communication
+ * Names: Daniel, Jacob, Maharshi, Ben
+ * Time: 2 hours
  */
+
 // This will need to be changed to the actual URL of the backend server when deploying.
 const API_BASE_URL = 'http://localhost:8000/api';
 

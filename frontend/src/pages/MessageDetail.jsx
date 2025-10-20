@@ -1,3 +1,8 @@
+/**
+ * Names: Daniel, Jacob, Maharshi, Ben
+ * Time: 30 mins
+ */
+
 import { useParams } from 'react-router-dom';
 import { Typography, Box } from '@mui/material';
 
