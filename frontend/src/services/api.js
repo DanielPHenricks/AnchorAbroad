@@ -60,7 +60,7 @@ class ApiService {
 
       if (!response.ok) {
         if(data.username) {
-          throw new Error("A user with that username alreay exists.")
+          throw new Error("A user with that username already exists.")
         }
         throw new Error(data.message || 'Request failed');
       }
