@@ -43,7 +43,7 @@ const Navbar = ({ user, onLogout }) => {
             to={user ? undefined : '/login'}
             sx={{ textTransform: 'none' }}
           >
-            {user ? 'Logout' : 'Login / Sign Up'}
+            {user && 'Logout'}
           </Button>
         </Box>
       </Toolbar>
