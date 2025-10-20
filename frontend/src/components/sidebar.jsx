@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Drawer,
   List,
@@ -12,14 +12,14 @@ import {
   Box,
   IconButton,
   Collapse,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import DescriptionIcon from '@mui/icons-material/Description';
-import WorkIcon from "@mui/icons-material/Work";
-import SettingsIcon from "@mui/icons-material/Settings";
-import InfoIcon from "@mui/icons-material/Info";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+import WorkIcon from '@mui/icons-material/Work';
+import SettingsIcon from '@mui/icons-material/Settings';
+import InfoIcon from '@mui/icons-material/Info';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import HouseIcon from '@mui/icons-material/House';
 
 const drawerWidth = 400;
@@ -38,19 +38,18 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
   // Currently hardcoded data for a program. Should be replaced with dynamic data from api
   const menuItems = [
     {
-      text: "Description",
+      text: 'Description',
       icon: <DescriptionIcon />,
       content: (
         <Typography variant="body2" sx={{ pl: 2, pr: 2, pb: 1 }}>
-          This engineering abroad program offers students hands-on experience
-          in global technology and innovation settings. Participants will
-          explore local culture, gain international teamwork experience, and
-          complete key academic credits while abroad.
+          This engineering abroad program offers students hands-on experience in global technology
+          and innovation settings. Participants will explore local culture, gain international
+          teamwork experience, and complete key academic credits while abroad.
         </Typography>
       ),
     },
     {
-      text: "Classes",
+      text: 'Classes',
       icon: <WorkIcon />,
       content: (
         <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
@@ -74,7 +73,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       ),
     },
     {
-      text: "Fees",
+      text: 'Fees',
       icon: <SettingsIcon />,
       content: (
         <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
@@ -92,7 +91,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       ),
     },
     {
-      text: "Housing & Meals",
+      text: 'Housing & Meals',
       icon: <HouseIcon />,
       content: (
         <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
@@ -125,7 +124,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       ),
     },
     {
-      text: "Other Info",
+      text: 'Other Info',
       icon: <InfoIcon />,
       content: (
         <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
@@ -147,17 +146,17 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       onClose={onClose}
       variant="temporary"
       sx={{
-        "& .MuiDrawer-paper": {
+        '& .MuiDrawer-paper': {
           width: drawerWidth,
-          boxSizing: "border-box",
-          backgroundColor: "#f8f9fa",
-          color: "#333",
+          boxSizing: 'border-box',
+          backgroundColor: '#f8f9fa',
+          color: '#333',
         },
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Typography variant="h6" noWrap component="div">
-          {selectedMarker ? selectedMarker.name : "Program Details"}
+          {selectedMarker ? selectedMarker.name : 'Program Details'}
         </Typography>
         <IconButton onClick={onClose}>
           <CloseIcon />
@@ -166,14 +165,14 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
 
       <Divider />
 
-      <Box sx={{ overflow: "auto", p: 2 }}>
+      <Box sx={{ overflow: 'auto', p: 2 }}>
         {selectedMarker && (
           <>
             <Typography variant="body1" sx={{ mb: 1 }}>
               {selectedMarker.description}
             </Typography>
-            <Typography variant="body2" sx={{ mb: 2, color: "#666" }}>
-              Coordinates: {selectedMarker.latitude.toFixed(4)},{" "}
+            <Typography variant="body2" sx={{ mb: 2, color: '#666' }}>
+              Coordinates: {selectedMarker.latitude.toFixed(4)},{' '}
               {selectedMarker.longitude.toFixed(4)}
             </Typography>
             <Divider sx={{ mb: 2 }} />
@@ -185,16 +184,12 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             <React.Fragment key={index}>
               <ListItem disablePadding>
                 <ListItemButton onClick={() => handleToggle(item.text)}>
-                  <ListItemIcon sx={{ color: "#555" }}>{item.icon}</ListItemIcon>
+                  <ListItemIcon sx={{ color: '#555' }}>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.text} />
                   {openSections[item.text] ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
               </ListItem>
-              <Collapse
-                in={openSections[item.text]}
-                timeout="auto"
-                unmountOnExit
-              >
+              <Collapse in={openSections[item.text]} timeout="auto" unmountOnExit>
                 {item.content}
               </Collapse>
             </React.Fragment>

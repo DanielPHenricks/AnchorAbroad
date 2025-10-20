@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Grid,
   Paper,
@@ -10,7 +10,7 @@ import {
   Avatar,
   Box,
   Button,
-} from "@mui/material";
+} from '@mui/material';
 
 export default function Home() {
   const [programs, setPrograms] = useState([]);
@@ -18,37 +18,37 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/api/programs/")
+    fetch('/api/programs/')
       .then((res) => res.json())
       .then((data) => setPrograms(data))
-      .catch((err) => console.error("Error fetching programs:", err));
+      .catch((err) => console.error('Error fetching programs:', err));
   }, []);
 
   useEffect(() => {
     setMessages([
-      { id: 1, name: "Sophia Carter", program: "Art History" },
-      { id: 2, name: "Ethan Walker", program: "Spanish Language" },
-      { id: 3, name: "Olivia Bennett", program: "Japanese Culture" },
-      { id: 4, name: "Liam Harper", program: "French Literature" },
+      { id: 1, name: 'Sophia Carter', program: 'Art History' },
+      { id: 2, name: 'Ethan Walker', program: 'Spanish Language' },
+      { id: 3, name: 'Olivia Bennett', program: 'Japanese Culture' },
+      { id: 4, name: 'Liam Harper', program: 'French Literature' },
     ]);
   }, []);
 
   return (
-    <Box sx={{ p: 4, backgroundColor: "#f5f6fa", minHeight: "100vh" }}>
+    <Box sx={{ p: 4, backgroundColor: '#f5f6fa', minHeight: '100vh' }}>
       {/* Explore Programs button */}
-      <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
         <Button
           variant="contained"
           color="primary"
           size="large"
           sx={{
             borderRadius: 3,
-            textTransform: "none",
+            textTransform: 'none',
             px: 4,
             py: 1.5,
             fontWeight: 600,
           }}
-          onClick={() => navigate("/map")}
+          onClick={() => navigate('/map')}
         >
           Explore Programs
         </Button>
@@ -67,15 +67,12 @@ export default function Home() {
                   key={p.id}
                   onClick={() => navigate(`/programs/${p.id}`)}
                   sx={{
-                    border: "1px solid #eee",
+                    border: '1px solid #eee',
                     borderRadius: 2,
                     mb: 1,
                   }}
                 >
-                  <ListItemText
-                    primary={p.name}
-                    secondary={p.location || p.subtitle}
-                  />
+                  <ListItemText primary={p.name} secondary={p.location || p.subtitle} />
                 </ListItemButton>
               ))}
             </List>
@@ -94,16 +91,13 @@ export default function Home() {
                   key={m.id}
                   onClick={() => navigate(`/messages/${m.id}`)}
                   sx={{
-                    border: "1px solid #eee",
+                    border: '1px solid #eee',
                     borderRadius: 2,
                     mb: 1,
                   }}
                 >
                   <Avatar sx={{ mr: 2 }}>{m.name[0]}</Avatar>
-                  <ListItemText
-                    primary={m.name}
-                    secondary={`Alumni, ${m.program}`}
-                  />
+                  <ListItemText primary={m.name} secondary={`Alumni, ${m.program}`} />
                 </ListItemButton>
               ))}
             </List>

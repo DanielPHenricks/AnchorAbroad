@@ -1,21 +1,54 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-export function Navbar() {
+const Navbar = ({ user, onLogout }) => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Anchor Abroad
-          </Typography>
-          <Button color="inherit"><a href="/login">Login or Sign Up</a></Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <AppBar position="static" sx={{ boxShadow: 0 }}>
+      <Toolbar sx={{ minHeight: 64, paddingLeft: 2, paddingRight: 2, position: 'relative' }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            textAlign: 'center',
+          }}
+        >
+          Anchor Abroad
+        </Typography>
+
+        {/* Right side buttons */}
+        <Box sx={{ marginLeft: 'auto', display: 'flex', gap: 2 }}>
+          {user && (
+            <>
+              <Button color="inherit" component={Link} to="/home" sx={{ textTransform: 'none' }}>
+                Home
+              </Button>
+              <Button color="inherit" component={Link} to="/programs/1" sx={{ textTransform: 'none' }}>
+                Favorites
+              </Button>
+              <Button color="inherit" component={Link} to="/messages/1" sx={{ textTransform: 'none' }}>
+                Messages
+              </Button>
+              <Button color="inherit" component={Link} to="/map" sx={{ textTransform: 'none' }}>
+                Map
+              </Button>
+            </>
+          )}
+          <Button
+            color="inherit"
+            onClick={user ? onLogout : undefined}
+            component={user ? undefined : Link}
+            to={user ? undefined : '/login'}
+            sx={{ textTransform: 'none' }}
+          >
+            {user && 'Logout'}
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
-}
+};
+
+export default Navbar;

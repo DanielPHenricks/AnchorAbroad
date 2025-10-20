@@ -19,7 +19,7 @@ class ApiService {
       const cookies = document.cookie.split(';');
       for (let i = 0; i < cookies.length; i++) {
         const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        if (cookie.substring(0, name.length + 1) === name + '=') {
           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
           break;
         }
@@ -59,8 +59,8 @@ class ApiService {
       const data = await response.json();
 
       if (!response.ok) {
-        if(data.username) {
-          throw new Error("A user with that username already exists.")
+        if (data.username) {
+          throw new Error('A user with that username already exists.');
         }
         throw new Error(data.message || 'Request failed');
       }
@@ -120,7 +120,7 @@ class ApiService {
   }
 
   async getPrograms() {
-      return this.get('/programs/');
+    return this.get('/programs/');
   }
 }
 
