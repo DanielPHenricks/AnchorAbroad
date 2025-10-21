@@ -4182,7 +4182,9 @@
             "minimum_gpa": "3.3",
             "language_prerequisite": "N/A",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (shared), Dormitory"
+            "housing": "Apartment (shared), Dormitory",
+            "latitude": 51.5074,
+            "longitude": -0.1278
         },
         "budget_info": {
             "spring_2025": {
@@ -4201,9 +4203,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10087",
-        "latitude": 51.5074,
-        "longitude": -0.1278
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10087"
     },
     "10088": {
         "program_id": "10088",
@@ -4214,7 +4214,9 @@
             "minimum_gpa": "3",
             "language_prerequisite": "No",
             "additional_prerequisites": "N/A",
-            "housing": "N/A"
+            "housing": "N/A",
+            "latitude": 38.9072,
+            "longitude": -77.0369
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10088",
@@ -4240,9 +4242,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10088",
-        "latitude": 38.9072,
-        "longitude": -77.0369
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10088"
     },
     "10089": {
         "program_id": "10089",
@@ -4253,7 +4253,9 @@
             "minimum_gpa": "2.7",
             "language_prerequisite": "No",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (shared)"
+            "housing": "Apartment (shared)",
+            "latitude": 25.033,
+            "longitude": 121.5654
         },
         "budget_info": {
             "spring_2025": {
@@ -4272,9 +4274,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10089",
-        "latitude": 25.033,
-        "longitude": 121.5654
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10089"
     },
     "10090": {
         "program_id": "10090",
@@ -4285,7 +4285,9 @@
             "minimum_gpa": "3",
             "language_prerequisite": "N/A",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (alone), Apartment (shared)"
+            "housing": "Apartment (alone), Apartment (shared)",
+            "latitude": -37.8136,
+            "longitude": 144.9631
         },
         "budget_info": {
             "spring_2025": {
@@ -4310,9 +4312,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10090",
-        "latitude": -37.8136,
-        "longitude": 144.9631
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10090"
     },
     "10091": {
         "program_id": "10091",
@@ -4323,7 +4323,9 @@
             "minimum_gpa": "3",
             "language_prerequisite": "No",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (shared), Dormitory"
+            "housing": "Apartment (shared), Dormitory",
+            "latitude": 51.5074,
+            "longitude": -0.1278
         },
         "budget_info": {
             "spring_2025": {
@@ -4342,9 +4344,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10091",
-        "latitude": 51.5074,
-        "longitude": -0.1278
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10091"
     },
     "10092": {
         "program_id": "10092",
@@ -4355,7 +4355,9 @@
             "minimum_gpa": "2.75",
             "language_prerequisite": "N/A",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (shared), Dormitory"
+            "housing": "Apartment (shared), Dormitory",
+            "latitude": 51.5074,
+            "longitude": -0.1278
         },
         "budget_info": {
             "spring_2025": {
@@ -4374,9 +4376,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10092",
-        "latitude": 51.5074,
-        "longitude": -0.1278
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10092"
     },
     "10093": {
         "program_id": "10093",
@@ -4387,7 +4387,9 @@
             "minimum_gpa": "3",
             "language_prerequisite": "No",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (shared), Dormitory, Homestay"
+            "housing": "Apartment (shared), Dormitory, Homestay",
+            "latitude": 45.4642,
+            "longitude": 9.19
         },
         "budget_info": {
             "spring_2025": {
@@ -4406,9 +4408,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10093",
-        "latitude": 45.4642,
-        "longitude": 9.19
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10093"
     },
     "10094": {
         "program_id": "10094",
@@ -4419,7 +4419,9 @@
             "minimum_gpa": "2.7",
             "language_prerequisite": "No",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (shared), Dormitory, Homestay, Hostel/Hotel"
+            "housing": "Apartment (shared), Dormitory, Homestay, Hostel/Hotel",
+            "latitude": 52.52,
+            "longitude": 13.405
         },
         "budget_info": {
             "spring_2025": {
@@ -4438,9 +4440,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10094",
-        "latitude": 52.52,
-        "longitude": 13.405
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10094"
     },
     "10099": {
         "program_id": "10099",
@@ -4451,7 +4451,9 @@
             "minimum_gpa": "N/A",
             "language_prerequisite": "No",
             "additional_prerequisites": "N/A",
-            "housing": "N/A"
+            "housing": "N/A",
+            "latitude": 48.8566,
+            "longitude": 2.3522
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10099",
@@ -4464,9 +4466,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10099",
-        "latitude": 48.8566,
-        "longitude": 2.3522
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10099"
     },
     "10100": {
         "program_id": "10100",
@@ -4477,7 +4477,9 @@
             "minimum_gpa": "2.75",
             "language_prerequisite": "No",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (shared), Dormitory, Homestay"
+            "housing": "Apartment (shared), Dormitory, Homestay",
+            "latitude": 45.4642,
+            "longitude": 9.19
         },
         "budget_info": {
             "spring_2025": {
@@ -4496,9 +4498,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10100",
-        "latitude": 45.4642,
-        "longitude": 9.19
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10100"
     },
     "10104": {
         "program_id": "10104",
@@ -4509,7 +4509,9 @@
             "minimum_gpa": "2.7",
             "language_prerequisite": "No",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (shared)"
+            "housing": "Apartment (shared)",
+            "latitude": 50.0755,
+            "longitude": 14.4378
         },
         "budget_info": {
             "spring_2025": {
@@ -4528,9 +4530,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10104",
-        "latitude": 50.0755,
-        "longitude": 14.4378
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10104"
     },
     "10106": {
         "program_id": "10106",
@@ -4541,7 +4541,9 @@
             "minimum_gpa": "2.75",
             "language_prerequisite": "Yes",
             "additional_prerequisites": "N/A",
-            "housing": "Apartment (alone)"
+            "housing": "Apartment (alone)",
+            "latitude": 43.263,
+            "longitude": -2.935
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10106",
@@ -4574,9 +4576,7 @@
                 "content": []
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10106",
-        "latitude": 43.263,
-        "longitude": -2.935
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10106"
     },
     "10127": {
         "program_id": "10127",
@@ -4587,7 +4587,9 @@
             "minimum_gpa": "N/A",
             "language_prerequisite": "N/A",
             "additional_prerequisites": "N/A",
-            "housing": "N/A"
+            "housing": "N/A",
+            "latitude": 0,
+            "longitude": 0
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10127",
@@ -4600,9 +4602,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10127",
-        "latitude": 0,
-        "longitude": 0
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10127"
     },
     "10130": {
         "program_id": "10130",
@@ -4613,7 +4613,9 @@
             "minimum_gpa": "N/A",
             "language_prerequisite": "N/A",
             "additional_prerequisites": "N/A",
-            "housing": "N/A"
+            "housing": "N/A",
+            "latitude": 0,
+            "longitude": 0
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10130",
@@ -4626,9 +4628,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10130",
-        "latitude": 0,
-        "longitude": 0
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10130"
     },
     "10131": {
         "program_id": "10131",
@@ -4639,7 +4639,9 @@
             "minimum_gpa": "N/A",
             "language_prerequisite": "N/A",
             "additional_prerequisites": "N/A",
-            "housing": "N/A"
+            "housing": "N/A",
+            "latitude": 0,
+            "longitude": 0
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10131",
@@ -4652,9 +4654,7 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10131",
-        "latitude": 0,
-        "longitude": 0
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10131"
     },
     "10132": {
         "program_id": "10132",
@@ -4665,7 +4665,9 @@
             "minimum_gpa": "N/A",
             "language_prerequisite": "N/A",
             "additional_prerequisites": "N/A",
-            "housing": "N/A"
+            "housing": "N/A",
+            "latitude": 0,
+            "longitude": 0
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10132",
@@ -4678,8 +4680,6 @@
                 ]
             }
         ],
-        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10132",
-        "latitude": 0,
-        "longitude": 0
+        "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10132"
     }
 }

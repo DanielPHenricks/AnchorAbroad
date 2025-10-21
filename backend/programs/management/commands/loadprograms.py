@@ -55,6 +55,7 @@ class Command(BaseCommand):
             try:
                 # Extract program details
                 details = data.get('program_details', {})
+                print(details)
                 
                 # Create or update the program
                 program, created = Program.objects.update_or_create(
@@ -70,6 +71,8 @@ class Command(BaseCommand):
                         'main_page_url': data.get('main_page_url', ''),
                         'homepage_url': data.get('homepage_url', ''),
                         'budget_page_url': data.get('budget_page_url', ''),
+                        'latitude': details.get('latitude', 0),
+                        'longitude': details.get('longitude', 0),
                     }
                 )
                 

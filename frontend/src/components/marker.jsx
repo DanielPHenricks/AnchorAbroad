@@ -8,7 +8,7 @@ export const MarkerManager = ({ markers, onMarkerClick }) => (
     {markers.map((marker, idx) => (
       <Marker
         key={idx}
-        position={[marker.latitude, marker.longitude]}
+        position={[marker.program_details.latitude, marker.program_details.longitude]}
         icon={
           new Icon({
             iconUrl: markerIconPng,
@@ -18,7 +18,7 @@ export const MarkerManager = ({ markers, onMarkerClick }) => (
           })
         }
         eventHandlers={{
-          mouseover: (e) => e.target.openPopup(),
+          mouseover: (e) => {e.target.openPopup(); console.log(marker.sections)},
           mouseout: (e) => e.target.closePopup(),
           popupopen: (e) => {
             if (e.popup && e.popup._container) {
@@ -29,9 +29,8 @@ export const MarkerManager = ({ markers, onMarkerClick }) => (
         }}
       >
         <Popup closeButton={false} autoClose={false} closeOnClick={false}>
-          <strong>{marker.name}</strong>
+          <strong>{marker.program_details.name}</strong>
           <br />
-          {marker.description}
         </Popup>
       </Marker>
     ))}

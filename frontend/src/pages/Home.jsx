@@ -11,6 +11,7 @@ import {
   Box,
   Button,
 } from '@mui/material';
+import apiService from '../services/api';
 
 export default function Home() {
   const [programs, setPrograms] = useState([]);
@@ -18,11 +19,11 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/api/programs/')
-      .then((res) => res.json())
+    apiService.getPrograms()
       .then((data) => setPrograms(data))
       .catch((err) => console.error('Error fetching programs:', err));
   }, []);
+  
 
   useEffect(() => {
     setMessages([
