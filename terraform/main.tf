@@ -173,6 +173,113 @@ resource "aws_s3_bucket_policy" "frontend_cloudfront" {
   depends_on = [aws_cloudfront_distribution.frontend]
 }
 
+resource "aws_vpc" "main" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+  tags = {
+    Name = "django-vpc"
+  }
+}
+resource "aws_subnet" "public" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "${var.aws_region}a"
+  map_public_ip_on_launch = true
+  tags = {
+    Name = "django-public-subnet"
+  }
+}
+# Internet Gateway
+resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id
+  tags = {
+    Name = "django-igw"
+  }
+}
+# Route table
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.main.id
+  }
+  tags = {
+    Name = "django-public-rt"
+  }
+}
+# Route table association
+resource "aws_route_table_association" "public" {
+  subnet_id      = aws_subnet.public.id
+  route_table_id = aws_route_table.public.id
+}
+# Security Group for EC2
+resource "aws_security_group" "django_sg" {
+  name_prefix = "django-"
+  vpc_id      = aws_vpc.main.id
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = 8000
+    to_port     = 8000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    Name = "django-sg"
+  }
+}
+# Key pair for SSH access
+resource "aws_key_pair" "django_key" {
+  key_name   = "django-key"
+  public_key = var.ssh_public_key
+}
+
+resource "aws_instance" "django_server" {
+  ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2 (free tier)
+  instance_type = "t2.micro"              # Free tier
+  key_name               = aws_key_pair.django_key.key_name
+  subnet_id              = aws_subnet.public.id 
+  vpc_security_group_ids = [aws_security_group.django_sg.id]
+  user_data = <<-EOF
+    #!/bin/bash
+    yum update -y
+    yum install -y docker
+    systemctl start docker
+    systemctl enable docker
+    usermod -a -G docker ec2-user
+    
+    # Install docker-compose
+    curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    
+    # Create app directory
+    mkdir -p /home/ec2-user/django-app
+    chown ec2-user:ec2-user /home/ec2-user/django-app
+  EOF
+  tags = {
+    Name = "django-server"
+  }
+}
+# Elastic IP (optional, but helps with consistent access)
+resource "aws_eip" "django_eip" {
+  instance = aws_instance.django_server.id
+  domain   = "vpc"
+  tags = {
+    Name = "django-eip"
+  }
+}
+
 # Outputs
 output "s3_bucket_name" {
   description = "Name of the S3 bucket"
@@ -197,4 +304,17 @@ output "cloudfront_domain_name" {
 output "cloudfront_distribution_url" {
   description = "CloudFront distribution URL"
   value       = "https://${aws_cloudfront_distribution.frontend.domain_name}"
+}
+
+output "server_ip" {
+  description = "Public IP of the Django server"
+  value       = aws_eip.django_eip.public_ip
+}
+output "server_dns" {
+  description = "Public DNS of the Django server"
+  value       = aws_eip.django_eip.public_dns
+}
+output "ssh_command" {
+  description = "SSH command to connect to the server"
+  value       = "ssh -i ~/.ssh/django-key ec2-user@${aws_eip.django_eip.public_ip}"
 }

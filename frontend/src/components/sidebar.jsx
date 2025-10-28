@@ -1,8 +1,3 @@
-/**
- * Names: Daniel, Jacob, Maharshi, Ben
- * Time: 2 hours
- */
-
 import React, { useState } from 'react';
 import {
   Drawer,
@@ -19,18 +14,18 @@ import {
   Collapse,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import DescriptionIcon from '@mui/icons-material/Description';
-import WorkIcon from '@mui/icons-material/Work';
-import SettingsIcon from '@mui/icons-material/Settings';
-import InfoIcon from '@mui/icons-material/Info';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import HouseIcon from '@mui/icons-material/House';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const drawerWidth = 400;
 
+// You can extend this mapping with more icons if needed
+const iconMapping = {
+  'Program Overview': <DescriptionIcon />,
+};
+
 const Sidebar = ({ open, onClose, selectedMarker }) => {
-  // Track open/closed state for each section
   const [openSections, setOpenSections] = useState({});
 
   const handleToggle = (section) => {
@@ -40,109 +35,29 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
     }));
   };
 
-  // Currently hardcoded data for a program. Should be replaced with dynamic data from api
-  const menuItems = [
-    {
-      text: 'Description',
-      icon: <DescriptionIcon />,
-      content: (
-        <Typography variant="body2" sx={{ pl: 2, pr: 2, pb: 1 }}>
-          This engineering abroad program offers students hands-on experience in global technology
-          and innovation settings. Participants will explore local culture, gain international
-          teamwork experience, and complete key academic credits while abroad.
-        </Typography>
-      ),
-    },
-    {
-      text: 'Classes',
-      icon: <WorkIcon />,
-      content: (
-        <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
-          <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-            Core Engineering Courses:
-          </Typography>
-          <ul style={{ marginTop: 0, marginBottom: 8, paddingLeft: 16 }}>
-            <li>Thermodynamics</li>
-            <li>Fluid Mechanics</li>
-            <li>Materials Science</li>
-          </ul>
-          <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-            Electives:
-          </Typography>
-          <ul style={{ marginTop: 0, marginBottom: 0, paddingLeft: 16 }}>
-            <li>Renewable Energy Systems</li>
-            <li>Robotics & Automation</li>
-            <li>Engineering Ethics & Sustainability</li>
-          </ul>
-        </Box>
-      ),
-    },
-    {
-      text: 'Fees',
-      icon: <SettingsIcon />,
-      content: (
-        <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
-          <ul style={{ marginTop: 0, marginBottom: 8, paddingLeft: 16 }}>
-            <li>Tuition: $12,000</li>
-            <li>Housing: $3,500</li>
-            <li>Meals: $1,800</li>
-            <li>Travel Insurance: $400</li>
-          </ul>
-          <Divider sx={{ my: 1 }} />
-          <Typography variant="body2" fontWeight="bold">
-            Total: $17,700
-          </Typography>
-        </Box>
-      ),
-    },
-    {
-      text: 'Housing & Meals',
-      icon: <HouseIcon />,
-      content: (
-        <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
-          <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-            Housing Options:
-          </Typography>
-          <ul style={{ marginTop: 0, marginBottom: 8, paddingLeft: 16 }}>
-            <li>Furnished student apartments (shared bedrooms)</li>
-            <li>Homestays with local families (breakfast and dinner included)</li>
-            <li>Private studio upgrades available (limited availability)</li>
-          </ul>
+  if (!selectedMarker) return null;
 
-          <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-            Meal Plans:
-          </Typography>
-          <ul style={{ marginTop: 0, marginBottom: 8, paddingLeft: 16 }}>
-            <li>Daily breakfast provided for all students</li>
-            <li>Lunch stipend for weekdays (included in program fee)</li>
-            <li>Dinner options vary by housing type</li>
-          </ul>
-
-          <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-            Additional Notes:
-          </Typography>
-          <ul style={{ marginTop: 0, marginBottom: 0, paddingLeft: 16 }}>
-            <li>All housing is within 30 minutes of the main program center</li>
-            <li>Wi-Fi, utilities, and laundry access included</li>
-          </ul>
-        </Box>
-      ),
-    },
-    {
-      text: 'Other Info',
-      icon: <InfoIcon />,
-      content: (
-        <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
-          <ul style={{ marginTop: 0, marginBottom: 0, paddingLeft: 16 }}>
-            <li>Visa assistance provided upon acceptance</li>
-            <li>Weekend excursions to local cultural sites</li>
-            <li>On-site orientation and 24/7 student support</li>
-            <li>Optional language immersion sessions</li>
-          </ul>
-        </Box>
-      ),
-    },
-  ];
+  const menuItems = selectedMarker.sections?.map((section) => ({
+    text: section.title,
+    icon: iconMapping[section.title] || <DescriptionIcon />,
+    content: (
+      <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
+        {Array.isArray(section.content)
+          ? section.content.map((paragraph, i) => (
+              <Typography variant="body2" sx={{ mb: 1 }} key={i}>
+                {paragraph}
+              </Typography>
+            ))
+          : (
+              <Typography variant="body2" sx={{ mb: 1 }}>
+                {section.content}
+              </Typography>
+            )
+        }
+      </Box>
+    ),
+  }));
+  
 
   return (
     <Drawer
@@ -161,7 +76,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
     >
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Typography variant="h6" noWrap component="div">
-          {selectedMarker ? selectedMarker.name : 'Program Details'}
+          {selectedMarker.program_details.name}
         </Typography>
         <IconButton onClick={onClose}>
           <CloseIcon />
@@ -171,19 +86,30 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       <Divider />
 
       <Box sx={{ overflow: 'auto', p: 2 }}>
-        {selectedMarker && (
-          <>
-            <Typography variant="body1" sx={{ mb: 1 }}>
-              {selectedMarker.description}
-            </Typography>
-            <Typography variant="body2" sx={{ mb: 2, color: '#666' }}>
-              Coordinates: {selectedMarker.latitude.toFixed(4)},{' '}
-              {selectedMarker.longitude.toFixed(4)}
-            </Typography>
-            <Divider sx={{ mb: 2 }} />
-          </>
-        )}
+        {/* Program details */}
+        <Typography variant="body1" sx={{ mb: 1 }}>
+          Program Type: {selectedMarker.program_details.program_type}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Academic Calendar: {selectedMarker.program_details.academic_calendar}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Minimum GPA: {selectedMarker.program_details.minimum_gpa}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Language Prerequisite: {selectedMarker.program_details.language_prerequisite}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Housing: {selectedMarker.program_details.housing}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2, color: '#666' }}>
+          Coordinates: {selectedMarker.latitude?.toFixed(4)},{' '}
+          {selectedMarker.longitude?.toFixed(4)}
+        </Typography>
 
+        <Divider sx={{ mb: 2 }} />
+
+        {/* Dynamic sections */}
         <List>
           {menuItems.map((item, index) => (
             <React.Fragment key={index}>
