@@ -4,6 +4,8 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from .models import Favorite
+from programs.serializers import ProgramSerializer
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
@@ -57,3 +59,18 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'email', 'first_name', 'last_name')
         read_only_fields = ('id',)
+
+
+class FavoriteSerializer(serializers.ModelSerializer):
+    """Serializer for favorites"""
+    program = ProgramSerializer(read_only=True)
+    program_id = serializers.CharField(write_only=True)
+    
+    class Meta:
+        model = Favorite
+        fields = ('id', 'program', 'program_id', 'created_at')
+        read_only_fields = ('id', 'created_at')
+    
+    def create(self, validated_data):
+        validated_data['user'] = self.context['request'].user
+        return super().create(validated_data)

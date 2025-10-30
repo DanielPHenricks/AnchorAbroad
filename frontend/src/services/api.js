@@ -124,6 +124,34 @@ class ApiService {
   async getPrograms() {
     return this.get('/programs/');
   }
+
+  /**
+   * Get user favorites
+   */
+  async getFavorites() {
+    return this.get('/auth/favorites/');
+  }
+
+  /**
+   * Add program to favorites
+   */
+  async addFavorite(programId) {
+    return this.post('/auth/favorites/', { program_id: programId });
+  }
+
+  /**
+   * Remove program from favorites
+   */
+  async removeFavorite(programId) {
+    return this.request(`/auth/favorites/${programId}/`, { method: 'DELETE' });
+  }
+
+  /**
+   * Check if program is favorited
+   */
+  async checkFavorite(programId) {
+    return this.get(`/auth/favorites/${programId}/check/`);
+  }
 }
 
 const apiService = new ApiService();

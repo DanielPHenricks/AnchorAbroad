@@ -12,6 +12,8 @@ import {
   Box,
   IconButton,
   Collapse,
+  Button,
+  Link,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -126,6 +128,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             </React.Fragment>
           ))}
         </List>
+        <Button><Link href={`../programs/${selectedMarker.program_id}`}>View Program Page</Link></Button>
       </Box>
     </Drawer>
   );

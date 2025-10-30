@@ -16,17 +16,26 @@ import {
   Box,
   Button,
 } from '@mui/material';
+import apiService from '../services/api';
 
 export default function Home() {
-  const [programs, setPrograms] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [messages, setMessages] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/api/programs/')
-      .then((res) => res.json())
-      .then((data) => setPrograms(data))
-      .catch((err) => console.error('Error fetching programs:', err));
+    const fetchFavorites = async () => {
+      try {
+        const data = await apiService.getFavorites();
+        setFavorites(data.map(fav => fav.program));
+      } catch (err) {
+        console.error('Error fetching favorites:', err);
+        // If user is not authenticated, just set empty favorites
+        setFavorites([]);
+      }
+    };
+
+    fetchFavorites();
   }, []);
 
   useEffect(() => {
@@ -67,19 +76,25 @@ export default function Home() {
               My Favorite Programs
             </Typography>
             <List>
-              {programs.map((p) => (
-                <ListItemButton
-                  key={p.id}
-                  onClick={() => navigate(`/programs/${p.id}`)}
-                  sx={{
-                    border: '1px solid #eee',
-                    borderRadius: 2,
-                    mb: 1,
-                  }}
-                >
-                  <ListItemText primary={p.name} secondary={p.location || p.subtitle} />
-                </ListItemButton>
-              ))}
+              {favorites.length > 0 ? (
+                favorites.map((p) => (
+                  <ListItemButton
+                    key={p.program_id}
+                    onClick={() => navigate(`/programs/${p.program_id}`)}
+                    sx={{
+                      border: '1px solid #eee',
+                      borderRadius: 2,
+                      mb: 1,
+                    }}
+                  >
+                    <ListItemText primary={p.program_details.name} secondary={p.location || p.subtitle} />
+                  </ListItemButton>
+                ))
+              ) : (
+                <Typography variant="body2" color="textSecondary" sx={{ p: 2 }}>
+                  No favorite programs yet. Explore programs and add some to your favorites!
+                </Typography>
+              )}
             </List>
           </Paper>
         </Grid>

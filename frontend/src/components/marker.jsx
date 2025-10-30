@@ -3,7 +3,6 @@
  * Time: 2 hours
  */
 
-// frontend/src/components/marker.jsx
 import { Marker, Popup } from 'react-leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
@@ -34,7 +33,7 @@ export const MarkerManager = ({ markers, onMarkerClick }) => (
         }}
       >
         <Popup closeButton={false} autoClose={false} closeOnClick={false}>
-          <strong>{marker.name}</strong>
+          <strong>{marker.program_details.name}</strong>
           <br />
           {marker.description}
         </Popup>

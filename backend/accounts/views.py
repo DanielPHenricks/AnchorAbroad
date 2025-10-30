@@ -3,13 +3,16 @@
 
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer
+from django.shortcuts import get_object_or_404
+from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, FavoriteSerializer
+from .models import Favorite
+from programs.models import Program
 
 
 @api_view(['POST'])
@@ -57,3 +60,43 @@ def user_profile_view(request):
         user_data = UserSerializer(request.user).data
         return Response({'user': user_data}, status=status.HTTP_200_OK)
     return Response({'error': 'Not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
+def favorites_view(request):
+    """Handle user favorites"""
+    if request.method == 'GET':
+        favorites = Favorite.objects.filter(user=request.user)
+        serializer = FavoriteSerializer(favorites, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    elif request.method == 'POST':
+        serializer = FavoriteSerializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            try:
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            except Exception as e:
+                return Response({'error': 'Program already favorited'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def remove_favorite_view(request, program_id):
+    """Remove a program from favorites"""
+    try:
+        favorite = Favorite.objects.get(user=request.user, program_id=program_id)
+        favorite.delete()
+        return Response({'message': 'Favorite removed'}, status=status.HTTP_200_OK)
+    except Favorite.DoesNotExist:
+        return Response({'error': 'Favorite not found'}, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def check_favorite_view(request, program_id):
+    """Check if a program is favorited by the user"""
+    is_favorite = Favorite.objects.filter(user=request.user, program_id=program_id).exists()
+    return Response({'is_favorite': is_favorite}, status=status.HTTP_200_OK)
