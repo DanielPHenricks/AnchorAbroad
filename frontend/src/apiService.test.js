@@ -20,7 +20,7 @@ describe('ApiService', () => {
     // Mock document.cookie
     Object.defineProperty(document, 'cookie', {
       writable: true,
-      value: 'csrftoken=test-csrf-token; other=value'
+      value: 'csrftoken=test-csrf-token; other=value',
     });
 
     const token = apiService.getCsrfToken();
@@ -30,7 +30,7 @@ describe('ApiService', () => {
   test('getCsrfToken returns null when no token in cookies', () => {
     Object.defineProperty(document, 'cookie', {
       writable: true,
-      value: 'other=value; another=test'
+      value: 'other=value; another=test',
     });
 
     const token = apiService.getCsrfToken();
@@ -41,7 +41,7 @@ describe('ApiService', () => {
     const mockResponse = { success: true, data: [] };
     fetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => mockResponse
+      json: async () => mockResponse,
     });
 
     const result = await apiService.get('/test-endpoint');
@@ -49,7 +49,7 @@ describe('ApiService', () => {
     expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/test-endpoint', {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-      method: 'GET'
+      method: 'GET',
     });
     expect(result).toEqual(mockResponse);
   });
@@ -57,10 +57,10 @@ describe('ApiService', () => {
   test('post method includes request body', async () => {
     const mockResponse = { success: true };
     const testData = { username: 'test', password: 'test123' };
-    
+
     fetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => mockResponse
+      json: async () => mockResponse,
     });
 
     await apiService.post('/test-endpoint', testData);
@@ -69,7 +69,7 @@ describe('ApiService', () => {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       method: 'POST',
-      body: JSON.stringify(testData)
+      body: JSON.stringify(testData),
     });
   });
 
@@ -77,14 +77,14 @@ describe('ApiService', () => {
     const errorResponse = { message: 'Test error' };
     fetch.mockResolvedValueOnce({
       ok: false,
-      json: async () => errorResponse
+      json: async () => errorResponse,
     });
 
     // Suppress expected console.error for this test
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
-    
+
     await expect(apiService.get('/test-endpoint')).rejects.toThrow('Test error');
-    
+
     // Restore console.error
     consoleSpy.mockRestore();
   });
@@ -93,17 +93,18 @@ describe('ApiService', () => {
     const mockResponse = { success: true, user: {} };
     fetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => mockResponse
+      json: async () => mockResponse,
     });
 
     const credentials = { username: 'test', password: 'pass' };
     await apiService.login(credentials);
 
-    expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/auth/login/', 
+    expect(fetch).toHaveBeenCalledWith(
+      'http://localhost:8000/api/auth/login/',
       expect.objectContaining({
         method: 'POST',
-        body: JSON.stringify(credentials)
-      })
+        body: JSON.stringify(credentials),
+      }),
     );
   });
 
@@ -111,15 +112,16 @@ describe('ApiService', () => {
     const mockPrograms = [{ id: 1, name: 'Test Program' }];
     fetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => mockPrograms
+      json: async () => mockPrograms,
     });
 
     const result = await apiService.getPrograms();
 
-    expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/programs/', 
+    expect(fetch).toHaveBeenCalledWith(
+      'http://localhost:8000/api/programs/',
       expect.objectContaining({
-        method: 'GET'
-      })
+        method: 'GET',
+      }),
     );
     expect(result).toEqual(mockPrograms);
   });

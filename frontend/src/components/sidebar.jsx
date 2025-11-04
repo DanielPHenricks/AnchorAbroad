@@ -16,6 +16,7 @@ import {
   Link,
 } from '@mui/material';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import { CalendarMonthOutlined } from '@mui/icons-material';
 import { SchoolOutlined } from '@mui/icons-material';
@@ -81,6 +82,26 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
 
   if (!selectedMarker) return null;
 
+  const menuItems = selectedMarker.sections?.map((section) => ({
+    text: section.title,
+    icon: iconMapping[section.title] || <DescriptionIcon />,
+    content: (
+      <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
+        {Array.isArray(section.content) ? (
+          section.content.map((paragraph, i) => (
+            <Typography variant="body2" sx={{ mb: 1 }} key={i}>
+              {paragraph}
+            </Typography>
+          ))
+        ) : (
+          <Typography variant="body2" sx={{ mb: 1 }}>
+            {section.content}
+          </Typography>
+        )}
+      </Box>
+    ),
+  }));
+
   return (
     <Drawer
       anchor="left"
@@ -107,6 +128,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
         </IconButton>
       </Toolbar>
 
+
       <Divider />
       <Box sx={{ p: 2 }}>
         <Button
@@ -122,9 +144,8 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
           sx={{
             borderRadius: 12,
             textTransform: 'none',
-            color: isFavorite ? '#B49248' : 'primary.main',  
-            borderColor: isFavorite ? '#B49248' : 'primary.main',
-            backgroundColor: 'secondary.main'
+            color: isFavorite ? '#d32f2f' : 'primary.main',
+            borderColor: isFavorite ? '#d32f2f' : 'primary.main',
           }}
         >
           {isFavorite ? 'Favorited' : 'Add to Favorites'}
@@ -132,42 +153,27 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       </Box>
       <Divider />
 
+
       <Box sx={{ overflow: 'auto', p: 2, flexGrow: 1 }}>
         {/* Program details */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-          <AccountBalanceOutlined fontSize="small" />
-          <Typography variant="body2">
-            Program Type: {selectedMarker.program_details?.program_type || '—'}
-          </Typography>
-        </Box>
-        
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-          <CalendarMonthOutlined fontSize="small" />
-          <Typography variant="body2">
-            Academic Calendar: {selectedMarker.program_details?.academic_calendar || '—'}
-          </Typography>
-        </Box>
-        
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-          <SchoolOutlined fontSize="small" />
-          <Typography variant="body2">
-            Minimum GPA: {selectedMarker.program_details?.minimum_gpa || '—'}
-          </Typography>
-        </Box>
-        
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-          <LanguageOutlined fontSize="small" />
-          <Typography variant="body2">
-            Language Prerequisite: {selectedMarker.program_details?.language_prerequisite || '—'}
-          </Typography>
-        </Box>
-        
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-          <ApartmentOutlined fontSize="small" />
-          <Typography variant="body2">
-            Housing: {selectedMarker.program_details?.housing || '—'}
-          </Typography>
-        </Box>
+        <Typography variant="body1" sx={{ mb: 1 }}>
+          Program Type: {selectedMarker.program_details.program_type}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Academic Calendar: {selectedMarker.program_details.academic_calendar}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Minimum GPA: {selectedMarker.program_details.minimum_gpa}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Language Prerequisite: {selectedMarker.program_details.language_prerequisite}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Housing: {selectedMarker.program_details.housing}
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2, color: '#666' }}>
+          Coordinates: {selectedMarker.latitude?.toFixed(4)}, {selectedMarker.longitude?.toFixed(4)}
+        </Typography>
 
         <Divider sx={{ mb: 2 }} />
 
@@ -229,7 +235,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             borderRadius: 2,
             textTransform: 'none',
             color: 'primary.main',
-            borderColor: 'primary.main'
+            borderColor: 'primary.main',
           }}
         >
           More Details
@@ -240,3 +246,4 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
 };
 
 export default Sidebar;
+

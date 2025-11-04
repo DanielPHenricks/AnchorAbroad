@@ -5,13 +5,14 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser, FormParser
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.shortcuts import get_object_or_404
-from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, FavoriteSerializer
-from .models import Favorite
+from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, FavoriteSerializer, ProfileSerializer
+from .models import Favorite, Profile
 from programs.models import Program
 
 
@@ -100,3 +101,29 @@ def check_favorite_view(request, program_id):
     """Check if a program is favorited by the user"""
     is_favorite = Favorite.objects.filter(user=request.user, program_id=program_id).exists()
     return Response({'is_favorite': is_favorite}, status=status.HTTP_200_OK)
+
+@api_view(['GET', 'PUT'])
+@permission_classes([IsAuthenticated])
+def user_profile_view(request):
+    """Get or update user profile"""
+    user = request.user
+    profile, _ = Profile.objects.get_or_create(user=user)
+
+    if request.method == 'GET':
+        data = {
+            'user': {
+                'username': user.username,
+                'email': user.email,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+            },
+            'profile': ProfileSerializer(profile).data,
+        }
+        return Response(data)
+
+    elif request.method == 'PATCH':
+        serializer = ProfileSerializer(profile, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
