@@ -15,10 +15,13 @@ import {
   Button,
   Link,
 } from '@mui/material';
+import {Favorite, FavoriteBorder} from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import DescriptionIcon from '@mui/icons-material/Description';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import apiService from '../services/api';
 
 const drawerWidth = 400;
 
@@ -29,6 +32,21 @@ const iconMapping = {
 
 const Sidebar = ({ open, onClose, selectedMarker }) => {
   const [openSections, setOpenSections] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const toggleFavorite = async () => {
+    try {
+      if (isFavorite) {
+        await apiService.removeFavorite(selectedMarker.program_id);
+        setIsFavorite(false);
+      } else {
+        await apiService.addFavorite(selectedMarker.program_id);
+        setIsFavorite(true);
+      }
+    } catch (err) {
+      console.error('Error toggling favorite:', err);
+    }
+  };
 
   const handleToggle = (section) => {
     setOpenSections((prev) => ({
@@ -73,6 +91,8 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
           boxSizing: 'border-box',
           backgroundColor: '#f8f9fa',
           color: '#333',
+          display: 'flex',
+          flexDirection: 'column',
         },
       }}
     >
@@ -84,10 +104,26 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
           <CloseIcon />
         </IconButton>
       </Toolbar>
-
+      
       <Divider />
-
-      <Box sx={{ overflow: 'auto', p: 2 }}>
+      <Box sx={{ p: 2 }}>
+        <Button
+          fullWidth
+          startIcon={isFavorite ? <Favorite /> : <FavoriteBorder />}
+          onClick={toggleFavorite}
+          sx={{
+            borderRadius: 2,
+            textTransform: 'none',
+            color: isFavorite ? '#d32f2f' : 'primary.main',
+            borderColor: isFavorite ? '#d32f2f' : 'primary.main'
+          }}
+        >
+          {isFavorite ? 'Favorited' : 'Add to Favorites'}
+        </Button>
+      </Box>
+      <Divider />
+      
+      <Box sx={{ overflow: 'auto', p: 2, flexGrow: 1 }}>
         {/* Program details */}
         <Typography variant="body1" sx={{ mb: 1 }}>
           Program Type: {selectedMarker.program_details.program_type}
@@ -128,7 +164,26 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             </React.Fragment>
           ))}
         </List>
-        <Button><Link href={`../programs/${selectedMarker.program_id}`}>View Program Page</Link></Button>
+      </Box>
+
+      {/* Bottom button */}
+      <Divider />
+      <Box sx={{ p: 2 }}>
+        <Button
+          fullWidth
+          variant="outlined"
+          startIcon={<OpenInNewIcon />}
+          component={Link}
+          href={`../programs/${selectedMarker.program_id}`}
+          sx={{
+            borderRadius: 2,
+            textTransform: 'none',
+            color: 'primary.main',
+            borderColor: 'primary.main'
+          }}
+        >
+          View Program Page
+        </Button>
       </Box>
     </Drawer>
   );
