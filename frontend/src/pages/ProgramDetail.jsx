@@ -122,12 +122,12 @@ export default function ProgramDetail() {
         <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
           {program.main_page_url && (
             <Button variant="contained" href={program.main_page_url} target="_blank">
-              Program Page
+              Vanderbilt Program
             </Button>
           )}
           {program.homepage_url && (
             <Button variant="outlined" href={program.homepage_url} target="_blank">
-              Homepage
+              Program Homepage
             </Button>
           )}
           {program.budget_page_url && (
