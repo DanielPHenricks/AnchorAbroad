@@ -9,7 +9,7 @@ import App from '../src/App';
 // Mock the API service to avoid network calls during tests
 jest.mock('../src/services/api', () => ({
   getUserProfile: jest.fn().mockResolvedValue(null),
-  getPrograms: jest.fn().mockResolvedValue([])
+  getPrograms: jest.fn().mockResolvedValue([]),
 }));
 
 describe('App Component', () => {

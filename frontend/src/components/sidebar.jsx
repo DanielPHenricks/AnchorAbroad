@@ -15,7 +15,7 @@ import {
   Button,
   Link,
 } from '@mui/material';
-import {Favorite, FavoriteBorder} from '@mui/icons-material';
+import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -62,22 +62,20 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
     icon: iconMapping[section.title] || <DescriptionIcon />,
     content: (
       <Box sx={{ pl: 4, pr: 2, pb: 1 }}>
-        {Array.isArray(section.content)
-          ? section.content.map((paragraph, i) => (
-              <Typography variant="body2" sx={{ mb: 1 }} key={i}>
-                {paragraph}
-              </Typography>
-            ))
-          : (
-              <Typography variant="body2" sx={{ mb: 1 }}>
-                {section.content}
-              </Typography>
-            )
-        }
+        {Array.isArray(section.content) ? (
+          section.content.map((paragraph, i) => (
+            <Typography variant="body2" sx={{ mb: 1 }} key={i}>
+              {paragraph}
+            </Typography>
+          ))
+        ) : (
+          <Typography variant="body2" sx={{ mb: 1 }}>
+            {section.content}
+          </Typography>
+        )}
       </Box>
     ),
   }));
-  
 
   return (
     <Drawer
@@ -104,7 +102,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
           <CloseIcon />
         </IconButton>
       </Toolbar>
-      
+
       <Divider />
       <Box sx={{ p: 2 }}>
         <Button
@@ -115,14 +113,14 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             borderRadius: 2,
             textTransform: 'none',
             color: isFavorite ? '#d32f2f' : 'primary.main',
-            borderColor: isFavorite ? '#d32f2f' : 'primary.main'
+            borderColor: isFavorite ? '#d32f2f' : 'primary.main',
           }}
         >
           {isFavorite ? 'Favorited' : 'Add to Favorites'}
         </Button>
       </Box>
       <Divider />
-      
+
       <Box sx={{ overflow: 'auto', p: 2, flexGrow: 1 }}>
         {/* Program details */}
         <Typography variant="body1" sx={{ mb: 1 }}>
@@ -141,8 +139,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
           Housing: {selectedMarker.program_details.housing}
         </Typography>
         <Typography variant="body2" sx={{ mb: 2, color: '#666' }}>
-          Coordinates: {selectedMarker.latitude?.toFixed(4)},{' '}
-          {selectedMarker.longitude?.toFixed(4)}
+          Coordinates: {selectedMarker.latitude?.toFixed(4)}, {selectedMarker.longitude?.toFixed(4)}
         </Typography>
 
         <Divider sx={{ mb: 2 }} />
@@ -179,7 +176,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             borderRadius: 2,
             textTransform: 'none',
             color: 'primary.main',
-            borderColor: 'primary.main'
+            borderColor: 'primary.main',
           }}
         >
           View Program Page

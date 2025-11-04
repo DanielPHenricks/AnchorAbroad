@@ -3,7 +3,6 @@
  * Time: 2 hours
  */
 
-
 import { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import Navbar from './navbar';

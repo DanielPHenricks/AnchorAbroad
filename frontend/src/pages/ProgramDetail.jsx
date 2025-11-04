@@ -20,10 +20,10 @@ export default function ProgramDetail() {
       try {
         const [programs, favoriteCheck] = await Promise.all([
           apiService.getPrograms(),
-          apiService.checkFavorite(id).catch(() => ({ is_favorite: false })) // Handle auth errors gracefully
+          apiService.checkFavorite(id).catch(() => ({ is_favorite: false })), // Handle auth errors gracefully
         ]);
-        
-        const foundProgram = programs.find(p => p.program_id === id);
+
+        const foundProgram = programs.find((p) => p.program_id === id);
         setProgram(foundProgram);
         setIsFavorite(favoriteCheck.is_favorite);
         setLoading(false);
@@ -69,7 +69,9 @@ export default function ProgramDetail() {
   return (
     <Box sx={{ p: 4, backgroundColor: '#f5f6fa', minHeight: '100vh' }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 3 }}>
+        <Box
+          sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 3 }}
+        >
           <Typography variant="h4" fontWeight="600">
             {program.program_details.name}
           </Typography>
@@ -81,7 +83,7 @@ export default function ProgramDetail() {
               borderRadius: 2,
               textTransform: 'none',
               color: isFavorite ? '#d32f2f' : 'primary.main',
-              borderColor: isFavorite ? '#d32f2f' : 'primary.main'
+              borderColor: isFavorite ? '#d32f2f' : 'primary.main',
             }}
           >
             {isFavorite ? 'Favorited' : 'Add to Favorites'}
@@ -89,7 +91,9 @@ export default function ProgramDetail() {
         </Box>
 
         <Box sx={{ mb: 3 }}>
-          <Typography variant="h6" gutterBottom>Program Information</Typography>
+          <Typography variant="h6" gutterBottom>
+            Program Information
+          </Typography>
           {program.program_details.program_type && (
             <Chip label={program.program_details.program_type} sx={{ mr: 1, mb: 1 }} />
           )}
@@ -100,20 +104,28 @@ export default function ProgramDetail() {
 
         {program.program_details.minimum_gpa && (
           <Box sx={{ mb: 3 }}>
-            <Typography variant="h6" gutterBottom>Requirements</Typography>
+            <Typography variant="h6" gutterBottom>
+              Requirements
+            </Typography>
             <Typography>Minimum GPA: {program.program_details.minimum_gpa}</Typography>
             {program.program_details.language_prerequisite && (
-              <Typography>Language Requirement: {program.program_details.language_prerequisite}</Typography>
+              <Typography>
+                Language Requirement: {program.program_details.language_prerequisite}
+              </Typography>
             )}
             {program.program_details.additional_prerequisites && (
-              <Typography>Additional Prerequisites: {program.program_details.additional_prerequisites}</Typography>
+              <Typography>
+                Additional Prerequisites: {program.program_details.additional_prerequisites}
+              </Typography>
             )}
           </Box>
         )}
 
         {program.program_details.housing && (
           <Box sx={{ mb: 3 }}>
-            <Typography variant="h6" gutterBottom>Housing</Typography>
+            <Typography variant="h6" gutterBottom>
+              Housing
+            </Typography>
             <Typography>{program.program_details.housing}</Typography>
           </Box>
         )}

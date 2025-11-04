@@ -15,6 +15,7 @@ import {
   Avatar,
   Box,
   Button,
+  TextField,
 } from '@mui/material';
 import apiService from '../services/api';
 
@@ -27,7 +28,7 @@ export default function Home() {
     const fetchFavorites = async () => {
       try {
         const data = await apiService.getFavorites();
-        setFavorites(data.map(fav => fav.program));
+        setFavorites(data.map((fav) => fav.program));
       } catch (err) {
         console.error('Error fetching favorites:', err);
         // If user is not authenticated, just set empty favorites
@@ -46,6 +47,43 @@ export default function Home() {
       { id: 4, name: 'Liam Harper', program: 'French Literature' },
     ]);
   }, []);
+
+  const [userProfile, setUserProfile] = useState(null);
+  const [editing, setEditing] = useState(false);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const data = await apiService.getUserProfile();
+        setUserProfile(data);
+      } catch (err) {
+        console.error('Error fetching profile:', err);
+      }
+    };
+    fetchProfile();
+  }, []);
+
+  const handleProfileChange = (field, value) => {
+    setUserProfile((prev) => ({
+      ...prev,
+      profile: {
+        ...prev.profile,
+        [field]: value,
+      },
+    }));
+  };
+
+  const saveProfile = async () => {
+    try {
+      await apiService.request('/auth/profile/', {
+        method: 'PATCH',
+        body: userProfile.profile,
+      });
+      setEditing(false);
+    } catch (err) {
+      console.error('Error saving profile:', err);
+    }
+  };
 
   return (
     <Box sx={{ p: 4, backgroundColor: '#f5f6fa', minHeight: '100vh' }}>
@@ -87,7 +125,10 @@ export default function Home() {
                       mb: 1,
                     }}
                   >
-                    <ListItemText primary={p.program_details.name} secondary={p.location || p.subtitle} />
+                    <ListItemText
+                      primary={p.program_details.name}
+                      secondary={p.location || p.subtitle}
+                    />
                   </ListItemButton>
                 ))
               ) : (
@@ -121,6 +162,68 @@ export default function Home() {
                 </ListItemButton>
               ))}
             </List>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={5}>
+          <Paper elevation={3} sx={{ p: 3, borderRadius: 3 }}>
+            <Typography variant="h6" fontWeight="600" mb={2}>
+              My Profile
+            </Typography>
+            {userProfile ? (
+              <>
+                <Avatar
+                  src={userProfile.profile.profile_picture}
+                  sx={{ width: 64, height: 64, mb: 2 }}
+                />
+                <Typography>
+                  <strong>Name:</strong> {userProfile.user.first_name} {userProfile.user.last_name}
+                </Typography>
+                <Typography>
+                  <strong>Username:</strong> {userProfile.user.username}
+                </Typography>
+                <Typography>
+                  <strong>Email:</strong> {userProfile.user.email}
+                </Typography>
+
+                <TextField
+                  label="Year"
+                  value={userProfile.profile.year || ''}
+                  onChange={(e) => handleProfileChange('year', e.target.value)}
+                  fullWidth
+                  sx={{ mt: 1 }}
+                  disabled={!editing}
+                />
+                <TextField
+                  label="Major"
+                  value={userProfile.profile.major || ''}
+                  onChange={(e) => handleProfileChange('major', e.target.value)}
+                  fullWidth
+                  sx={{ mt: 1 }}
+                  disabled={!editing}
+                />
+                <TextField
+                  label="Study Abroad Term"
+                  value={userProfile.profile.study_abroad_term || ''}
+                  onChange={(e) => handleProfileChange('study_abroad_term', e.target.value)}
+                  fullWidth
+                  sx={{ mt: 1 }}
+                  disabled={!editing}
+                />
+
+                {editing ? (
+                  <Button onClick={saveProfile} sx={{ mt: 2 }}>
+                    Save
+                  </Button>
+                ) : (
+                  <Button onClick={() => setEditing(true)} sx={{ mt: 2 }}>
+                    Edit
+                  </Button>
+                )}
+              </>
+            ) : (
+              <Typography>Loading profile...</Typography>
+            )}
           </Paper>
         </Grid>
       </Grid>
