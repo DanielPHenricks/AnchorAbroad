@@ -4,7 +4,7 @@
  */
 
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 const Navbar = ({ user, onLogout }) => {
   return (
