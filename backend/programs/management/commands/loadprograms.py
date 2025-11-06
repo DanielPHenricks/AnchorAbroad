@@ -73,6 +73,7 @@ class Command(BaseCommand):
                         'main_page_url': data.get('main_page_url', ''),
                         'homepage_url': data.get('homepage_url', ''),
                         'budget_page_url': data.get('budget_page_url', ''),
+                        'img_url': data.get('img_url', ''),
                         'latitude': details.get('latitude', 0.0),
                         'longitude': details.get('longitude', 0.0),
                     }
