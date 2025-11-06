@@ -131,7 +131,6 @@ def scrape_vanderbilt_study_abroad(program_id):
             for ul in program_stats.find_all('ul'):
                 for li in ul.find_all('li'):
                     text = li.get_text(strip=True)
-                    print(text)
                     
                     if 'Academic Calendar' in text:
                         result["program_details"]["academic_calendar"] = text.replace('Academic Calendar', '').strip()
@@ -145,26 +144,60 @@ def scrape_vanderbilt_study_abroad(program_id):
                         result["program_details"]["additional_prerequisites"] = text.replace('Additional Prerequisites', '').strip()
                     elif 'Housing' in text and 'Housing' not in result["program_details"]:
                         result["program_details"]["housing"] = text.replace('Housing', '').strip()
-                     
-        # get all paragraph sections
+        
+        img = soup.find("img")
+        
+        result["img_url"] = img['src']              
+                
+        # with open('helper.html', 'w') as file:
+        #     file.write(str(soup))
+        h2_tags = soup.find_all("h2")
+        
         sections = []
-        for h2 in soup.find_all("h2"):
+    
+        for i, h2 in enumerate(h2_tags):
             title = h2.get_text(strip=True)
-            paragraphs = []
-
-            for sibling in h2.find_next_siblings():
-                if sibling.name == "h2":
-                    break  # stop at next section
-                if sibling.name == "p":
-                    paragraphs.append(sibling.get_text(strip=True))
-                elif sibling.name in ["ul", "ol"]:
-                    items = [li.get_text(strip=True) for li in sibling.find_all("li")]
-                    paragraphs.extend(items)
+            content = []
+            
+            next_h2 = h2_tags[i + 1] if i + 1 < len(h2_tags) else None
+            
+            # get all elements between this h2 and the next h2 (or end of document)
+            current = h2.next_sibling
+            while current and current != next_h2:
+                if hasattr(current, 'name'):
+                    if current.name == "h2":
+                        break
+                    elif current.name == "p":
+                        p_html = str(current)
+                        if '<h2>' in p_html:
+                            # edge case due to shitty html on geo website
+                            break
+                        if current.get_text(strip=True):
+                            content.append(p_html)
+                    elif current.name == "figure":
+                        figure_html = str(current)
+                        content.append(figure_html)
+                    elif current.name == "table":
+                        table_html = str(current)
+                        content.append(table_html)
+                    elif current.name in ["ul", "ol"]:
+                        list_html = str(current)
+                        content.append(list_html)
+                    elif current.name == "div":
+                        if current.get_text(strip=True):
+                            div_html = str(current)
+                            content.append(div_html)
+                elif isinstance(current, str):
+                    text = current.strip()
+                    if text:
+                        content.append(f"<p>{text}</p>")
+                
+                current = current.next_sibling
             sections.append({
                 "title": title,
-                "content": paragraphs
+                "content": content
             })
-            result['sections'] = sections
+        result['sections'] = sections
         
         print(f"Fetching budget information from {budget_url}")
         response = requests.get(budget_url, headers=headers)
@@ -206,7 +239,7 @@ def scrape_vanderbilt_study_abroad(program_id):
 
 
 def main():
-    ## SCRAPE SINGLE PROGRAM ##
+    # SCRAPE SINGLE PROGRAM ##
     # print("=== SCRAPING SINGLE PROGRAM (ID: 2261) ===")
     # data = scrape_vanderbilt_study_abroad("2261")
     
@@ -227,9 +260,11 @@ def main():
     #             else:
     #                 print(f"Total Estimated Cost: {term_info}")
         
-        # with open(f"vanderbilt_program_{data['program_id']}.json", 'w') as f:
-        #     json.dump(data, f, indent=2)
-        # print(f"\nData saved to: vanderbilt_program_{data['program_id']}.json")
+    #     with open(f"vanderbilt_program_{data['program_id']}.json", 'w') as f:
+    #         print("dumping")
+    #         print(data)
+    #         json.dump(data, f, indent=2)
+    #     print(f"\nData saved to: vanderbilt_program_{data['program_id']}.json")
     
     ## SCRAPE ALL DATA ##
     print("\n\n=== SCRAPING ALL PROGRAM IDs ===")
