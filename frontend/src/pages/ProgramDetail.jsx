@@ -3,7 +3,7 @@
  * Time: 30 mins
  */
 
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { Typography, Box, Button, Paper, Chip } from '@mui/material';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
