@@ -47,7 +47,6 @@ export default function ProgramDetail() {
       }
     } catch (err) {
       console.error('Error toggling favorite:', err);
-      // You might want to show a user-friendly error message here
     }
   };
 

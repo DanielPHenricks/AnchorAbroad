@@ -20,7 +20,7 @@ const Navbar = ({ user, onLogout }) => {
             textAlign: 'center',
           }}
         >
-          Anchor Abroad
+        <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>Anchor Abroad</Link>
         </Typography>
 
         {/* Right side buttons */}
@@ -28,10 +28,7 @@ const Navbar = ({ user, onLogout }) => {
           {user && (
             <>
               <Button color="inherit" component={Link} to="/home" sx={{ textTransform: 'none' }}>
-                Home
-              </Button>
-              <Button color="inherit" component={Link} to="/home" sx={{ textTransform: 'none' }}>
-                Favorites
+                Home/Favorites
               </Button>
               <Button color="inherit" component={Link} to="/messages/1" sx={{ textTransform: 'none' }}>
                 Messages
