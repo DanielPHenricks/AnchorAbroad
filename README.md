@@ -24,3 +24,7 @@ To create a superuser to test the admin page of Django, run the command:
 python manage.py createsuperuser --username=[your username here] --email=[email]
 ```
 Then navigate to `localhost:8000/backend` to see your changes!
+
+## Code coverage
+
+Backend: `coverage report --fail-under=50 --include="programs/*" --omit="programs/fixing.py,programs/scraper.py,programs/management/*,programs/test_*.py"`

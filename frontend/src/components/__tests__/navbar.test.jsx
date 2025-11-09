@@ -28,9 +28,9 @@ describe('Navbar Component', () => {
     it('should not show navigation links when user is null', () => {
       renderWithRouter(<Navbar user={null} onLogout={jest.fn()} />);
 
-      expect(screen.queryByText('Home/Favorites')).not.toBeInTheDocument();
+      expect(screen.queryByText('Home')).not.toBeInTheDocument();
       expect(screen.queryByText('Messages')).not.toBeInTheDocument();
-      expect(screen.queryByText('Map')).not.toBeInTheDocument();
+      expect(screen.queryByText('Programs')).not.toBeInTheDocument();
     });
 
   });
@@ -41,18 +41,18 @@ describe('Navbar Component', () => {
     it('should show all navigation links when user is authenticated', () => {
       renderWithRouter(<Navbar user={mockUser} onLogout={jest.fn()} />);
 
-      expect(screen.getByText('Home/Favorites')).toBeInTheDocument();
+      expect(screen.getByText('Home')).toBeInTheDocument();
       expect(screen.getByText('Messages')).toBeInTheDocument();
-      expect(screen.getByText('Map')).toBeInTheDocument();
+      expect(screen.getByText('Programs')).toBeInTheDocument();
       expect(screen.getByText('Logout')).toBeInTheDocument();
     });
 
     it('should have correct links for navigation items', () => {
       renderWithRouter(<Navbar user={mockUser} onLogout={jest.fn()} />);
 
-      const homeLink = screen.getByText('Home/Favorites').closest('a');
+      const homeLink = screen.getByText('Home').closest('a');
       const messagesLink = screen.getByText('Messages').closest('a');
-      const mapLink = screen.getByText('Map').closest('a');
+      const mapLink = screen.getByText('Programs').closest('a');
 
       expect(homeLink).toHaveAttribute('href', '/home');
       expect(messagesLink).toHaveAttribute('href', '/messages/1');

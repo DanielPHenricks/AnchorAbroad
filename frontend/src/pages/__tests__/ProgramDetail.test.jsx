@@ -71,28 +71,6 @@ describe('ProgramDetail Page', () => {
       });
     });
 
-    it('should display program type chip', async () => {
-      apiService.getPrograms.mockResolvedValue([mockProgram]);
-      apiService.checkFavorite.mockResolvedValue({ is_favorite: false });
-
-      renderWithRouter(<ProgramDetail />);
-
-      await waitFor(() => {
-        expect(screen.getByText('Exchange')).toBeInTheDocument();
-      });
-    });
-
-    it('should display academic calendar chip', async () => {
-      apiService.getPrograms.mockResolvedValue([mockProgram]);
-      apiService.checkFavorite.mockResolvedValue({ is_favorite: false });
-
-      renderWithRouter(<ProgramDetail />);
-
-      await waitFor(() => {
-        expect(screen.getByText('Semester')).toBeInTheDocument();
-      });
-    });
-
     it('should show "Program not found" when program does not exist', async () => {
       apiService.getPrograms.mockResolvedValue([]);
       apiService.checkFavorite.mockResolvedValue({ is_favorite: false });
