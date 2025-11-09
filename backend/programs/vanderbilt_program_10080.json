@@ -1,0 +1,30 @@
+{
+  "program_id": "10080",
+  "program_details": {
+    "name": "ASIA 1480: Discover Korea",
+    "academic_calendar": "Summer",
+    "program_type": "Faculty-led",
+    "minimum_gpa": "N/A",
+    "language_prerequisite": "No",
+    "additional_prerequisites": "N/A",
+    "housing": "N/A"
+  },
+  "budget_info": {},
+  "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10080",
+  "homepage_url": "https://www.vanderbilt.edu/summer/maysession/abroad-listings.php",
+  "sections": [
+    {
+      "title": "Information and Costs",
+      "content": [
+        "For more information, including information on course content, costs, and/or AXLE credit, see theA&S Summer Sessionsweb page."
+      ]
+    },
+    {
+      "title": "Application",
+      "content": [
+        "Use the Apply Now button above to open an application (use the Log In link in the upper right corner of the page to return to your application if you've already opened one). If there is no Apply Now button visible, applications for this program have not yet been opened for the upcoming Maymester term. Maymesters are generally announced, and applications generally open, in November of the preceding fall."
+      ]
+    }
+  ],
+  "budget_page_url": "https://www.vanderbilt.edu/study-abroad/budgets/?program_id=10080"
+}

@@ -1,0 +1,1634 @@
+{
+    "1003": {
+      "program_id": "1003",
+      "program_details": {
+        "name": "IES Vienna: Music",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": 48.2082,
+        "longitude": 16.3738
+      }
+    },
+    "1004": {
+      "program_id": "1004",
+      "program_details": {
+        "name": "CET Prague: Jewish Studies, Central European Studies, or Business & Economics",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": 50.0755,
+        "longitude": 14.4378
+      }
+    },
+    "1005": {
+      "program_id": "1005",
+      "program_details": {
+        "name": "DIS Copenhagen",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 55.6761,
+        "longitude": 12.5683
+      }
+    },
+    "1008": {
+      "program_id": "1008",
+      "program_details": {
+        "name": "University of Leeds (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": 53.8008,
+        "longitude": -1.5491
+      }
+    },
+    "1010": {
+      "program_id": "1010",
+      "program_details": {
+        "name": "University of York (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": 53.9600,
+        "longitude": -1.0873
+      }
+    },
+    "1013": {
+      "program_id": "1013",
+      "program_details": {
+        "name": "Georgia Tech-Europe",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "Engineering students only",
+        "housing": "Dormitory",
+        "latitude": 49.1193,
+        "longitude": 6.1757
+      }
+    },
+    "1018": {
+      "program_id": "1018",
+      "program_details": {
+        "name": "University of Galway - Ollscoil na Gaillimhe (IFSA-Butler)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": 53.2707,
+        "longitude": -9.0568
+      }
+    },
+    "1019": {
+      "program_id": "1019",
+      "program_details": {
+        "name": "University College Cork (IFSA-Butler)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.8",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": 51.8969,
+        "longitude": -8.4863
+      }
+    },
+    "1020": {
+      "program_id": "1020",
+      "program_details": {
+        "name": "University College Dublin (IFSA-Butler)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": 53.3498,
+        "longitude": -6.2603
+      }
+    },
+    "1022": {
+      "program_id": "1022",
+      "program_details": {
+        "name": "CET Siena",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Homestay",
+        "latitude": 43.3188,
+        "longitude": 11.3308
+      }
+    },
+    "1023": {
+      "program_id": "1023",
+      "program_details": {
+        "name": "CET Florence",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Homestay",
+        "latitude": 43.7696,
+        "longitude": 11.2558
+      }
+    },
+    "1024": {
+      "program_id": "1024",
+      "program_details": {
+        "name": "University of Edinburgh (IFSA-Butler)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 55.9533,
+        "longitude": -3.1883
+      }
+    },
+    "1025": {
+      "program_id": "1025",
+      "program_details": {
+        "name": "University of St. Andrews (IFSA-Butler)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3.2",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": 56.3398,
+        "longitude": -2.7967
+      }
+    },
+    "1026": {
+      "program_id": "1026",
+      "program_details": {
+        "name": "University of Stirling (IFSA-Butler)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.9",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 56.1165,
+        "longitude": -3.9369
+      }
+    },
+    "1027": {
+      "program_id": "1027",
+      "program_details": {
+        "name": "University of Glasgow (IFSA-Butler)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": 55.8642,
+        "longitude": -4.2518
+      }
+    },
+    "1029": {
+      "program_id": "1029",
+      "program_details": {
+        "name": "University of the Balearic Islands in Palma de Mallorca",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 39.5696,
+        "longitude": 2.6502
+      }
+    },
+    "1030": {
+      "program_id": "1030",
+      "program_details": {
+        "name": "Summer Global Studies and Spanish in Bilbao (API)",
+        "academic_calendar": "Summer",
+        "program_type": "N/A",
+        "minimum_gpa": "2.75",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (alone)",
+        "latitude": 43.2627,
+        "longitude": -2.9253
+      }
+    },
+    "1031": {
+      "program_id": "1031",
+      "program_details": {
+        "name": "CIEE Buenos Aires: Liberal Arts",
+        "academic_calendar": "Extends into Summer Months, Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.75",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": -34.6037,
+        "longitude": -58.3816
+      }
+    },
+    "1036": {
+      "program_id": "1036",
+      "program_details": {
+        "name": "University of Adelaide",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": -34.9285,
+        "longitude": 138.6007
+      }
+    },
+    "1039": {
+      "program_id": "1039",
+      "program_details": {
+        "name": "Monash University, Melbourne (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": -37.8136,
+        "longitude": 144.9631
+      }
+    },
+    "1040": {
+      "program_id": "1040",
+      "program_details": {
+        "name": "University of New South Wales, Sydney (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.8",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": -33.8688,
+        "longitude": 151.2093
+      }
+    },
+    "1041": {
+      "program_id": "1041",
+      "program_details": {
+        "name": "University of Queensland, Brisbane (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.8",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": -27.4698,
+        "longitude": 153.0251
+      }
+    },
+    "1042": {
+      "program_id": "1042",
+      "program_details": {
+        "name": "University of Sydney (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.8",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": -33.8688,
+        "longitude": 151.2093
+      }
+    },
+    "1044": {
+      "program_id": "1044",
+      "program_details": {
+        "name": "University of Canterbury (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.8",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": -43.5321,
+        "longitude": 172.6362
+      }
+    },
+    "1045": {
+      "program_id": "1045",
+      "program_details": {
+        "name": "Victoria University (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": -41.2865,
+        "longitude": 174.7762
+      }
+    },
+    "1046": {
+      "program_id": "1046",
+      "program_details": {
+        "name": "University of Auckland (IFSA-Butler)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.8",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": -36.8485,
+        "longitude": 174.7633
+      }
+    },
+    "1047": {
+      "program_id": "1047",
+      "program_details": {
+        "name": "CET Beijing: Intensive Chinese Language",
+        "academic_calendar": "Spring 2022",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 39.9042,
+        "longitude": 116.4074
+      }
+    },
+    "1050": {
+      "program_id": "1050",
+      "program_details": {
+        "name": "CIEE Shanghai",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Dormitory, Homestay",
+        "latitude": 31.2304,
+        "longitude": 121.4737
+      }
+    },
+    "1051": {
+      "program_id": "1051",
+      "program_details": {
+        "name": "CET Shanghai: Chinese Studies and Internship",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 31.2304,
+        "longitude": 121.4737
+      }
+    },
+    "1052": {
+      "program_id": "1052",
+      "program_details": {
+        "name": "CIEE Tokyo: Arts + Sciences",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.75",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory, Homestay",
+        "latitude": 35.6762,
+        "longitude": 139.6503
+      }
+    },
+    "1057": {
+      "program_id": "1057",
+      "program_details": {
+        "name": "CIEE Santiago, Dominican Republic: Liberal Arts",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.75",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 19.4515,
+        "longitude": -70.6970
+      }
+    },
+    "1058": {
+      "program_id": "1058",
+      "program_details": {
+        "name": "University of Cape Town (CIEE)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": -33.9249,
+        "longitude": 18.4241
+      }
+    },
+    "1064": {
+      "program_id": "1064",
+      "program_details": {
+        "name": "Hebrew University of Jerusalem",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 31.7683,
+        "longitude": 35.2137
+      }
+    },
+    "1069": {
+      "program_id": "1069",
+      "program_details": {
+        "name": "Queens University, Belfast , N. Ireland (IFSA-Butler)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.8",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 54.5973,
+        "longitude": -5.9301
+      }
+    },
+    "1086": {
+      "program_id": "1086",
+      "program_details": {
+        "name": "SIT India: Public Health, Gender, and Sexuality",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 28.6139,
+        "longitude": 77.2090
+      }
+    },
+    "1087": {
+      "program_id": "1087",
+      "program_details": {
+        "name": "SIT Vietnam: Culture, Social Change, and Development",
+        "academic_calendar": "Spring 2022",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 10.8231,
+        "longitude": 106.6297
+      }
+    },
+    "1124": {
+      "program_id": "1124",
+      "program_details": {
+        "name": "SIT Chile: Cultural Identity, Social Justice, and Community Development",
+        "academic_calendar": "Spring 2022",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": -33.0472,
+        "longitude": -71.6127
+      }
+    },
+    "1125": {
+      "program_id": "1125",
+      "program_details": {
+        "name": "SPAN 3330: Cultural Studies in the Andes",
+        "academic_calendar": "Summer",
+        "program_type": "Faculty-led",
+        "minimum_gpa": "N/A",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": -13.5319,
+        "longitude": -71.9675
+      }
+    },
+    "1133": {
+      "program_id": "1133",
+      "program_details": {
+        "name": "CIEE Barcelona: Advanced Liberal Arts",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 41.3851,
+        "longitude": 2.1734
+      }
+    },
+    "1134": {
+      "program_id": "1134",
+      "program_details": {
+        "name": "CIEE Barcelona: Liberal Arts",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 41.3851,
+        "longitude": 2.1734
+      }
+    },
+    "1135": {
+      "program_id": "1135",
+      "program_details": {
+        "name": "CIEE Barcelona: Language and Culture",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "N/A",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 41.3851,
+        "longitude": 2.1734
+      }
+    },
+    "1144": {
+      "program_id": "1144",
+      "program_details": {
+        "name": "City University of Hong Kong",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "Engineering students only",
+        "housing": "Dormitory",
+        "latitude": 22.3193,
+        "longitude": 114.1694
+      }
+    },
+    "1146": {
+      "program_id": "1146",
+      "program_details": {
+        "name": "National University of Singapore",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "Engineering students only",
+        "housing": "Dormitory",
+        "latitude": 1.3521,
+        "longitude": 103.8198
+      }
+    },
+    "1150": {
+      "program_id": "1150",
+      "program_details": {
+        "name": "SIT Samoa: Social and Environmental Change in Oceania",
+        "academic_calendar": "Spring 2022",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": -13.7590,
+        "longitude": -172.1046
+      }
+    },
+    "1170": {
+      "program_id": "1170",
+      "program_details": {
+        "name": "CIEE Santiago, Dominican Republic: Summer Public Health",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.75",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 19.4515,
+        "longitude": -70.6970
+      }
+    },
+    "1289": {
+      "program_id": "1289",
+      "program_details": {
+        "name": "CET Beijing: Intensive Chinese Language - Summer",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 39.9042,
+        "longitude": 116.4074
+      }
+    },
+    "1290": {
+      "program_id": "1290",
+      "program_details": {
+        "name": "CET Harbin: Intensive Chinese Language - Summer",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 45.8038,
+        "longitude": 126.5350
+      }
+    },
+    "1292": {
+      "program_id": "1292",
+      "program_details": {
+        "name": "CET Siena - Summer",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Homestay",
+        "latitude": 43.3188,
+        "longitude": 11.3308
+      }
+    },
+    "1293": {
+      "program_id": "1293",
+      "program_details": {
+        "name": "CET Florence - Summer",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": 43.7696,
+        "longitude": 11.2558
+      }
+    },
+    "1294": {
+      "program_id": "1294",
+      "program_details": {
+        "name": "CET Shanghai: Chinese Studies and Internship - Summer",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 31.2304,
+        "longitude": 121.4737
+      }
+    },
+    "1295": {
+      "program_id": "1295",
+      "program_details": {
+        "name": "Politecnico di Torino",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "Engineering students only",
+        "housing": "Dormitory",
+        "latitude": 45.0703,
+        "longitude": 7.6869
+      }
+    },
+    "1298": {
+      "program_id": "1298",
+      "program_details": {
+        "name": "DIS Copenhagen/Stockholm - summer",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "N/A",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 55.6761,
+        "longitude": 12.5683
+      }
+    },
+    "1341": {
+      "program_id": "1341",
+      "program_details": {
+        "name": "IES Amsterdam - Conservatory of Amsterdam",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": 52.3676,
+        "longitude": 4.9041
+      }
+    },
+    "1402": {
+      "program_id": "1402",
+      "program_details": {
+        "name": "Hong Kong University of Science & Technology",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "N/A",
+        "additional_prerequisites": "Engineering students only",
+        "housing": "Dormitory",
+        "latitude": 22.3364,
+        "longitude": 114.2655
+      }
+    },
+    "1421": {
+      "program_id": "1421",
+      "program_details": {
+        "name": "SIT Nepal: Development, Gender, and Social Change in the Himalaya",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 27.7172,
+        "longitude": 85.3240
+      }
+    },
+    "1624": {
+      "program_id": "1624",
+      "program_details": {
+        "name": "SPAN 3325: The Way of Saint James: An Epic Trail to the Essence of Spain",
+        "academic_calendar": "Summer",
+        "program_type": "Faculty-led",
+        "minimum_gpa": "N/A",
+        "language_prerequisite": "YES",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": 42.8783,
+        "longitude": -8.5448
+      }
+    },
+    "1681": {
+      "program_id": "1681",
+      "program_details": {
+        "name": "ICCS Rome",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Other",
+        "latitude": 41.9028,
+        "longitude": 12.4964
+      }
+    },
+    "1761": {
+      "program_id": "1761",
+      "program_details": {
+        "name": "SIT Jordan: Geopolitics, International Relations, and the Future of the Middle East",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 31.9454,
+        "longitude": 35.9284
+      }
+    },
+    "1762": {
+      "program_id": "1762",
+      "program_details": {
+        "name": "SIT Switzerland: International Studies and Multilateral Diplomacy",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 46.2044,
+        "longitude": 6.1432
+      }
+    },
+    "1781": {
+      "program_id": "1781",
+      "program_details": {
+        "name": "SIT Kenya: Global Health and Human Rights",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": -1.2921,
+        "longitude": 36.8219
+      }
+    },
+    "1783": {
+      "program_id": "1783",
+      "program_details": {
+        "name": "SIT Vienna, Budapest, and Belgrade: Comparative European Perspectives on Conflict & Democracy",
+        "academic_calendar": "Spring 2022",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 48.2082,
+        "longitude": 16.3738
+      }
+    },
+    "1841": {
+      "program_id": "1841",
+      "program_details": {
+        "name": "SIT Morocco: Human Rights, Social Justice, and Cultural Transformation",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 34.0209,
+        "longitude": -6.8416
+      }
+    },
+    "1861": {
+      "program_id": "1861",
+      "program_details": {
+        "name": "SIT Jordan: Refugees, Health, and Humanitarian Action",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 31.9454,
+        "longitude": 35.9284
+      }
+    },
+    "2001": {
+      "program_id": "2001",
+      "program_details": {
+        "name": "IES Vienna - Summer Music History and Performance",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": 48.2082,
+        "longitude": 16.3738
+      }
+    },
+    "2003": {
+      "program_id": "2003",
+      "program_details": {
+        "name": "IES Vienna - Summer Psychology",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": 48.2082,
+        "longitude": 16.3738
+      }
+    },
+    "2041": {
+      "program_id": "2041",
+      "program_details": {
+        "name": "CIEE Tokyo: Summer Japanese Studies",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 35.6762,
+        "longitude": 139.6503
+      }
+    },
+    "2042": {
+      "program_id": "2042",
+      "program_details": {
+        "name": "CIEE Cape Town: Summer Community Development and Social Justice: Theory + Practice",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": -33.9249,
+        "longitude": 18.4241
+      }
+    },
+    "2141": {
+      "program_id": "2141",
+      "program_details": {
+        "name": "CIEE Shanghai: Summer Accelerated Chinese Language",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory, Homestay",
+        "latitude": 31.2304,
+        "longitude": 121.4737
+      }
+    },
+    "2142": {
+      "program_id": "2142",
+      "program_details": {
+        "name": "CIEE Shanghai: Summer Business and Culture",
+        "academic_calendar": "Summer",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory, Homestay",
+        "latitude": 31.2304,
+        "longitude": 121.4737
+      }
+    },
+    "2161": {
+      "program_id": "2161",
+      "program_details": {
+        "name": "University of Canterbury: New Zealand Earth Systems (Frontiers Abroad)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Other",
+        "latitude": -43.5321,
+        "longitude": 172.6362
+      }
+    },
+    "2163": {
+      "program_id": "2163",
+      "program_details": {
+        "name": "University of Canterbury: Geology of New Zealand (Frontiers Abroad)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Other",
+        "latitude": -43.5321,
+        "longitude": 172.6362
+      }
+    },
+    "2181": {
+      "program_id": "2181",
+      "program_details": {
+        "name": "Tel Aviv University",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 32.0853,
+        "longitude": 34.7818
+      }
+    },
+    "2182": {
+      "program_id": "2182",
+      "program_details": {
+        "name": "University of Haifa",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 32.7940,
+        "longitude": 34.9896
+      }
+    },
+    "2201": {
+      "program_id": "2201",
+      "program_details": {
+        "name": "SIT Nepal: Tibetan and Himalayan Peoples",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 27.7172,
+        "longitude": 85.3240
+      }
+    },
+    "2221": {
+      "program_id": "2221",
+      "program_details": {
+        "name": "IES Vienna: Non-Music Tracks",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": 48.2082,
+        "longitude": 16.3738
+      }
+    },
+    "2261": {
+      "program_id": "2261",
+      "program_details": {
+        "name": "CASA Cuba",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.75",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "SPAN 3303",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 23.1136,
+        "longitude": -82.3666
+      }
+    },
+    "2281": {
+      "program_id": "2281",
+      "program_details": {
+        "name": "FREN 3230: History and Economics of French Film: From Paris to Cannes",
+        "academic_calendar": "Summer",
+        "program_type": "Faculty-led",
+        "minimum_gpa": "N/A",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      }
+    },
+    "2301": {
+      "program_id": "2301",
+      "program_details": {
+        "name": "CET Prague: Film Production, Photography, or New Media",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Apartment (shared)",
+        "latitude": 50.0755,
+        "longitude": 14.4378
+      }
+    },
+    "2321": {
+      "program_id": "2321",
+      "program_details": {
+        "name": "CASA Seville",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 37.3886,
+        "longitude": -5.9823
+      }
+    },
+    "2401": {
+      "program_id": "2401",
+      "program_details": {
+        "name": "DIS Stockholm",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 59.3293,
+        "longitude": 18.0686
+      }
+    },
+    "2449": {
+      "program_id": "2449",
+      "program_details": {
+        "name": "SPAN 3302: Spanish for Oral Communication through Cultural Topics",
+        "academic_calendar": "Summer",
+        "program_type": "Faculty-led",
+        "minimum_gpa": "N/A",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": 40.4168,
+        "longitude": -3.7038
+      }
+    },
+    "2461": {
+      "program_id": "2461",
+      "program_details": {
+        "name": "University College London (CIEE)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3.3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory",
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    "10000": {
+      "program_id": "10000",
+      "program_details": {
+        "name": "CIEE Toulouse: Business & Culture",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 43.6047,
+        "longitude": 1.4442
+      }
+    },
+    "10001": {
+      "program_id": "10001",
+      "program_details": {
+        "name": "CIEE Toulouse: Language & Culture",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "N/A",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 43.6047,
+        "longitude": 1.4442
+      }
+    },
+    "10009": {
+      "program_id": "10009",
+      "program_details": {
+        "name": "CASA Granada",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory, Homestay",
+        "latitude": 37.1775,
+        "longitude": -3.5986
+      }
+    },
+    "10012": {
+      "program_id": "10012",
+      "program_details": {
+        "name": "Trinity College Dublin (CASA)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3.1",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 53.3498,
+        "longitude": -6.2603
+      }
+    },
+    "10016": {
+      "program_id": "10016",
+      "program_details": {
+        "name": "SIT Switzerland: Global Health and Development Policy",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 46.2044,
+        "longitude": 6.1432
+      }
+    },
+    "10033": {
+      "program_id": "10033",
+      "program_details": {
+        "name": "Saint Louis University Madrid (SLU-Madrid)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 40.4168,
+        "longitude": -3.7038
+      }
+    },
+    "10035": {
+      "program_id": "10035",
+      "program_details": {
+        "name": "American University of Paris",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "N/A",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      }
+    },
+    "10036": {
+      "program_id": "10036",
+      "program_details": {
+        "name": "University of Bremen (Dickinson College)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "2.8",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 53.0793,
+        "longitude": 8.8017
+      }
+    },
+    "10037": {
+      "program_id": "10037",
+      "program_details": {
+        "name": "Columbia in Paris",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Dormitory, Homestay",
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      }
+    },
+    "10039": {
+      "program_id": "10039",
+      "program_details": {
+        "name": "SIT South Africa: International Relations in the Global South",
+        "academic_calendar": "Spring 2022",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "N/A",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": -33.9249,
+        "longitude": 18.4241
+      }
+    },
+    "10041": {
+      "program_id": "10041",
+      "program_details": {
+        "name": "SIT Mexico: Migration, Borders, and Transnational Communities",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 17.0732,
+        "longitude": -96.7266
+      }
+    },
+    "10042": {
+      "program_id": "10042",
+      "program_details": {
+        "name": "SIT Netherlands: International Perspectives on Sexuality and Gender",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": 52.3676,
+        "longitude": 4.9041
+      }
+    },
+    "10043": {
+      "program_id": "10043",
+      "program_details": {
+        "name": "SIT Argentina: People, Environment, and Climate Change in Patagonia and Antarctica",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Homestay, Hostel/Hotel, Other",
+        "latitude": -54.8019,
+        "longitude": -68.3030
+      }
+    },
+    "10045": {
+      "program_id": "10045",
+      "program_details": {
+        "name": "SIT Ghana: Globalization, Cultural Legacies & the Afro-Chic",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 5.6037,
+        "longitude": -0.1870
+      }
+    },
+    "10046": {
+      "program_id": "10046",
+      "program_details": {
+        "name": "SIT Cameroon: Development and Social Change",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 3.8480,
+        "longitude": 11.5021
+      }
+    },
+    "10049": {
+      "program_id": "10049",
+      "program_details": {
+        "name": "SIT Indonesia: Arts, Religion, and Social Change",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay",
+        "latitude": -7.7956,
+        "longitude": 110.3695
+      }
+    },
+    "10050": {
+      "program_id": "10050",
+      "program_details": {
+        "name": "IHP: Cities in the 21st Century: People, Planning and Politics",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    "10051": {
+      "program_id": "10051",
+      "program_details": {
+        "name": "IHP: Health and Community: Globalization, Culture and Care",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Homestay, Hostel/Hotel",
+        "latitude": 38.9072,
+        "longitude": -77.0369
+      }
+    },
+    "10052": {
+      "program_id": "10052",
+      "program_details": {
+        "name": "CLAS 3700: Uncovering Greek Religion: Cults, Festivals, and Sanctuaries in the Ancient World",
+        "academic_calendar": "Summer",
+        "program_type": "Faculty-led",
+        "minimum_gpa": "N/A",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": 37.9838,
+        "longitude": 23.7275
+      }
+    },
+    "10054": {
+      "program_id": "10054",
+      "program_details": {
+        "name": "Academic Year in Freiburg",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Dormitory",
+        "latitude": 47.9990,
+        "longitude": 7.8421
+      }
+    },
+    "10056": {
+      "program_id": "10056",
+      "program_details": {
+        "name": "CIEE Barcelona: Economics and Culture",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 41.3851,
+        "longitude": 2.1734
+      }
+    },
+    "10057": {
+      "program_id": "10057",
+      "program_details": {
+        "name": "CIEE Barcelona: Business and Culture",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "3",
+        "language_prerequisite": "N/A",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 41.3851,
+        "longitude": 2.1734
+      }
+    },
+    "10058": {
+      "program_id": "10058",
+      "program_details": {
+        "name": "CET Jordan",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared)",
+        "latitude": 31.9454,
+        "longitude": 35.9284
+      }
+    },
+    "10059": {
+      "program_id": "10059",
+      "program_details": {
+        "name": "London School of Economics - Summer (IFSA-Butler)",
+        "academic_calendar": "Summer",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3.3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    "10076": {
+      "program_id": "10076",
+      "program_details": {
+        "name": "Kyoto Consortium for Japanese Studies (KCJS)",
+        "academic_calendar": "Similar to VU",
+        "program_type": "Study Center",
+        "minimum_gpa": "3",
+        "language_prerequisite": "Yes",
+        "additional_prerequisites": "Yes, see program homepage",
+        "housing": "Apartment (shared), Homestay",
+        "latitude": 35.0116,
+        "longitude": 135.7681
+      }
+    },
+    "10077": {
+      "program_id": "10077",
+      "program_details": {
+        "name": "CIEE Seoul: Arts and Sciences (Yonsei University)",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory, Homestay",
+        "latitude": 37.5665,
+        "longitude": 126.9780
+      }
+    },
+    "10078": {
+      "program_id": "10078",
+      "program_details": {
+        "name": "CET Colombia",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Study Center/University Hybrid",
+        "minimum_gpa": "N/A",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": 3.4516,
+        "longitude": -76.5320
+      }
+    },
+    "10079": {
+      "program_id": "10079",
+      "program_details": {
+        "name": "CIEE Madrid: Engineering, Technology + Sciences",
+        "academic_calendar": "Extends into Summer Months",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "3",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "Apartment (shared), Dormitory, Homestay",
+        "latitude": 40.4168,
+        "longitude": -3.7038
+      }
+    },
+    "10080": {
+      "program_id": "10080",
+      "program_details": {
+        "name": "ASIA 1480: Discover Korea",
+        "academic_calendar": "Summer",
+        "program_type": "Faculty-led",
+        "minimum_gpa": "N/A",
+        "language_prerequisite": "No",
+        "additional_prerequisites": "N/A",
+        "housing": "N/A",
+        "latitude": 37.5665,
+        "longitude": 126.9780
+      }
+    },
+    "10085": {
+      "program_id": "10085",
+      "program_details": {
+        "name": "CIEE Seoul: Summer Korean Studies",
+        "academic_calendar": "Summer",
+        "program_type": "Direct University Enrollment",
+        "minimum_gpa": "2.7",
+        "language_prerequisite": "N/A",
+        "additional_prerequisites": "N/A",
+        "housing": "Dormitory",
+        "latitude": 37.5665,
+        "longitude": 126.9780
+      }
+    },
+    "10087": {
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    },
+    "10088": {
+      "latitude": 38.9072,
+      "longitude": -77.0369
+    },
+    "10089": {
+      "latitude": 25.0330,
+      "longitude": 121.5654
+    },
+    "10090": {
+      "latitude": -37.8136,
+      "longitude": 144.9631
+    },
+    "10091": {
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    },
+    "10092": {
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    },
+    "10093": {
+      "latitude": 45.4642,
+      "longitude": 9.1900
+    },
+    "10094": {
+      "latitude": 52.5200,
+      "longitude": 13.4050
+    },
+    "10099": {
+      "latitude": 48.8566,
+      "longitude": 2.3522
+    },
+    "10100": {
+      "latitude": 45.4642,
+      "longitude": 9.1900
+    },
+    "10104": {
+      "latitude": 50.0755,
+      "longitude": 14.4378
+    },
+    "10106": {
+      "latitude": 43.2630,
+      "longitude": -2.9350
+    },
+    "10127": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "10130": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "10131": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "10132": {
+      "latitude": 0,
+      "longitude": 0
+    }
+}

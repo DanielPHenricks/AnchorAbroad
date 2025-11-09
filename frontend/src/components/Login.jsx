@@ -132,14 +132,25 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
           fullWidth
           variant="contained"
           disabled={loading}
-          sx={{ mt: 3, mb: 2 }}
+          sx={{
+            borderRadius: 2,
+            backgroundColor: 'secondary.main',
+            textTransform: 'none',
+            fontSize: '1rem',
+            mb: 1,
+            color: 'secondary.contrastText',
+            transition: 'all 0.2s',
+            '&:hover': {
+              backgroundColor: 'secondary.dark',
+            }
+          }}
         >
           {loading ? 'Logging in...' : 'Login'}
         </Button>
 
         <Typography align="center">
           Don't have an account?{' '}
-          <Button variant="text" onClick={onSwitchToSignup} sx={{ textTransform: 'none' }}>
+          <Button variant="contained" onClick={onSwitchToSignup} sx={{ color: 'secondary.contrastText', backgroundColor: 'secondary.main', textTransform: 'none', borderRadius: 12 }}>
             Sign up
           </Button>
         </Typography>

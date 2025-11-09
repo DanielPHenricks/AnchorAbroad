@@ -11,21 +11,29 @@ import ProgramDetail from './pages/ProgramDetail';
 import MessageDetail from './pages/MessageDetail';
 import MapPage from './pages/Map';
 import Home from './pages/Home';
+import theme from './theme';
+import { Box } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <AuthWrapper>
-          <Routes>
-            <Route path="*" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/programs/:id" element={<ProgramDetail />} />
-            <Route path="/messages/:id" element={<MessageDetail />} />
-            <Route path="/map" element={<MapPage />} />
-          </Routes>
-        </AuthWrapper>
-      </Router>
+      <ThemeProvider theme={theme}>
+        {/* the box is for the navbar padding so that it doesn't obscure content*/}
+        <Box sx={{ paddingTop: '64px' }}> 
+        <Router>
+          <AuthWrapper>
+            <Routes>
+              <Route path="*" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/programs/:id" element={<ProgramDetail />} />
+              <Route path="/messages/:id" element={<MessageDetail />} />
+              <Route path="/map" element={<MapPage />} />
+            </Routes>
+          </AuthWrapper>
+        </Router>
+        </Box>
+      </ThemeProvider>
     </div>
   );
 }

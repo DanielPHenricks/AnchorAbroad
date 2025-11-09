@@ -48,19 +48,20 @@ export default function Home() {
   }, []);
 
   return (
-    <Box sx={{ p: 4, backgroundColor: '#f5f6fa', minHeight: '100vh' }}>
+    <Box sx={{ p: 4, minHeight: '100vh' }}>
       {/* Explore Programs button */}
       <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
           size="large"
           sx={{
-            borderRadius: 3,
+            borderRadius: 12,
             textTransform: 'none',
             px: 4,
             py: 1.5,
             fontWeight: 600,
+            boxShadow: 0
           }}
           onClick={() => navigate('/map')}
         >
@@ -71,7 +72,7 @@ export default function Home() {
       <Grid container spacing={4} justifyContent="center">
         {/* Favorite Programs */}
         <Grid item xs={12} md={5}>
-          <Paper elevation={3} sx={{ p: 3, borderRadius: 3 }}>
+          <Paper elevation={3} sx={{ p: 3, borderRadius: 3}}>
             <Typography variant="h6" fontWeight="600" mb={2}>
               My Favorite Programs
             </Typography>
@@ -84,7 +85,12 @@ export default function Home() {
                     sx={{
                       border: '1px solid #eee',
                       borderRadius: 2,
+                      backgroundColor: 'secondary.main',
                       mb: 1,
+                      transition: 'all 0.2s',
+                      '&:hover': {
+                        backgroundColor: 'secondary.dark',
+                      }
                     }}
                   >
                     <ListItemText primary={p.program_details.name} secondary={p.location || p.subtitle} />

@@ -92,17 +92,28 @@ class Command(BaseCommand):
                 
                 # Process budget info
                 budget_info = data.get('budget_info', {})
-                # Clear existing budget info for this program
                 program.budget_info.all().delete()
-                
-                for budget_key, budget_data in budget_info.items():
+
+                if isinstance(budget_info, dict) and 'total_estimated_cost' in budget_info and isinstance(budget_info['total_estimated_cost'], str):
+                    # Single, simple cost with no term/year
                     BudgetInfo.objects.create(
                         program=program,
-                        term=budget_data.get('term', ''),
-                        year=int(budget_data.get('year', 0)),
-                        total_estimated_cost=budget_data.get('total_estimated_cost', '')
+                        term=budget_info.get('term', ''),     # optional/blank
+                        year=int(budget_info.get('year', 0) or 0),
+                        total_estimated_cost=budget_info['total_estimated_cost']
                     )
                     created_budgets += 1
+                else:
+                    # Expected structured dict(s)
+                    for _, budget_data in budget_info.items():
+                        BudgetInfo.objects.create(
+                            program=program,
+                            term=budget_data.get('term', ''),
+                            year=int(budget_data.get('year', 0) or 0),
+                            total_estimated_cost=budget_data.get('total_estimated_cost', '')
+                        )
+                        created_budgets += 1
+
                 
                 # Process sections
                 sections = data.get('sections', [])
