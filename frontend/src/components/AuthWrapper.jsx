@@ -5,9 +5,9 @@
 
 import { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
-import Navbar from './Navbar';
-import Login from './Login';
-import Signup from './Signup';
+import Navbar from './navbar';
+import Login from './login';
+import Signup from './signup';
 import apiService from '../services/api';
 
 /**
