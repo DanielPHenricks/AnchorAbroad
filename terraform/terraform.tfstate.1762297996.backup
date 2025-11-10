@@ -1,12 +1,6 @@
 {
   "version": 4,
   "terraform_version": "1.13.1",
-<<<<<<< HEAD
-  "serial": 40,
-  "lineage": "0bba7c42-7a14-a9f4-9015-e1dc237e4ba8",
-  "outputs": {},
-  "resources": [],
-=======
   "serial": 51,
   "lineage": "0bba7c42-7a14-a9f4-9015-e1dc237e4ba8",
   "outputs": {
@@ -595,6 +589,5 @@
       ]
     }
   ],
->>>>>>> 1c4adb8 (Testing and terraforming AWS stuff)
   "check_results": null
 }

@@ -14,6 +14,7 @@ class Program(models.Model):
     housing = models.TextField(blank=True)
     main_page_url = models.URLField(blank=True)
     homepage_url = models.URLField(blank=True)
+    img_url = models.URLField(blank=True)
     budget_page_url = models.URLField(blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()

@@ -117,7 +117,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 4, maxWidth: 500, mx: 'auto', mt: 4 }}>
+    <Paper elevation={3} sx={{ p: 4, maxWidth: 515, mx: 'auto', mt: 4 }}>
       <Typography variant="h4" component="h1" gutterBottom align="center">
         Sign Up
       </Typography>
@@ -132,7 +132,6 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
-              fullWidth
               name="first_name"
               label="First Name"
               value={formData.first_name}
@@ -144,7 +143,6 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-              fullWidth
               name="last_name"
               label="Last Name"
               value={formData.last_name}
@@ -205,6 +203,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           helperText={errors.password_confirm}
           margin="normal"
           required
+          sx={{mb:2}}
         />
 
         <Button
@@ -212,14 +211,31 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           fullWidth
           variant="contained"
           disabled={loading}
-          sx={{ mt: 3, mb: 2 }}
+          sx={{
+            borderRadius: 12,
+            backgroundColor: 'secondary.main',
+            textTransform: 'none',
+            fontSize: '1rem',
+            mb: 1,
+            color: 'secondary.contrastText',
+            transition: 'all 0.2s',
+            '&:hover': {backgroundColor: 'secondary.dark',}
+          }}
         >
           {loading ? 'Creating Account...' : 'Sign Up'}
         </Button>
 
         <Typography align="center">
           Already have an account?{' '}
-          <Button variant="text" onClick={onSwitchToLogin} sx={{ textTransform: 'none' }}>
+          <Button variant="contained" onClick={onSwitchToLogin}
+            sx={{ 
+              color: 'secondary.contrastText', 
+              backgroundColor: 'secondary.main', 
+              textTransform: 'none', 
+              borderRadius: 12,
+              '&:hover': {backgroundColor: 'secondary.dark',}
+            }}
+            >
             Login
           </Button>
         </Typography>

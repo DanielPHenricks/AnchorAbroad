@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   Drawer,
   List,
@@ -17,6 +17,11 @@ import {
 } from '@mui/material';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
+import { CalendarMonthOutlined } from '@mui/icons-material';
+import { SchoolOutlined } from '@mui/icons-material';
+import { LanguageOutlined } from '@mui/icons-material';
+import { ApartmentOutlined } from '@mui/icons-material';
+import { AccountBalanceOutlined } from '@mui/icons-material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -25,14 +30,26 @@ import apiService from '../services/api';
 
 const drawerWidth = 400;
 
-// You can extend this mapping with more icons if needed
-const iconMapping = {
-  'Program Overview': <DescriptionIcon />,
-};
-
 const Sidebar = ({ open, onClose, selectedMarker }) => {
-  const [openSections, setOpenSections] = useState({});
   const [isFavorite, setIsFavorite] = useState(false);
+
+    useEffect(() => {
+    const checkFavoriteStatus = async () => {
+      if (selectedMarker?.program_id) {
+        try {
+          const isFav = await apiService.checkFavorite(selectedMarker.program_id);
+          setIsFavorite(isFav.is_favorite);
+        } catch (err) {
+          console.error('Error checking favorite status:', err);
+          setIsFavorite(false);
+        }
+      } else {
+        setIsFavorite(false);
+      }
+    };
+
+    checkFavoriteStatus();
+  }, [selectedMarker]);
 
   const toggleFavorite = async () => {
     try {
@@ -48,14 +65,19 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
     }
   };
 
-  const handleToggle = (section) => {
-    setOpenSections((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }));
+  const hasSectionContent = (content) => {
+    if (Array.isArray(content)) {
+      console.log(content.some(item => typeof item === 'string' && item.trim() != ''))
+      return content.some(item => typeof item === 'string' && item.trim() != '');
+    }
+    return typeof content === 'string' && content.trim() !== '';
   };
 
-  if (!selectedMarker) return null;
+  // get first section with content
+  const displaySection = useMemo(() => {
+    if (!selectedMarker || !selectedMarker.sections) return null;
+    return selectedMarker.sections.find(s => hasSectionContent(s?.content)) || null;
+  }, [selectedMarker]);
 
   const menuItems = selectedMarker.sections?.map((section) => ({
     text: section.title,
@@ -87,7 +109,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
         '& .MuiDrawer-paper': {
           width: drawerWidth,
           boxSizing: 'border-box',
-          backgroundColor: '#f8f9fa',
+          backgroundColor: '#FFFFFF',
           color: '#333',
           display: 'flex',
           flexDirection: 'column',
@@ -96,7 +118,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
     >
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Typography variant="h6" noWrap component="div">
-          {selectedMarker.program_details.name}
+          {selectedMarker.program_details?.name || 'Program'}
         </Typography>
         <IconButton onClick={onClose}>
           <CloseIcon />
@@ -107,13 +129,25 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       <Box sx={{ p: 2 }}>
         <Button
           fullWidth
-          startIcon={isFavorite ? <Favorite /> : <FavoriteBorder />}
+          startIcon={
+            isFavorite ? (
+              <Favorite sx={{ color: '#B49248' }} />
+            ) : (
+              <FavoriteBorder />
+            )
+          }
           onClick={toggleFavorite}
           sx={{
-            borderRadius: 2,
+            borderRadius: 12,
             textTransform: 'none',
+<<<<<<< HEAD
             color: isFavorite ? '#d32f2f' : 'primary.main',
             borderColor: isFavorite ? '#d32f2f' : 'primary.main',
+=======
+            color: isFavorite ? '#B49248' : 'primary.main',  
+            borderColor: isFavorite ? '#B49248' : 'primary.main',
+            backgroundColor: 'secondary.main'
+>>>>>>> main
           }}
         >
           {isFavorite ? 'Favorited' : 'Add to Favorites'}
@@ -123,6 +157,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
 
       <Box sx={{ overflow: 'auto', p: 2, flexGrow: 1 }}>
         {/* Program details */}
+<<<<<<< HEAD
         <Typography variant="body1" sx={{ mb: 1 }}>
           Program Type: {selectedMarker.program_details.program_type}
         </Typography>
@@ -141,26 +176,88 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
         <Typography variant="body2" sx={{ mb: 2, color: '#666' }}>
           Coordinates: {selectedMarker.latitude?.toFixed(4)}, {selectedMarker.longitude?.toFixed(4)}
         </Typography>
+=======
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+          <AccountBalanceOutlined fontSize="small" />
+          <Typography variant="body2">
+            Program Type: {selectedMarker.program_details?.program_type || '—'}
+          </Typography>
+        </Box>
+        
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+          <CalendarMonthOutlined fontSize="small" />
+          <Typography variant="body2">
+            Academic Calendar: {selectedMarker.program_details?.academic_calendar || '—'}
+          </Typography>
+        </Box>
+        
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+          <SchoolOutlined fontSize="small" />
+          <Typography variant="body2">
+            Minimum GPA: {selectedMarker.program_details?.minimum_gpa || '—'}
+          </Typography>
+        </Box>
+        
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+          <LanguageOutlined fontSize="small" />
+          <Typography variant="body2">
+            Language Prerequisite: {selectedMarker.program_details?.language_prerequisite || '—'}
+          </Typography>
+        </Box>
+        
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+          <ApartmentOutlined fontSize="small" />
+          <Typography variant="body2">
+            Housing: {selectedMarker.program_details?.housing || '—'}
+          </Typography>
+        </Box>
+>>>>>>> main
 
         <Divider sx={{ mb: 2 }} />
 
-        {/* Dynamic sections */}
-        <List>
-          {menuItems.map((item, index) => (
-            <React.Fragment key={index}>
-              <ListItem disablePadding>
-                <ListItemButton onClick={() => handleToggle(item.text)}>
-                  <ListItemIcon sx={{ color: '#555' }}>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text} />
-                  {openSections[item.text] ? <ExpandLess /> : <ExpandMore />}
-                </ListItemButton>
-              </ListItem>
-              <Collapse in={openSections[item.text]} timeout="auto" unmountOnExit>
-                {item.content}
-              </Collapse>
-            </React.Fragment>
-          ))}
-        </List>
+        {/* overview section */}
+        {displaySection && (
+          <Box>
+            <Typography variant="h6" sx={{ textAlign:"center" }}>
+              {displaySection.title}
+            </Typography>
+            <Box>
+              {Array.isArray(displaySection.content)
+                ? displaySection.content.map((htmlContent, i) => (
+                    <Box
+                      key={i}
+                      dangerouslySetInnerHTML={{ __html: htmlContent }}
+                      sx={{
+                        fontFamily: '"Libre Caslon Text"',
+                        '& p': { mb: 1 },
+                        '& ul': { pl: 2, mb: 1 },
+                        '& li': { mb: 0.5 },
+                        '& a': {
+                          color: 'primary.main',
+                          textDecoration: 'none',
+                          '&:hover': { textDecoration: 'underline' }
+                        }
+                      }}
+                    />
+                  ))
+                : (
+                    <Box
+                      dangerouslySetInnerHTML={{ __html: displaySection.content }}
+                      sx={{
+                        '& p': { mb: 1 },
+                        '& ul': { pl: 2, mb: 1 },
+                        '& li': { mb: 0.5 },
+                        '& a': {
+                          color: 'primary.main',
+                          textDecoration: 'none',
+                          '&:hover': { textDecoration: 'underline' }
+                        }
+                      }}
+                    />
+                  )}
+            </Box>
+          </Box>
+        )}
       </Box>
 
       {/* Bottom button */}
@@ -179,7 +276,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             borderColor: 'primary.main',
           }}
         >
-          View Program Page
+          More Details
         </Button>
       </Box>
     </Drawer>
