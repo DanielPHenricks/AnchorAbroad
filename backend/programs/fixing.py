@@ -11,14 +11,17 @@ try:
         try:
             main_dict[f'{program_id}']['program_details']['latitude'] = loc_dict[f'{program_id}']['program_details']['latitude'] 
             main_dict[f'{program_id}']['program_details']['longitude'] = loc_dict[f'{program_id}']['program_details']['longitude'] 
+            main_dict[f'{program_id}']['program_details']['continent'] = loc_dict[f'{program_id}']['program_details']['continent'] 
         except KeyError as e:
             try:
                 main_dict[f'{program_id}']['program_details']['latitude'] = loc_dict[f'{program_id}']['latitude']
                 main_dict[f'{program_id}']['program_details']['longitude'] = loc_dict[f'{program_id}']['longitude']
+                main_dict[f'{program_id}']['program_details']['continent'] = loc_dict[f'{program_id}']['program_details']['continent'] 
             except KeyError as e:
                 main_dict[f'{program_id}']['program_details']['latitude'] = 0
                 main_dict[f'{program_id}']['program_details']['longitude'] = 0
-    
+                main_dict[f'{program_id}']['program_details']['continent'] = 'Unknown'
+
     with open("data.json", "w") as file:
         json.dump(main_dict, file, indent=4)
 

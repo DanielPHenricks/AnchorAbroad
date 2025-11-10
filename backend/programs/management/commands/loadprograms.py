@@ -76,6 +76,7 @@ class Command(BaseCommand):
                         'img_url': data.get('img_url', ''),
                         'latitude': details.get('latitude', 0.0),
                         'longitude': details.get('longitude', 0.0),
+                        'continent': details.get('continent', '')
                     }
                 )
                 

@@ -18,6 +18,7 @@ class Program(models.Model):
     budget_page_url = models.URLField(blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
+    continent = models.TextField(blank=True)
     
     def __str__(self):
         return self.name
