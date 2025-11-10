@@ -3,8 +3,17 @@
  * Time: 2 hours
  */
 
-// This will need to be changed to the actual URL of the backend server when deploying.
-const API_BASE_URL = 'http://localhost:8000/api';
+// Determine API base URL based on environment
+const getApiBaseUrl = () => {
+  // Check if running in production mode
+  if (process.env.REACT_APP_ENV === 'production') {
+    return process.env.REACT_APP_API_URL || 'http://44.203.101.226:8000/api';
+  }
+  // Default to localhost for development
+  return 'http://localhost:8000/api';
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 class ApiService {
   constructor() {
