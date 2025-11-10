@@ -157,7 +157,22 @@ class ApiService {
   }
 
   async getPrograms() {
-    return this.get('/programs/');
+    // Ensure the full URL is used
+    const response = await fetch(`${this.baseURL}/programs/`);
+    if (!response.ok) {
+      console.error("Failed to fetch programs:", response.statusText);
+      return [];
+    }
+    const data = await response.json();
+  
+    // Ensure each program has latitude, longitude, name, id, continent
+    return data.map((program) => ({
+      id: program.id,
+      name: program.name,
+      latitude: program.latitude,
+      longitude: program.longitude,
+      continent: program.continent || "Unknown",
+    }));
   }
 
   /**
