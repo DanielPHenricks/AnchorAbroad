@@ -26,8 +26,8 @@ describe('Basic Tests', () => {
   test('Array operations work', () => {
     const testArray = [1, 2, 3, 4, 5];
     expect(testArray.length).toBe(5);
-    expect(testArray.filter(n => n > 3)).toEqual([4, 5]);
-    expect(testArray.map(n => n * 2)).toEqual([2, 4, 6, 8, 10]);
+    expect(testArray.filter((n) => n > 3)).toEqual([4, 5]);
+    expect(testArray.map((n) => n * 2)).toEqual([2, 4, 6, 8, 10]);
   });
 
   test('Object operations work', () => {

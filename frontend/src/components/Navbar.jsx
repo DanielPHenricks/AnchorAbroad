@@ -11,24 +11,23 @@ const Navbar = ({ user, onLogout }) => {
     <AppBar position="fixed" sx={{ boxShadow: 0 }}>
       <Toolbar sx={{ minHeight: 64, paddingLeft: 2, paddingRight: 2 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <Link to="/home" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-            <img 
-              src="/logos/anchor.png" 
-              alt="Anchor Abroad Logo" 
+          <Link
+            to="/home"
+            style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
+          >
+            <img
+              src="/logos/anchor.png"
+              alt="Anchor Abroad Logo"
               style={{ height: '40px', width: 'auto' }}
             />
           </Link>
-          
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{fontWeight: 500}}
-          >
+
+          <Typography variant="h6" component="div" sx={{ fontWeight: 500 }}>
             <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
               Anchor Abroad
             </Link>
           </Typography>
-          </Box>
+        </Box>
 
         {/* Right side buttons */}
         <Box sx={{ marginLeft: 'auto', display: 'flex', gap: 2 }}>
@@ -37,7 +36,12 @@ const Navbar = ({ user, onLogout }) => {
               <Button color="inherit" component={Link} to="/home" sx={{ textTransform: 'none' }}>
                 Home
               </Button>
-              <Button color="inherit" component={Link} to="/messages/1" sx={{ textTransform: 'none' }}>
+              <Button
+                color="inherit"
+                component={Link}
+                to="/messages/1"
+                sx={{ textTransform: 'none' }}
+              >
                 Messages
               </Button>
               <Button color="inherit" component={Link} to="/map" sx={{ textTransform: 'none' }}>

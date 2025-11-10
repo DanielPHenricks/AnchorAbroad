@@ -33,7 +33,7 @@ const drawerWidth = 400;
 const Sidebar = ({ open, onClose, selectedMarker }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-    useEffect(() => {
+  useEffect(() => {
     const checkFavoriteStatus = async () => {
       if (selectedMarker?.program_id) {
         try {
@@ -67,8 +67,8 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
 
   const hasSectionContent = (content) => {
     if (Array.isArray(content)) {
-      console.log(content.some(item => typeof item === 'string' && item.trim() != ''))
-      return content.some(item => typeof item === 'string' && item.trim() != '');
+      console.log(content.some((item) => typeof item === 'string' && item.trim() != ''));
+      return content.some((item) => typeof item === 'string' && item.trim() != '');
     }
     return typeof content === 'string' && content.trim() !== '';
   };
@@ -76,7 +76,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
   // get first section with content
   const displaySection = useMemo(() => {
     if (!selectedMarker || !selectedMarker.sections) return null;
-    return selectedMarker.sections.find(s => hasSectionContent(s?.content)) || null;
+    return selectedMarker.sections.find((s) => hasSectionContent(s?.content)) || null;
   }, [selectedMarker]);
 
   if (!selectedMarker) return null;
@@ -111,20 +111,14 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       <Box sx={{ p: 2 }}>
         <Button
           fullWidth
-          startIcon={
-            isFavorite ? (
-              <Favorite sx={{ color: '#B49248' }} />
-            ) : (
-              <FavoriteBorder />
-            )
-          }
+          startIcon={isFavorite ? <Favorite sx={{ color: '#B49248' }} /> : <FavoriteBorder />}
           onClick={toggleFavorite}
           sx={{
             borderRadius: 12,
             textTransform: 'none',
-            color: isFavorite ? '#B49248' : 'primary.main',  
+            color: isFavorite ? '#B49248' : 'primary.main',
             borderColor: isFavorite ? '#B49248' : 'primary.main',
-            backgroundColor: 'secondary.main'
+            backgroundColor: 'secondary.main',
           }}
         >
           {isFavorite ? 'Favorited' : 'Add to Favorites'}
@@ -140,28 +134,28 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             Program Type: {selectedMarker.program_details?.program_type || '—'}
           </Typography>
         </Box>
-        
+
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
           <CalendarMonthOutlined fontSize="small" />
           <Typography variant="body2">
             Academic Calendar: {selectedMarker.program_details?.academic_calendar || '—'}
           </Typography>
         </Box>
-        
+
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
           <SchoolOutlined fontSize="small" />
           <Typography variant="body2">
             Minimum GPA: {selectedMarker.program_details?.minimum_gpa || '—'}
           </Typography>
         </Box>
-        
+
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
           <LanguageOutlined fontSize="small" />
           <Typography variant="body2">
             Language Prerequisite: {selectedMarker.program_details?.language_prerequisite || '—'}
           </Typography>
         </Box>
-        
+
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
           <ApartmentOutlined fontSize="small" />
           <Typography variant="body2">
@@ -174,43 +168,43 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
         {/* overview section */}
         {displaySection && (
           <Box>
-            <Typography variant="h6" sx={{ textAlign:"center" }}>
+            <Typography variant="h6" sx={{ textAlign: 'center' }}>
               {displaySection.title}
             </Typography>
             <Box>
-              {Array.isArray(displaySection.content)
-                ? displaySection.content.map((htmlContent, i) => (
-                    <Box
-                      key={i}
-                      dangerouslySetInnerHTML={{ __html: htmlContent }}
-                      sx={{
-                        fontFamily: '"Libre Caslon Text"',
-                        '& p': { mb: 1 },
-                        '& ul': { pl: 2, mb: 1 },
-                        '& li': { mb: 0.5 },
-                        '& a': {
-                          color: 'primary.main',
-                          textDecoration: 'none',
-                          '&:hover': { textDecoration: 'underline' }
-                        }
-                      }}
-                    />
-                  ))
-                : (
-                    <Box
-                      dangerouslySetInnerHTML={{ __html: displaySection.content }}
-                      sx={{
-                        '& p': { mb: 1 },
-                        '& ul': { pl: 2, mb: 1 },
-                        '& li': { mb: 0.5 },
-                        '& a': {
-                          color: 'primary.main',
-                          textDecoration: 'none',
-                          '&:hover': { textDecoration: 'underline' }
-                        }
-                      }}
-                    />
-                  )}
+              {Array.isArray(displaySection.content) ? (
+                displaySection.content.map((htmlContent, i) => (
+                  <Box
+                    key={i}
+                    dangerouslySetInnerHTML={{ __html: htmlContent }}
+                    sx={{
+                      fontFamily: '"Libre Caslon Text"',
+                      '& p': { mb: 1 },
+                      '& ul': { pl: 2, mb: 1 },
+                      '& li': { mb: 0.5 },
+                      '& a': {
+                        color: 'primary.main',
+                        textDecoration: 'none',
+                        '&:hover': { textDecoration: 'underline' },
+                      },
+                    }}
+                  />
+                ))
+              ) : (
+                <Box
+                  dangerouslySetInnerHTML={{ __html: displaySection.content }}
+                  sx={{
+                    '& p': { mb: 1 },
+                    '& ul': { pl: 2, mb: 1 },
+                    '& li': { mb: 0.5 },
+                    '& a': {
+                      color: 'primary.main',
+                      textDecoration: 'none',
+                      '&:hover': { textDecoration: 'underline' },
+                    },
+                  }}
+                />
+              )}
             </Box>
           </Box>
         )}
@@ -229,7 +223,7 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             borderRadius: 2,
             textTransform: 'none',
             color: 'primary.main',
-            borderColor: 'primary.main'
+            borderColor: 'primary.main',
           }}
         >
           More Details

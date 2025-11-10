@@ -35,13 +35,21 @@ class ApiService {
    */
   async request(endpoint, options = {}) {
     const url = `${this.baseURL}${endpoint}`;
+    const isFormData = options.isFormData || false;
+
+    const headers = {
+      ...options.headers,
+    };
+
+    // Only add JSON content type if not using FormData
+    if (!isFormData) {
+      headers['Content-Type'] = 'application/json';
+    }
+
     const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
+      method: options.method || 'GET',
+      headers,
       credentials: 'include',
-      ...options,
     };
 
     // Add CSRF token for non-GET requests
@@ -52,18 +60,20 @@ class ApiService {
       }
     }
 
-    if (config.body && typeof config.body === 'object') {
-      config.body = JSON.stringify(config.body);
+    // Attach body properly
+    if (options.body) {
+      config.body = isFormData ? options.body : JSON.stringify(options.body);
     }
 
     try {
       const response = await fetch(url, config);
-      const data = await response.json();
+      const contentType = response.headers.get('content-type');
+      const data =
+        contentType && contentType.includes('application/json')
+          ? await response.json()
+          : await response.text();
 
       if (!response.ok) {
-        if (data.username) {
-          throw new Error('A user with that username already exists.');
-        }
         throw new Error(data.message || 'Request failed');
       }
 
@@ -119,6 +129,31 @@ class ApiService {
    */
   async getUserProfile() {
     return this.get('/auth/profile/');
+  }
+
+  async updateUserProfile(profileData, isFormData = false) {
+    let options = {
+      method: 'PATCH',
+      credentials: 'include',
+    };
+
+    if (isFormData) {
+      options.body = profileData;
+      options.headers = {}; // Don't set Content-Type, browser will handle it
+    } else {
+      options.body = JSON.stringify(profileData);
+      options.headers = { 'Content-Type': 'application/json' };
+    }
+
+    const csrfToken = this.getCsrfToken();
+    if (csrfToken) {
+      options.headers['X-CSRFToken'] = csrfToken;
+    }
+
+    const response = await fetch(`${this.baseURL}/auth/profile/`, options);
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to update profile');
+    return data;
   }
 
   async getPrograms() {

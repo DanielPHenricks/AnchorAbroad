@@ -4,7 +4,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from .models import Favorite
+from .models import Favorite, Profile
 from programs.serializers import ProgramSerializer
 
 
@@ -74,3 +74,8 @@ class FavoriteSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data['user'] = self.context['request'].user
         return super().create(validated_data)
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ('user', 'year', 'major', 'study_abroad_term', 'profile_picture')

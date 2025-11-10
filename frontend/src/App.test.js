@@ -3,7 +3,6 @@
  * Time: 1 hour
  */
 
-
 describe('App Component Tests', () => {
   test('React framework is available', () => {
     const React = require('react');
@@ -26,6 +25,6 @@ describe('App Component Tests', () => {
   test('Basic JavaScript functionality', () => {
     const testArray = [1, 2, 3];
     expect(testArray.length).toBe(3);
-    expect(testArray.map(x => x * 2)).toEqual([2, 4, 6]);
+    expect(testArray.map((x) => x * 2)).toEqual([2, 4, 6]);
   });
 });
