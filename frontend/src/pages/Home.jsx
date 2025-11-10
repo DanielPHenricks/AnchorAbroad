@@ -212,7 +212,8 @@ export default function Home() {
                 <Avatar
                   src={
                     userProfile.profile.profile_picture
-                      ? `http://localhost:8000${userProfile.profile.profile_picture}`
+                    // Need to change to reflect actual backend URL, can import from the frontend api.js
+                      ? `${apiService.baseURL.replace('/api', '')}${userProfile.profile.profile_picture}`
                       : ''
                   }
                   sx={{ width: 96, height: 96, mb: 1 }}
