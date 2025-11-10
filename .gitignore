@@ -320,4 +320,4 @@ cython_debug/
 /terraform/.terraform
 
 # Media files
-media/profile_pictures
+backend/media/profile_pictures
