@@ -10,7 +10,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 48.2082,
-            "longitude": 16.3738
+            "longitude": 16.3738,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -43,7 +44,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 50.0755,
-            "longitude": 14.4378
+            "longitude": 14.4378,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -76,7 +78,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 55.6761,
-            "longitude": 12.5683
+            "longitude": 12.5683,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -109,7 +112,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 53.8008,
-            "longitude": -1.5491
+            "longitude": -1.5491,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -142,7 +146,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 53.96,
-            "longitude": -1.0873
+            "longitude": -1.0873,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -175,7 +180,8 @@
             "additional_prerequisites": "Engineering students only",
             "housing": "Dormitory",
             "latitude": 49.1193,
-            "longitude": 6.1757
+            "longitude": 6.1757,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -208,7 +214,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 53.2707,
-            "longitude": -9.0568
+            "longitude": -9.0568,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -241,7 +248,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 51.8969,
-            "longitude": -8.4863
+            "longitude": -8.4863,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -274,7 +282,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 53.3498,
-            "longitude": -6.2603
+            "longitude": -6.2603,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -307,7 +316,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Homestay",
             "latitude": 43.3188,
-            "longitude": 11.3308
+            "longitude": 11.3308,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -340,7 +350,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Homestay",
             "latitude": 43.7696,
-            "longitude": 11.2558
+            "longitude": 11.2558,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -373,7 +384,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 55.9533,
-            "longitude": -3.1883
+            "longitude": -3.1883,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -406,7 +418,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 56.3398,
-            "longitude": -2.7967
+            "longitude": -2.7967,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -439,7 +452,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 56.1165,
-            "longitude": -3.9369
+            "longitude": -3.9369,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -472,7 +486,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 55.8642,
-            "longitude": -4.2518
+            "longitude": -4.2518,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -505,7 +520,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 39.5696,
-            "longitude": 2.6502
+            "longitude": 2.6502,
+            "continent": "Europe"
         },
         "budget_info": {
             "total_estimated_cost": "$45,611"
@@ -576,7 +592,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (alone)",
             "latitude": 43.2627,
-            "longitude": -2.9253
+            "longitude": -2.9253,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1030",
@@ -633,7 +650,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": -34.6037,
-            "longitude": -58.3816
+            "longitude": -58.3816,
+            "continent": "South America"
         },
         "budget_info": {
             "spring_2025": {
@@ -666,7 +684,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": -34.9285,
-            "longitude": 138.6007
+            "longitude": 138.6007,
+            "continent": "Australia"
         },
         "budget_info": {
             "spring_2025": {
@@ -699,7 +718,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": -37.8136,
-            "longitude": 144.9631
+            "longitude": 144.9631,
+            "continent": "Australia"
         },
         "budget_info": {
             "spring_2025": {
@@ -732,7 +752,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": -33.8688,
-            "longitude": 151.2093
+            "longitude": 151.2093,
+            "continent": "Australia"
         },
         "budget_info": {
             "spring_2025": {
@@ -765,7 +786,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": -27.4698,
-            "longitude": 153.0251
+            "longitude": 153.0251,
+            "continent": "Australia"
         },
         "budget_info": {
             "spring_2025": {
@@ -798,7 +820,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": -33.8688,
-            "longitude": 151.2093
+            "longitude": 151.2093,
+            "continent": "Australia"
         },
         "budget_info": {
             "spring_2025": {
@@ -831,7 +854,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": -43.5321,
-            "longitude": 172.6362
+            "longitude": 172.6362,
+            "continent": "Oceania"
         },
         "budget_info": {
             "spring_2025": {
@@ -864,7 +888,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": -41.2865,
-            "longitude": 174.7762
+            "longitude": 174.7762,
+            "continent": "Oceania"
         },
         "budget_info": {
             "spring_2025": {
@@ -897,7 +922,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": -36.8485,
-            "longitude": 174.7633
+            "longitude": 174.7633,
+            "continent": "Oceania"
         },
         "budget_info": {
             "spring_2025": {
@@ -930,7 +956,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 39.9042,
-            "longitude": 116.4074
+            "longitude": 116.4074,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -963,7 +990,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Dormitory, Homestay",
             "latitude": 31.2304,
-            "longitude": 121.4737
+            "longitude": 121.4737,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -996,7 +1024,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 31.2304,
-            "longitude": 121.4737
+            "longitude": 121.4737,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -1029,7 +1058,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory, Homestay",
             "latitude": 35.6762,
-            "longitude": 139.6503
+            "longitude": 139.6503,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -1062,7 +1092,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 19.4515,
-            "longitude": -70.697
+            "longitude": -70.697,
+            "continent": "North America"
         },
         "budget_info": {
             "spring_2025": {
@@ -1095,7 +1126,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": -33.9249,
-            "longitude": 18.4241
+            "longitude": 18.4241,
+            "continent": "Africa"
         },
         "budget_info": {
             "spring_2025": {
@@ -1128,7 +1160,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 31.7683,
-            "longitude": 35.2137
+            "longitude": 35.2137,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -1202,7 +1235,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 54.5973,
-            "longitude": -5.9301
+            "longitude": -5.9301,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -1235,7 +1269,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 28.6139,
-            "longitude": 77.209
+            "longitude": 77.209,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -1268,7 +1303,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 10.8231,
-            "longitude": 106.6297
+            "longitude": 106.6297,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -1301,7 +1337,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": -33.0472,
-            "longitude": -71.6127
+            "longitude": -71.6127,
+            "continent": "South America"
         },
         "budget_info": {
             "spring_2025": {
@@ -1334,7 +1371,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": -13.5319,
-            "longitude": -71.9675
+            "longitude": -71.9675,
+            "continent": "South America"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1125",
@@ -1373,7 +1411,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 41.3851,
-            "longitude": 2.1734
+            "longitude": 2.1734,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -1406,7 +1445,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 41.3851,
-            "longitude": 2.1734
+            "longitude": 2.1734,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -1439,7 +1479,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 41.3851,
-            "longitude": 2.1734
+            "longitude": 2.1734,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -1472,7 +1513,8 @@
             "additional_prerequisites": "Engineering students only",
             "housing": "Dormitory",
             "latitude": 22.3193,
-            "longitude": 114.1694
+            "longitude": 114.1694,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -1545,7 +1587,8 @@
             "additional_prerequisites": "Engineering students only",
             "housing": "Dormitory",
             "latitude": 1.3521,
-            "longitude": 103.8198
+            "longitude": 103.8198,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -1618,7 +1661,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": -13.759,
-            "longitude": -172.1046
+            "longitude": -172.1046,
+            "continent": "Oceania"
         },
         "budget_info": {
             "spring_2025": {
@@ -1651,7 +1695,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 19.4515,
-            "longitude": -70.697
+            "longitude": -70.697,
+            "continent": "North America"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1170",
@@ -1678,7 +1723,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 39.9042,
-            "longitude": 116.4074
+            "longitude": 116.4074,
+            "continent": "Asia"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1289",
@@ -1705,7 +1751,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Homestay",
             "latitude": 43.3188,
-            "longitude": 11.3308
+            "longitude": 11.3308,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1292",
@@ -1732,7 +1779,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 43.7696,
-            "longitude": 11.2558
+            "longitude": 11.2558,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1293",
@@ -1759,7 +1807,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 31.2304,
-            "longitude": 121.4737
+            "longitude": 121.4737,
+            "continent": "Asia"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1294",
@@ -1786,7 +1835,8 @@
             "additional_prerequisites": "Engineering students only",
             "housing": "Dormitory",
             "latitude": 45.0703,
-            "longitude": 7.6869
+            "longitude": 7.6869,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1295",
@@ -1853,7 +1903,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 55.6761,
-            "longitude": 12.5683
+            "longitude": 12.5683,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1298",
@@ -1880,7 +1931,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 52.3676,
-            "longitude": 4.9041
+            "longitude": 4.9041,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -1913,7 +1965,8 @@
             "additional_prerequisites": "Engineering students only",
             "housing": "Dormitory",
             "latitude": 22.3364,
-            "longitude": 114.2655
+            "longitude": 114.2655,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -1986,7 +2039,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 27.7172,
-            "longitude": 85.324
+            "longitude": 85.324,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -2019,7 +2073,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 42.8783,
-            "longitude": -8.5448
+            "longitude": -8.5448,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=1624",
@@ -2058,7 +2113,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Other",
             "latitude": 41.9028,
-            "longitude": 12.4964
+            "longitude": 12.4964,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -2091,7 +2147,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 31.9454,
-            "longitude": 35.9284
+            "longitude": 35.9284,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -2124,7 +2181,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 46.2044,
-            "longitude": 6.1432
+            "longitude": 6.1432,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -2157,7 +2215,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": -1.2921,
-            "longitude": 36.8219
+            "longitude": 36.8219,
+            "continent": "Africa"
         },
         "budget_info": {
             "spring_2025": {
@@ -2190,7 +2249,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 48.2082,
-            "longitude": 16.3738
+            "longitude": 16.3738,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -2223,7 +2283,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 34.0209,
-            "longitude": -6.8416
+            "longitude": -6.8416,
+            "continent": "Africa"
         },
         "budget_info": {
             "spring_2025": {
@@ -2256,7 +2317,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 31.9454,
-            "longitude": 35.9284
+            "longitude": 35.9284,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -2289,7 +2351,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 48.2082,
-            "longitude": 16.3738
+            "longitude": 16.3738,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=2001",
@@ -2316,7 +2379,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 48.2082,
-            "longitude": 16.3738
+            "longitude": 16.3738,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=2003",
@@ -2343,7 +2407,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 35.6762,
-            "longitude": 139.6503
+            "longitude": 139.6503,
+            "continent": "Asia"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=2041",
@@ -2370,7 +2435,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": -33.9249,
-            "longitude": 18.4241
+            "longitude": 18.4241,
+            "continent": "Africa"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=2042",
@@ -2397,7 +2463,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory, Homestay",
             "latitude": 31.2304,
-            "longitude": 121.4737
+            "longitude": 121.4737,
+            "continent": "Asia"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=2141",
@@ -2424,7 +2491,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory, Homestay",
             "latitude": 31.2304,
-            "longitude": 121.4737
+            "longitude": 121.4737,
+            "continent": "Asia"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=2142",
@@ -2451,7 +2519,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Other",
             "latitude": -43.5321,
-            "longitude": 172.6362
+            "longitude": 172.6362,
+            "continent": "Oceania"
         },
         "budget_info": {
             "spring_2025": {
@@ -2484,7 +2553,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Other",
             "latitude": -43.5321,
-            "longitude": 172.6362
+            "longitude": 172.6362,
+            "continent": "Oceania"
         },
         "budget_info": {
             "spring_2025": {
@@ -2517,7 +2587,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 32.0853,
-            "longitude": 34.7818
+            "longitude": 34.7818,
+            "continent": "Asia"
         },
         "budget_info": {
             "total_estimated_cost": "$43,892"
@@ -2619,7 +2690,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 32.794,
-            "longitude": 34.9896
+            "longitude": 34.9896,
+            "continent": "Asia"
         },
         "budget_info": {
             "total_estimated_cost": "$40,976"
@@ -2681,7 +2753,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 27.7172,
-            "longitude": 85.324
+            "longitude": 85.324,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -2714,7 +2787,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 48.2082,
-            "longitude": 16.3738
+            "longitude": 16.3738,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -2747,7 +2821,8 @@
             "additional_prerequisites": "SPAN 3303",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 23.1136,
-            "longitude": -82.3666
+            "longitude": -82.3666,
+            "continent": "North America"
         },
         "budget_info": {
             "spring_2025": {
@@ -2834,7 +2909,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 48.8566,
-            "longitude": 2.3522
+            "longitude": 2.3522,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=2281",
@@ -2873,7 +2949,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Apartment (shared)",
             "latitude": 50.0755,
-            "longitude": 14.4378
+            "longitude": 14.4378,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -2906,7 +2983,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 37.3886,
-            "longitude": -5.9823
+            "longitude": -5.9823,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3000,7 +3078,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 59.3293,
-            "longitude": 18.0686
+            "longitude": 18.0686,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3033,7 +3112,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 40.4168,
-            "longitude": -3.7038
+            "longitude": -3.7038,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=2449",
@@ -3072,7 +3152,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 51.5074,
-            "longitude": -0.1278
+            "longitude": -0.1278,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3123,7 +3204,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 43.6047,
-            "longitude": 1.4442
+            "longitude": 1.4442,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3156,7 +3238,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 43.6047,
-            "longitude": 1.4442
+            "longitude": 1.4442,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3189,7 +3272,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory, Homestay",
             "latitude": 37.1775,
-            "longitude": -3.5986
+            "longitude": -3.5986,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3285,7 +3369,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 53.3498,
-            "longitude": -6.2603
+            "longitude": -6.2603,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3318,7 +3403,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 46.2044,
-            "longitude": 6.1432
+            "longitude": 6.1432,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3351,7 +3437,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 40.4168,
-            "longitude": -3.7038
+            "longitude": -3.7038,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3384,7 +3471,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 48.8566,
-            "longitude": 2.3522
+            "longitude": 2.3522,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3417,7 +3505,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 53.0793,
-            "longitude": 8.8017
+            "longitude": 8.8017,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3450,7 +3539,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Dormitory, Homestay",
             "latitude": 48.8566,
-            "longitude": 2.3522
+            "longitude": 2.3522,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3483,7 +3573,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": -33.9249,
-            "longitude": 18.4241
+            "longitude": 18.4241,
+            "continent": "Africa"
         },
         "budget_info": {
             "spring_2025": {
@@ -3516,7 +3607,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 17.0732,
-            "longitude": -96.7266
+            "longitude": -96.7266,
+            "continent": "North America"
         },
         "budget_info": {
             "spring_2025": {
@@ -3549,7 +3641,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": 52.3676,
-            "longitude": 4.9041
+            "longitude": 4.9041,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3582,7 +3675,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Homestay, Hostel/Hotel, Other",
             "latitude": -54.8019,
-            "longitude": -68.303
+            "longitude": -68.303,
+            "continent": "South America"
         },
         "budget_info": {
             "spring_2025": {
@@ -3615,7 +3709,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 5.6037,
-            "longitude": -0.187
+            "longitude": -0.187,
+            "continent": "Africa"
         },
         "budget_info": {
             "spring_2025": {
@@ -3648,7 +3743,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 3.848,
-            "longitude": 11.5021
+            "longitude": 11.5021,
+            "continent": "Africa"
         },
         "budget_info": {
             "spring_2025": {
@@ -3681,7 +3777,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay",
             "latitude": -7.7956,
-            "longitude": 110.3695
+            "longitude": 110.3695,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -3714,7 +3811,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 40.7128,
-            "longitude": -74.006
+            "longitude": -74.006,
+            "continent": "North America"
         },
         "budget_info": {
             "spring_2025": {
@@ -3747,7 +3845,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Homestay, Hostel/Hotel",
             "latitude": 38.9072,
-            "longitude": -77.0369
+            "longitude": -77.0369,
+            "continent": "North America"
         },
         "budget_info": {
             "spring_2025": {
@@ -3780,7 +3879,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 37.9838,
-            "longitude": 23.7275
+            "longitude": 23.7275,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10052",
@@ -3819,7 +3919,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Dormitory",
             "latitude": 47.999,
-            "longitude": 7.8421
+            "longitude": 7.8421,
+            "continent": "Europe"
         },
         "budget_info": {
             "total_estimated_cost": "$44,068"
@@ -3848,7 +3949,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 41.3851,
-            "longitude": 2.1734
+            "longitude": 2.1734,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3881,7 +3983,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 41.3851,
-            "longitude": 2.1734
+            "longitude": 2.1734,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -3914,7 +4017,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 31.9454,
-            "longitude": 35.9284
+            "longitude": 35.9284,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -3947,7 +4051,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 51.5074,
-            "longitude": -0.1278
+            "longitude": -0.1278,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10059",
@@ -3974,7 +4079,8 @@
             "additional_prerequisites": "Yes, see program homepage",
             "housing": "Apartment (shared), Homestay",
             "latitude": 35.0116,
-            "longitude": 135.7681
+            "longitude": 135.7681,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -4007,7 +4113,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory, Homestay",
             "latitude": 37.5665,
-            "longitude": 126.978
+            "longitude": 126.978,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -4040,7 +4147,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 3.4516,
-            "longitude": -76.532
+            "longitude": -76.532,
+            "continent": "South America"
         },
         "budget_info": {
             "spring_2025": {
@@ -4073,7 +4181,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 40.4168,
-            "longitude": -3.7038
+            "longitude": -3.7038,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -4131,7 +4240,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 37.5665,
-            "longitude": 126.978
+            "longitude": 126.978,
+            "continent": "Asia"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10080",
@@ -4170,7 +4280,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Dormitory",
             "latitude": 37.5665,
-            "longitude": 126.978
+            "longitude": 126.978,
+            "continent": "Asia"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10085",
@@ -4197,7 +4308,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 51.5074,
-            "longitude": -0.1278
+            "longitude": -0.1278,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -4230,7 +4342,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 38.9072,
-            "longitude": -77.0369
+            "longitude": -77.0369,
+            "continent": "North America"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10088",
@@ -4266,7 +4379,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 25.033,
-            "longitude": 121.5654
+            "longitude": 121.5654,
+            "continent": "Asia"
         },
         "budget_info": {
             "spring_2025": {
@@ -4299,7 +4413,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (alone), Apartment (shared)",
             "latitude": -37.8136,
-            "longitude": 144.9631
+            "longitude": 144.9631,
+            "continent": "Australia"
         },
         "budget_info": {
             "spring_2025": {
@@ -4336,7 +4451,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 51.5074,
-            "longitude": -0.1278
+            "longitude": -0.1278,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -4369,7 +4485,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory",
             "latitude": 51.5074,
-            "longitude": -0.1278
+            "longitude": -0.1278,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -4402,7 +4519,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 45.4642,
-            "longitude": 9.19
+            "longitude": 9.19,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -4435,7 +4553,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay, Hostel/Hotel",
             "latitude": 52.52,
-            "longitude": 13.405
+            "longitude": 13.405,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -4468,7 +4587,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 48.8566,
-            "longitude": 2.3522
+            "longitude": 2.3522,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10099",
@@ -4495,7 +4615,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared), Dormitory, Homestay",
             "latitude": 45.4642,
-            "longitude": 9.19
+            "longitude": 9.19,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -4528,7 +4649,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (shared)",
             "latitude": 50.0755,
-            "longitude": 14.4378
+            "longitude": 14.4378,
+            "continent": "Europe"
         },
         "budget_info": {
             "spring_2025": {
@@ -4561,7 +4683,8 @@
             "additional_prerequisites": "N/A",
             "housing": "Apartment (alone)",
             "latitude": 43.263,
-            "longitude": -2.935
+            "longitude": -2.935,
+            "continent": "Europe"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10106",
@@ -4608,7 +4731,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 0,
-            "longitude": 0
+            "longitude": 0,
+            "continent": "Unknown"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10127",
@@ -4647,7 +4771,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 0,
-            "longitude": 0
+            "longitude": 0,
+            "continent": "Unknown"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10130",
@@ -4686,7 +4811,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 0,
-            "longitude": 0
+            "longitude": 0,
+            "continent": "Unknown"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10132",
@@ -4725,7 +4851,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 0,
-            "longitude": 0
+            "longitude": 0,
+            "continent": "Unknown"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10133",
@@ -4764,7 +4891,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 0,
-            "longitude": 0
+            "longitude": 0,
+            "continent": "Unknown"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10134",
@@ -4803,7 +4931,8 @@
             "additional_prerequisites": "N/A",
             "housing": "N/A",
             "latitude": 0,
-            "longitude": 0
+            "longitude": 0,
+            "continent": "Unknown"
         },
         "budget_info": {},
         "main_page_url": "https://www.vanderbilt.edu/study-abroad/programs/?program_id=10135",

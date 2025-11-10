@@ -175,13 +175,7 @@ class ApiService {
     const data = await response.json();
   
     // Ensure each program has latitude, longitude, name, id, continent
-    return data.map((program) => ({
-      id: program.id,
-      name: program.name,
-      latitude: program.latitude,
-      longitude: program.longitude,
-      continent: program.continent || "Unknown",
-    }));
+    return data
   }
 
   /**

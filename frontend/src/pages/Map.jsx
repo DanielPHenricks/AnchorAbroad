@@ -39,7 +39,7 @@ const MapPage = ({ mapCenter }) => {
 
   // Filter markers based on search and continent
   const filteredMarkers = markers.filter((marker) => {
-    const matchesName = marker.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesName = marker.program_details.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesContinent = continentFilter === 'All' || marker.continent === continentFilter;
     return matchesName && matchesContinent;
   });

@@ -10,7 +10,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": 48.2082,
-        "longitude": 16.3738
+        "longitude": 16.3738,
+        "continent": "Europe"
       }
     },
     "1004": {
@@ -24,7 +25,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": 50.0755,
-        "longitude": 14.4378
+        "longitude": 14.4378,
+        "continent": "Europe"
       }
     },
     "1005": {
@@ -38,7 +40,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 55.6761,
-        "longitude": 12.5683
+        "longitude": 12.5683,
+        "continent": "Europe"
       }
     },
     "1008": {
@@ -52,7 +55,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": 53.8008,
-        "longitude": -1.5491
+        "longitude": -1.5491,
+        "continent": "Europe"
       }
     },
     "1010": {
@@ -66,7 +70,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": 53.9600,
-        "longitude": -1.0873
+        "longitude": -1.0873,
+        "continent": "Europe"
       }
     },
     "1013": {
@@ -80,7 +85,8 @@
         "additional_prerequisites": "Engineering students only",
         "housing": "Dormitory",
         "latitude": 49.1193,
-        "longitude": 6.1757
+        "longitude": 6.1757,
+        "continent": "Europe"
       }
     },
     "1018": {
@@ -94,7 +100,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": 53.2707,
-        "longitude": -9.0568
+        "longitude": -9.0568,
+        "continent": "Europe"
       }
     },
     "1019": {
@@ -108,7 +115,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": 51.8969,
-        "longitude": -8.4863
+        "longitude": -8.4863,
+        "continent": "Europe"
       }
     },
     "1020": {
@@ -122,7 +130,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": 53.3498,
-        "longitude": -6.2603
+        "longitude": -6.2603,
+        "continent": "Europe"
       }
     },
     "1022": {
@@ -136,7 +145,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Homestay",
         "latitude": 43.3188,
-        "longitude": 11.3308
+        "longitude": 11.3308,
+        "continent": "Europe"
       }
     },
     "1023": {
@@ -150,7 +160,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Homestay",
         "latitude": 43.7696,
-        "longitude": 11.2558
+        "longitude": 11.2558,
+        "continent": "Europe"
       }
     },
     "1024": {
@@ -164,7 +175,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 55.9533,
-        "longitude": -3.1883
+        "longitude": -3.1883,
+        "continent": "Europe"
       }
     },
     "1025": {
@@ -178,7 +190,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": 56.3398,
-        "longitude": -2.7967
+        "longitude": -2.7967,
+        "continent": "Europe"
       }
     },
     "1026": {
@@ -192,7 +205,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 56.1165,
-        "longitude": -3.9369
+        "longitude": -3.9369,
+        "continent": "Europe"
       }
     },
     "1027": {
@@ -206,7 +220,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": 55.8642,
-        "longitude": -4.2518
+        "longitude": -4.2518,
+        "continent": "Europe"
       }
     },
     "1029": {
@@ -220,7 +235,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 39.5696,
-        "longitude": 2.6502
+        "longitude": 2.6502,
+        "continent": "Europe"
       }
     },
     "1030": {
@@ -234,7 +250,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (alone)",
         "latitude": 43.2627,
-        "longitude": -2.9253
+        "longitude": -2.9253,
+        "continent": "Europe"
       }
     },
     "1031": {
@@ -248,7 +265,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": -34.6037,
-        "longitude": -58.3816
+        "longitude": -58.3816,
+        "continent": "South America"
       }
     },
     "1036": {
@@ -262,7 +280,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": -34.9285,
-        "longitude": 138.6007
+        "longitude": 138.6007,
+        "continent": "Australia"
       }
     },
     "1039": {
@@ -276,7 +295,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": -37.8136,
-        "longitude": 144.9631
+        "longitude": 144.9631,
+        "continent": "Australia"
       }
     },
     "1040": {
@@ -290,7 +310,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": -33.8688,
-        "longitude": 151.2093
+        "longitude": 151.2093,
+        "continent": "Australia"
       }
     },
     "1041": {
@@ -304,7 +325,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": -27.4698,
-        "longitude": 153.0251
+        "longitude": 153.0251,
+        "continent": "Australia"
       }
     },
     "1042": {
@@ -318,7 +340,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": -33.8688,
-        "longitude": 151.2093
+        "longitude": 151.2093,
+        "continent": "Australia"
       }
     },
     "1044": {
@@ -332,7 +355,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": -43.5321,
-        "longitude": 172.6362
+        "longitude": 172.6362,
+        "continent": "Oceania"
       }
     },
     "1045": {
@@ -346,7 +370,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": -41.2865,
-        "longitude": 174.7762
+        "longitude": 174.7762,
+        "continent": "Oceania"
       }
     },
     "1046": {
@@ -360,7 +385,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": -36.8485,
-        "longitude": 174.7633
+        "longitude": 174.7633,
+        "continent": "Oceania"
       }
     },
     "1047": {
@@ -374,7 +400,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 39.9042,
-        "longitude": 116.4074
+        "longitude": 116.4074,
+        "continent": "Asia"
       }
     },
     "1050": {
@@ -388,7 +415,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Dormitory, Homestay",
         "latitude": 31.2304,
-        "longitude": 121.4737
+        "longitude": 121.4737,
+        "continent": "Asia"
       }
     },
     "1051": {
@@ -402,7 +430,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 31.2304,
-        "longitude": 121.4737
+        "longitude": 121.4737,
+        "continent": "Asia"
       }
     },
     "1052": {
@@ -416,7 +445,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory, Homestay",
         "latitude": 35.6762,
-        "longitude": 139.6503
+        "longitude": 139.6503,
+        "continent": "Asia"
       }
     },
     "1057": {
@@ -430,7 +460,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 19.4515,
-        "longitude": -70.6970
+        "longitude": -70.6970,
+        "continent": "North America"
       }
     },
     "1058": {
@@ -444,7 +475,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": -33.9249,
-        "longitude": 18.4241
+        "longitude": 18.4241,
+        "continent": "Africa"
       }
     },
     "1064": {
@@ -458,7 +490,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 31.7683,
-        "longitude": 35.2137
+        "longitude": 35.2137,
+        "continent": "Asia"
       }
     },
     "1069": {
@@ -472,7 +505,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 54.5973,
-        "longitude": -5.9301
+        "longitude": -5.9301,
+        "continent": "Europe"
       }
     },
     "1086": {
@@ -486,7 +520,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 28.6139,
-        "longitude": 77.2090
+        "longitude": 77.2090,
+        "continent": "Asia"
       }
     },
     "1087": {
@@ -500,7 +535,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 10.8231,
-        "longitude": 106.6297
+        "longitude": 106.6297,
+        "continent": "Asia"
       }
     },
     "1124": {
@@ -514,7 +550,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": -33.0472,
-        "longitude": -71.6127
+        "longitude": -71.6127,
+        "continent": "South America"
       }
     },
     "1125": {
@@ -528,7 +565,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": -13.5319,
-        "longitude": -71.9675
+        "longitude": -71.9675,
+        "continent": "South America"
       }
     },
     "1133": {
@@ -542,7 +580,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 41.3851,
-        "longitude": 2.1734
+        "longitude": 2.1734,
+        "continent": "Europe"
       }
     },
     "1134": {
@@ -556,7 +595,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 41.3851,
-        "longitude": 2.1734
+        "longitude": 2.1734,
+        "continent": "Europe"
       }
     },
     "1135": {
@@ -570,7 +610,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 41.3851,
-        "longitude": 2.1734
+        "longitude": 2.1734,
+        "continent": "Europe"
       }
     },
     "1144": {
@@ -584,7 +625,8 @@
         "additional_prerequisites": "Engineering students only",
         "housing": "Dormitory",
         "latitude": 22.3193,
-        "longitude": 114.1694
+        "longitude": 114.1694,
+        "continent": "Asia"
       }
     },
     "1146": {
@@ -598,7 +640,8 @@
         "additional_prerequisites": "Engineering students only",
         "housing": "Dormitory",
         "latitude": 1.3521,
-        "longitude": 103.8198
+        "longitude": 103.8198,
+        "continent": "Asia"
       }
     },
     "1150": {
@@ -612,7 +655,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": -13.7590,
-        "longitude": -172.1046
+        "longitude": -172.1046,
+        "continent": "Oceania"
       }
     },
     "1170": {
@@ -626,7 +670,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 19.4515,
-        "longitude": -70.6970
+        "longitude": -70.6970,
+        "continent": "North America"
       }
     },
     "1289": {
@@ -640,7 +685,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 39.9042,
-        "longitude": 116.4074
+        "longitude": 116.4074,
+        "continent": "Asia"
       }
     },
     "1290": {
@@ -654,7 +700,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 45.8038,
-        "longitude": 126.5350
+        "longitude": 126.5350,
+        "continent": "Asia"
       }
     },
     "1292": {
@@ -668,7 +715,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Homestay",
         "latitude": 43.3188,
-        "longitude": 11.3308
+        "longitude": 11.3308,
+        "continent": "Europe"
       }
     },
     "1293": {
@@ -682,7 +730,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": 43.7696,
-        "longitude": 11.2558
+        "longitude": 11.2558,
+        "continent": "Europe"
       }
     },
     "1294": {
@@ -696,7 +745,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 31.2304,
-        "longitude": 121.4737
+        "longitude": 121.4737,
+        "continent": "Asia"
       }
     },
     "1295": {
@@ -710,7 +760,8 @@
         "additional_prerequisites": "Engineering students only",
         "housing": "Dormitory",
         "latitude": 45.0703,
-        "longitude": 7.6869
+        "longitude": 7.6869,
+        "continent": "Europe"
       }
     },
     "1298": {
@@ -724,7 +775,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 55.6761,
-        "longitude": 12.5683
+        "longitude": 12.5683,
+        "continent": "Europe"
       }
     },
     "1341": {
@@ -738,7 +790,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": 52.3676,
-        "longitude": 4.9041
+        "longitude": 4.9041,
+        "continent": "Europe"
       }
     },
     "1402": {
@@ -752,7 +805,8 @@
         "additional_prerequisites": "Engineering students only",
         "housing": "Dormitory",
         "latitude": 22.3364,
-        "longitude": 114.2655
+        "longitude": 114.2655,
+        "continent": "Asia"
       }
     },
     "1421": {
@@ -766,7 +820,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 27.7172,
-        "longitude": 85.3240
+        "longitude": 85.3240,
+        "continent": "Asia"
       }
     },
     "1624": {
@@ -780,7 +835,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": 42.8783,
-        "longitude": -8.5448
+        "longitude": -8.5448,
+        "continent": "Europe"
       }
     },
     "1681": {
@@ -794,7 +850,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Other",
         "latitude": 41.9028,
-        "longitude": 12.4964
+        "longitude": 12.4964,
+        "continent": "Europe"
       }
     },
     "1761": {
@@ -808,7 +865,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 31.9454,
-        "longitude": 35.9284
+        "longitude": 35.9284,
+        "continent": "Asia"
       }
     },
     "1762": {
@@ -822,7 +880,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 46.2044,
-        "longitude": 6.1432
+        "longitude": 6.1432,
+        "continent": "Europe"
       }
     },
     "1781": {
@@ -836,7 +895,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": -1.2921,
-        "longitude": 36.8219
+        "longitude": 36.8219,
+        "continent": "Africa"
       }
     },
     "1783": {
@@ -850,7 +910,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 48.2082,
-        "longitude": 16.3738
+        "longitude": 16.3738,
+        "continent": "Europe"
       }
     },
     "1841": {
@@ -864,7 +925,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 34.0209,
-        "longitude": -6.8416
+        "longitude": -6.8416,
+        "continent": "Africa"
       }
     },
     "1861": {
@@ -878,7 +940,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 31.9454,
-        "longitude": 35.9284
+        "longitude": 35.9284,
+        "continent": "Asia"
       }
     },
     "2001": {
@@ -892,7 +955,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": 48.2082,
-        "longitude": 16.3738
+        "longitude": 16.3738,
+        "continent": "Europe"
       }
     },
     "2003": {
@@ -906,7 +970,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": 48.2082,
-        "longitude": 16.3738
+        "longitude": 16.3738,
+        "continent": "Europe"
       }
     },
     "2041": {
@@ -920,7 +985,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 35.6762,
-        "longitude": 139.6503
+        "longitude": 139.6503,
+        "continent": "Asia"
       }
     },
     "2042": {
@@ -934,7 +1000,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": -33.9249,
-        "longitude": 18.4241
+        "longitude": 18.4241,
+        "continent": "Africa"
       }
     },
     "2141": {
@@ -948,7 +1015,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory, Homestay",
         "latitude": 31.2304,
-        "longitude": 121.4737
+        "longitude": 121.4737,
+        "continent": "Asia"
       }
     },
     "2142": {
@@ -962,7 +1030,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory, Homestay",
         "latitude": 31.2304,
-        "longitude": 121.4737
+        "longitude": 121.4737,
+        "continent": "Asia"
       }
     },
     "2161": {
@@ -976,7 +1045,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Other",
         "latitude": -43.5321,
-        "longitude": 172.6362
+        "longitude": 172.6362,
+        "continent": "Oceania"
       }
     },
     "2163": {
@@ -990,7 +1060,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Other",
         "latitude": -43.5321,
-        "longitude": 172.6362
+        "longitude": 172.6362,
+        "continent": "Oceania"
       }
     },
     "2181": {
@@ -1004,7 +1075,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 32.0853,
-        "longitude": 34.7818
+        "longitude": 34.7818,
+        "continent": "Asia"
       }
     },
     "2182": {
@@ -1018,7 +1090,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 32.7940,
-        "longitude": 34.9896
+        "longitude": 34.9896,
+        "continent": "Asia"
       }
     },
     "2201": {
@@ -1032,7 +1105,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 27.7172,
-        "longitude": 85.3240
+        "longitude": 85.3240,
+        "continent": "Asia"
       }
     },
     "2221": {
@@ -1046,7 +1120,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": 48.2082,
-        "longitude": 16.3738
+        "longitude": 16.3738,
+        "continent": "Europe"
       }
     },
     "2261": {
@@ -1060,7 +1135,8 @@
         "additional_prerequisites": "SPAN 3303",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 23.1136,
-        "longitude": -82.3666
+        "longitude": -82.3666,
+        "continent": "North America"
       }
     },
     "2281": {
@@ -1074,7 +1150,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": 48.8566,
-        "longitude": 2.3522
+        "longitude": 2.3522,
+        "continent": "Europe"
       }
     },
     "2301": {
@@ -1088,7 +1165,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Apartment (shared)",
         "latitude": 50.0755,
-        "longitude": 14.4378
+        "longitude": 14.4378,
+        "continent": "Europe"
       }
     },
     "2321": {
@@ -1102,7 +1180,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 37.3886,
-        "longitude": -5.9823
+        "longitude": -5.9823,
+        "continent": "Europe"
       }
     },
     "2401": {
@@ -1116,7 +1195,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 59.3293,
-        "longitude": 18.0686
+        "longitude": 18.0686,
+        "continent": "Europe"
       }
     },
     "2449": {
@@ -1130,7 +1210,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": 40.4168,
-        "longitude": -3.7038
+        "longitude": -3.7038,
+        "continent": "Europe"
       }
     },
     "2461": {
@@ -1144,7 +1225,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory",
         "latitude": 51.5074,
-        "longitude": -0.1278
+        "longitude": -0.1278,
+        "continent": "Europe"
       }
     },
     "10000": {
@@ -1158,7 +1240,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 43.6047,
-        "longitude": 1.4442
+        "longitude": 1.4442,
+        "continent": "Europe"
       }
     },
     "10001": {
@@ -1172,7 +1255,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 43.6047,
-        "longitude": 1.4442
+        "longitude": 1.4442,
+        "continent": "Europe"
       }
     },
     "10009": {
@@ -1186,7 +1270,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory, Homestay",
         "latitude": 37.1775,
-        "longitude": -3.5986
+        "longitude": -3.5986,
+        "continent": "Europe"
       }
     },
     "10012": {
@@ -1200,7 +1285,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 53.3498,
-        "longitude": -6.2603
+        "longitude": -6.2603,
+        "continent": "Europe"
       }
     },
     "10016": {
@@ -1214,7 +1300,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 46.2044,
-        "longitude": 6.1432
+        "longitude": 6.1432,
+        "continent": "Europe"
       }
     },
     "10033": {
@@ -1228,7 +1315,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 40.4168,
-        "longitude": -3.7038
+        "longitude": -3.7038,
+        "continent": "Europe"
       }
     },
     "10035": {
@@ -1242,7 +1330,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": 48.8566,
-        "longitude": 2.3522
+        "longitude": 2.3522,
+        "continent": "Europe"
       }
     },
     "10036": {
@@ -1256,7 +1345,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 53.0793,
-        "longitude": 8.8017
+        "longitude": 8.8017,
+        "continent": "Europe"
       }
     },
     "10037": {
@@ -1270,7 +1360,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Dormitory, Homestay",
         "latitude": 48.8566,
-        "longitude": 2.3522
+        "longitude": 2.3522,
+        "continent": "Europe"
       }
     },
     "10039": {
@@ -1284,7 +1375,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": -33.9249,
-        "longitude": 18.4241
+        "longitude": 18.4241,
+        "continent": "Africa"
       }
     },
     "10041": {
@@ -1298,7 +1390,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 17.0732,
-        "longitude": -96.7266
+        "longitude": -96.7266,
+        "continent": "North America"
       }
     },
     "10042": {
@@ -1312,7 +1405,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": 52.3676,
-        "longitude": 4.9041
+        "longitude": 4.9041,
+        "continent": "Europe"
       }
     },
     "10043": {
@@ -1326,7 +1420,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Homestay, Hostel/Hotel, Other",
         "latitude": -54.8019,
-        "longitude": -68.3030
+        "longitude": -68.3030,
+        "continent": "South America"
       }
     },
     "10045": {
@@ -1340,7 +1435,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 5.6037,
-        "longitude": -0.1870
+        "longitude": -0.1870,
+        "continent": "Africa"
       }
     },
     "10046": {
@@ -1354,7 +1450,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 3.8480,
-        "longitude": 11.5021
+        "longitude": 11.5021,
+        "continent": "Africa"
       }
     },
     "10049": {
@@ -1368,7 +1465,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay",
         "latitude": -7.7956,
-        "longitude": 110.3695
+        "longitude": 110.3695,
+        "continent": "Asia"
       }
     },
     "10050": {
@@ -1382,7 +1480,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 40.7128,
-        "longitude": -74.0060
+        "longitude": -74.0060,
+        "continent": "North America"
       }
     },
     "10051": {
@@ -1396,7 +1495,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Homestay, Hostel/Hotel",
         "latitude": 38.9072,
-        "longitude": -77.0369
+        "longitude": -77.0369,
+        "continent": "North America"
       }
     },
     "10052": {
@@ -1410,7 +1510,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": 37.9838,
-        "longitude": 23.7275
+        "longitude": 23.7275,
+        "continent": "Europe"
       }
     },
     "10054": {
@@ -1424,7 +1525,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Dormitory",
         "latitude": 47.9990,
-        "longitude": 7.8421
+        "longitude": 7.8421,
+        "continent": "Europe"
       }
     },
     "10056": {
@@ -1438,7 +1540,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 41.3851,
-        "longitude": 2.1734
+        "longitude": 2.1734,
+        "continent": "Europe"
       }
     },
     "10057": {
@@ -1452,7 +1555,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 41.3851,
-        "longitude": 2.1734
+        "longitude": 2.1734,
+        "continent": "Europe"
       }
     },
     "10058": {
@@ -1466,7 +1570,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared)",
         "latitude": 31.9454,
-        "longitude": 35.9284
+        "longitude": 35.9284,
+        "continent": "Asia"
       }
     },
     "10059": {
@@ -1480,7 +1585,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 51.5074,
-        "longitude": -0.1278
+        "longitude": -0.1278,
+        "continent": "Europe"
       }
     },
     "10076": {
@@ -1494,7 +1600,8 @@
         "additional_prerequisites": "Yes, see program homepage",
         "housing": "Apartment (shared), Homestay",
         "latitude": 35.0116,
-        "longitude": 135.7681
+        "longitude": 135.7681,
+        "continent": "Asia"
       }
     },
     "10077": {
@@ -1508,7 +1615,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory, Homestay",
         "latitude": 37.5665,
-        "longitude": 126.9780
+        "longitude": 126.9780,
+        "continent": "Asia"
       }
     },
     "10078": {
@@ -1522,7 +1630,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": 3.4516,
-        "longitude": -76.5320
+        "longitude": -76.5320,
+        "continent": "South America"
       }
     },
     "10079": {
@@ -1536,7 +1645,8 @@
         "additional_prerequisites": "N/A",
         "housing": "Apartment (shared), Dormitory, Homestay",
         "latitude": 40.4168,
-        "longitude": -3.7038
+        "longitude": -3.7038,
+        "continent": "Europe"
       }
     },
     "10080": {
@@ -1550,7 +1660,8 @@
         "additional_prerequisites": "N/A",
         "housing": "N/A",
         "latitude": 37.5665,
-        "longitude": 126.9780
+        "longitude": 126.9780,
+        "continent": "Asia"
       }
     },
     "10085": {
@@ -1564,71 +1675,136 @@
         "additional_prerequisites": "N/A",
         "housing": "Dormitory",
         "latitude": 37.5665,
-        "longitude": 126.9780
+        "longitude": 126.9780,
+        "continent": "Asia"
       }
     },
     "10087": {
-      "latitude": 51.5074,
-      "longitude": -0.1278
+      "program_id": "10087",
+      "program_details": {
+        "latitude": 51.5074,
+        "longitude": -0.1278,
+        "continent": "Europe"
+      }
     },
     "10088": {
-      "latitude": 38.9072,
-      "longitude": -77.0369
+      "program_id": "10088",
+      "program_details": {
+        "latitude": 38.9072,
+        "longitude": -77.0369,
+        "continent": "North America"
+      }
     },
     "10089": {
-      "latitude": 25.0330,
-      "longitude": 121.5654
+      "program_id": "10089",
+      "program_details": {
+        "latitude": 25.0330,
+        "longitude": 121.5654,
+        "continent": "Asia"
+      }
     },
     "10090": {
-      "latitude": -37.8136,
-      "longitude": 144.9631
+      "program_id": "10090",
+      "program_details": {
+        "latitude": -37.8136,
+        "longitude": 144.9631,
+        "continent": "Australia"
+      }
     },
     "10091": {
-      "latitude": 51.5074,
-      "longitude": -0.1278
+      "program_id": "10091",
+      "program_details": {
+        "latitude": 51.5074,
+        "longitude": -0.1278,
+        "continent": "Europe"
+      }
     },
     "10092": {
-      "latitude": 51.5074,
-      "longitude": -0.1278
+      "program_id": "10092",
+      "program_details": {
+        "latitude": 51.5074,
+        "longitude": -0.1278,
+        "continent": "Europe"
+      }
     },
     "10093": {
-      "latitude": 45.4642,
-      "longitude": 9.1900
+      "program_id": "10093",
+      "program_details": {
+        "latitude": 45.4642,
+        "longitude": 9.1900,
+        "continent": "Europe"
+      }
     },
     "10094": {
-      "latitude": 52.5200,
-      "longitude": 13.4050
+      "program_id": "10094",
+      "program_details": {
+        "latitude": 52.5200,
+        "longitude": 13.4050,
+        "continent": "Europe"
+      }
     },
     "10099": {
-      "latitude": 48.8566,
-      "longitude": 2.3522
+      "program_id": "10099",
+      "program_details": {
+        "latitude": 48.8566,
+        "longitude": 2.3522,
+        "continent": "Europe"
+      }
     },
     "10100": {
-      "latitude": 45.4642,
-      "longitude": 9.1900
+      "program_id": "10100",
+      "program_details": {
+        "latitude": 45.4642,
+        "longitude": 9.1900,
+        "continent": "Europe"
+      }
     },
     "10104": {
-      "latitude": 50.0755,
-      "longitude": 14.4378
+      "program_id": "10104",
+      "program_details": {
+        "latitude": 50.0755,
+        "longitude": 14.4378,
+        "continent": "Europe"
+      }
     },
     "10106": {
-      "latitude": 43.2630,
-      "longitude": -2.9350
+      "program_id": "10106",
+      "program_details": {
+        "latitude": 43.2630,
+        "longitude": -2.9350,
+        "continent": "Europe"
+      }
     },
     "10127": {
-      "latitude": 0,
-      "longitude": 0
+      "program_id": "10127",
+      "program_details": {
+        "latitude": 0,
+        "longitude": 0,
+        "continent": "Unknown"
+      }
     },
     "10130": {
-      "latitude": 0,
-      "longitude": 0
+      "program_id": "10130",
+      "program_details": {
+        "latitude": 0,
+        "longitude": 0,
+        "continent": "Unknown"
+      }
     },
     "10131": {
-      "latitude": 0,
-      "longitude": 0
+      "program_id": "10131",
+      "program_details": {
+        "latitude": 0,
+        "longitude": 0,
+        "continent": "Unknown"
+      }
     },
     "10132": {
-      "latitude": 0,
-      "longitude": 0
+      "program_id": "10132",
+      "program_details": {
+        "latitude": 0,
+        "longitude": 0,
+        "continent": "Unknown"
+      }
     }
 }

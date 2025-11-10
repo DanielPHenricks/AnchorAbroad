@@ -26,7 +26,7 @@ class ProgramSerializer(serializers.ModelSerializer):
         model = Program
         fields = ['program_id', 'program_details', 'budget_info', 
                  'main_page_url', 'homepage_url', 'sections', 'budget_page_url', 'img_url',
-                 'latitude', 'longitude']
+                 'latitude', 'longitude', 'continent']
     
     def get_program_details(self, obj):
         return {
