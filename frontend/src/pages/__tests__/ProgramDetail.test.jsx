@@ -35,10 +35,10 @@ describe('ProgramDetail Page', () => {
   describe('Loading State', () => {
     it('should show loading message while fetching data', () => {
       apiService.getPrograms.mockImplementation(
-        () => new Promise(() => {}) // Never resolves
+        () => new Promise(() => {}), // Never resolves
       );
       apiService.checkFavorite.mockImplementation(
-        () => new Promise(() => {}) // Never resolves
+        () => new Promise(() => {}), // Never resolves
       );
 
       renderWithRouter(<ProgramDetail />);
@@ -90,10 +90,7 @@ describe('ProgramDetail Page', () => {
       renderWithRouter(<ProgramDetail />);
 
       await waitFor(() => {
-        expect(consoleErrorSpy).toHaveBeenCalledWith(
-          'Error fetching program:',
-          expect.any(Error)
-        );
+        expect(consoleErrorSpy).toHaveBeenCalledWith('Error fetching program:', expect.any(Error));
       });
 
       consoleErrorSpy.mockRestore();
@@ -182,10 +179,7 @@ describe('ProgramDetail Page', () => {
       await user.click(favoriteButton);
 
       await waitFor(() => {
-        expect(consoleErrorSpy).toHaveBeenCalledWith(
-          'Error toggling favorite:',
-          expect.any(Error)
-        );
+        expect(consoleErrorSpy).toHaveBeenCalledWith('Error toggling favorite:', expect.any(Error));
       });
 
       // Should still show "Add to Favorites" since toggle failed

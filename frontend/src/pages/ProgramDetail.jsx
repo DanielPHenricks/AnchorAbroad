@@ -5,7 +5,17 @@
 
 import { useParams } from 'react-router';
 import { useState, useEffect, useRef } from 'react';
-import { Typography, Box, Button, Paper, List, ListItemButton, ListItemText, Divider, IconButton } from '@mui/material';
+import {
+  Typography,
+  Box,
+  Button,
+  Paper,
+  List,
+  ListItemButton,
+  ListItemText,
+  Divider,
+  IconButton,
+} from '@mui/material';
 import { Favorite, FavoriteBorder, ChevronLeft, ChevronRight } from '@mui/icons-material';
 import apiService from '../services/api';
 
@@ -23,7 +33,7 @@ export default function ProgramDetail() {
       try {
         const [programs, favoriteCheck] = await Promise.all([
           apiService.getPrograms(),
-          apiService.checkFavorite(id).catch(() => ({ is_favorite: false }))
+          apiService.checkFavorite(id).catch(() => ({ is_favorite: false })),
         ]);
         const foundProgram = programs.find((p) => p.program_id === id);
         setProgram(foundProgram);
@@ -55,7 +65,7 @@ export default function ProgramDetail() {
     setActiveSection(index);
     sectionRefs.current[index]?.scrollIntoView({
       behavior: 'smooth',
-      block: 'start'
+      block: 'start',
     });
   };
 
@@ -84,7 +94,7 @@ export default function ProgramDetail() {
         display: 'flex',
         minHeight: '100vh',
         backgroundColor: '#FFFFFF',
-        position: 'relative'
+        position: 'relative',
       }}
     >
       <Box
@@ -101,7 +111,7 @@ export default function ProgramDetail() {
           display: 'flex',
           flexDirection: 'column',
           transition: 'width 0.3s ease',
-          zIndex: (theme) => theme.zIndex.drawer
+          zIndex: (theme) => theme.zIndex.drawer,
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 1 }}>
@@ -109,7 +119,7 @@ export default function ProgramDetail() {
             onClick={() => setMenuOpen(!menuOpen)}
             sx={{
               color: 'secondary.contrastText',
-              '&:hover': { backgroundColor: 'rgba(255,255,255,0.1)' }
+              '&:hover': { backgroundColor: 'rgba(255,255,255,0.1)' },
             }}
             aria-label={menuOpen ? 'Collapse menu' : 'Expand menu'}
           >
@@ -129,7 +139,7 @@ export default function ProgramDetail() {
                   borderRadius: 12,
                   textTransform: 'none',
                   color: 'primary.main',
-                  borderColor: 'primary.main'
+                  borderColor: 'primary.main',
                 }}
               >
                 {isFavorite ? 'Favorited' : 'Add to Favorites'}
@@ -149,8 +159,7 @@ export default function ProgramDetail() {
                         onClick={() => scrollToSection(index)}
                         sx={{
                           borderRadius: 1,
-                          backgroundColor:
-                            activeSection === index ? 'primary.main' : 'transparent',
+                          backgroundColor: activeSection === index ? 'primary.main' : 'transparent',
                           color:
                             activeSection === index
                               ? 'primary.contrastText'
@@ -160,12 +169,12 @@ export default function ProgramDetail() {
                             backgroundColor:
                               activeSection === index ? 'primary.dark' : 'secondary.dark',
                             transform: 'translateX(4px)',
-                            boxShadow: activeSection === index ? 2 : 1
+                            boxShadow: activeSection === index ? 2 : 1,
                           },
                           '&.Mui-selected': {
                             backgroundColor: 'primary.main',
-                            '&:hover': { backgroundColor: 'primary.dark' }
-                          }
+                            '&:hover': { backgroundColor: 'primary.dark' },
+                          },
                         }}
                       >
                         <ListItemText primary={section.title} />
@@ -199,8 +208,8 @@ export default function ProgramDetail() {
                       '&:hover': {
                         backgroundColor: 'secondary.dark',
                         transform: 'translateX(4px)',
-                        boxShadow: 1
-                      }
+                        boxShadow: 1,
+                      },
                     }}
                   >
                     <ListItemText primary="Program Page" />
@@ -219,8 +228,8 @@ export default function ProgramDetail() {
                       '&:hover': {
                         backgroundColor: 'secondary.dark',
                         transform: 'translateX(4px)',
-                        boxShadow: 1
-                      }
+                        boxShadow: 1,
+                      },
                     }}
                   >
                     <ListItemText primary="Homepage" />
@@ -239,8 +248,8 @@ export default function ProgramDetail() {
                       '&:hover': {
                         backgroundColor: 'secondary.dark',
                         transform: 'translateX(4px)',
-                        boxShadow: 1
-                      }
+                        boxShadow: 1,
+                      },
                     }}
                   >
                     <ListItemText primary="Budget Info" />
@@ -259,7 +268,7 @@ export default function ProgramDetail() {
           p: 4,
           overflowY: 'auto',
           scrollMarginTop: '64px',
-          transition: 'margin-left 0.3s ease'
+          transition: 'margin-left 0.3s ease',
         }}
       >
         <Paper elevation={0} sx={{ p: 4, borderRadius: 3 }}>
@@ -278,7 +287,7 @@ export default function ProgramDetail() {
                 height: 400,
                 margin: '0 auto',
                 borderRadius: 2,
-                objectFit: 'contain'
+                objectFit: 'contain',
               }}
             />
           </Box>
@@ -321,7 +330,7 @@ export default function ProgramDetail() {
                 <Box
                   key={sectionIndex}
                   ref={(el) => (sectionRefs.current[sectionIndex] = el)}
-                  sx={{ mb: 6, p: 2, px: 8, scrollMarginTop: '64px', '& a': {color: '#B49248'}}}
+                  sx={{ mb: 6, p: 2, px: 8, scrollMarginTop: '64px', '& a': { color: '#B49248' } }}
                 >
                   <Typography variant="h4" gutterBottom sx={{ fontWeight: 500, mb: 3 }}>
                     {section.title}
@@ -335,13 +344,11 @@ export default function ProgramDetail() {
                         fontSize: '1.4rem',
                         textAlign: 'left',
                         fontFamily: 'Libre Caslon Text',
-                        lineHeight: 1.5
+                        lineHeight: 1.5,
                       }}
                     />
                   ))}
-                  {sectionIndex < availableSections.length - 1 && (
-                    <Divider sx={{ mt: 4 }} />
-                  )}
+                  {sectionIndex < availableSections.length - 1 && <Divider sx={{ mt: 4 }} />}
                 </Box>
               ))}
             </Box>

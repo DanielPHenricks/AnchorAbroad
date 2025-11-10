@@ -23,6 +23,5 @@ describe('Signup Component', () => {
     it('should render signup form with all fields', () => {
       render(<Signup onSuccess={mockOnSuccess} onSwitchToLogin={mockOnSwitchToLogin} />);
     });
-
   });
 });

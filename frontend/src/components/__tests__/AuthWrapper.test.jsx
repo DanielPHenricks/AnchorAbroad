@@ -33,7 +33,7 @@ jest.mock('../navbar', () => {
 jest.mock('../login', () => {
   // Import inside the mock factory
   const { createMockUser: mockCreateMockUser } = require('../../utils/testUtils');
-  
+
   return function MockLogin({ onSuccess, onSwitchToSignup }) {
     return (
       <div data-testid="login">
@@ -47,7 +47,7 @@ jest.mock('../login', () => {
 jest.mock('../signup', () => {
   // Import inside the mock factory
   const { createMockUser: mockCreateMockUser } = require('../../utils/testUtils');
-  
+
   return function MockSignup({ onSuccess, onSwitchToLogin }) {
     return (
       <div data-testid="signup">
@@ -66,13 +66,13 @@ describe('AuthWrapper', () => {
   describe('Initial Loading State', () => {
     it('should show loading state while checking authentication', () => {
       apiService.getUserProfile.mockImplementation(
-        () => new Promise(() => {}) // Never resolves
+        () => new Promise(() => {}), // Never resolves
       );
 
       render(
         <AuthWrapper>
           <div>Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -87,7 +87,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div data-testid="protected-content">Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -106,7 +106,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div>Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -123,7 +123,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div data-testid="protected-content">Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -152,7 +152,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div data-testid="protected-content">Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -166,10 +166,7 @@ describe('AuthWrapper', () => {
         expect(screen.getByTestId('login')).toBeInTheDocument();
       });
 
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        'Logout failed:',
-        expect.any(Error)
-      );
+      expect(consoleErrorSpy).toHaveBeenCalledWith('Logout failed:', expect.any(Error));
 
       consoleErrorSpy.mockRestore();
     });
@@ -182,7 +179,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div data-testid="protected-content">Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -199,7 +196,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div data-testid="protected-content">Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -218,7 +215,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div>Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -239,7 +236,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div>Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -267,7 +264,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div data-testid="protected-content">Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -291,7 +288,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div data-testid="protected-content">Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -318,7 +315,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div>Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -343,7 +340,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div>Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -358,7 +355,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div>Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {
@@ -372,7 +369,7 @@ describe('AuthWrapper', () => {
       render(
         <AuthWrapper>
           <div>Protected Content</div>
-        </AuthWrapper>
+        </AuthWrapper>,
       );
 
       await waitFor(() => {

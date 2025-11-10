@@ -78,4 +78,4 @@ class FavoriteSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('year', 'major', 'study_abroad_term', 'profile_picture')
+        fields = ('user', 'year', 'major', 'study_abroad_term', 'profile_picture')

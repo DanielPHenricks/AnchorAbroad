@@ -142,7 +142,7 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
             transition: 'all 0.2s',
             '&:hover': {
               backgroundColor: 'secondary.dark',
-            }
+            },
           }}
         >
           {loading ? 'Logging in...' : 'Login'}
@@ -150,7 +150,16 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
 
         <Typography align="center">
           Don't have an account?{' '}
-          <Button variant="contained" onClick={onSwitchToSignup} sx={{ color: 'secondary.contrastText', backgroundColor: 'secondary.main', textTransform: 'none', borderRadius: 12 }}>
+          <Button
+            variant="contained"
+            onClick={onSwitchToSignup}
+            sx={{
+              color: 'secondary.contrastText',
+              backgroundColor: 'secondary.main',
+              textTransform: 'none',
+              borderRadius: 12,
+            }}
+          >
             Sign up
           </Button>
         </Typography>

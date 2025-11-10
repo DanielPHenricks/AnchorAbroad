@@ -55,7 +55,7 @@ describe('ApiService', () => {
             'Content-Type': 'application/json',
           },
           credentials: 'include',
-        })
+        }),
       );
       expect(result).toEqual(mockData);
     });
@@ -80,7 +80,7 @@ describe('ApiService', () => {
           },
           credentials: 'include',
           body: JSON.stringify({ key: 'value' }),
-        })
+        }),
       );
       expect(result).toEqual(mockData);
     });
@@ -91,11 +91,11 @@ describe('ApiService', () => {
           ok: false,
           status: 400,
           json: async () => ({ username: ['User already exists'] }),
-        })
+        }),
       );
 
       await expect(apiService.request('/test/', { method: 'POST' })).rejects.toThrow(
-        'A user with that username already exists.'
+        'A user with that username already exists.',
       );
     });
 
@@ -105,7 +105,7 @@ describe('ApiService', () => {
           ok: false,
           status: 500,
           json: async () => ({ message: 'Server error' }),
-        })
+        }),
       );
 
       await expect(apiService.request('/test/', { method: 'GET' })).rejects.toThrow('Server error');
@@ -115,7 +115,7 @@ describe('ApiService', () => {
       fetchSpy.mockReturnValue(mockFetchError('Network failure'));
 
       await expect(apiService.request('/test/', { method: 'GET' })).rejects.toThrow(
-        'Network failure'
+        'Network failure',
       );
     });
 
@@ -143,7 +143,7 @@ describe('ApiService', () => {
         'http://localhost:8000/api/test/',
         expect.objectContaining({
           method: 'GET',
-        })
+        }),
       );
       expect(result).toEqual(mockData);
     });
@@ -163,7 +163,7 @@ describe('ApiService', () => {
         expect.objectContaining({
           method: 'POST',
           body: JSON.stringify(postData),
-        })
+        }),
       );
       expect(result).toEqual(mockData);
     });
@@ -190,7 +190,7 @@ describe('ApiService', () => {
         expect.objectContaining({
           method: 'POST',
           body: JSON.stringify(userData),
-        })
+        }),
       );
       expect(result).toEqual(mockResponse);
     });
@@ -210,7 +210,7 @@ describe('ApiService', () => {
         expect.objectContaining({
           method: 'POST',
           body: JSON.stringify(credentials),
-        })
+        }),
       );
       expect(result).toEqual(mockResponse);
     });
@@ -228,7 +228,7 @@ describe('ApiService', () => {
         'http://localhost:8000/api/auth/logout/',
         expect.objectContaining({
           method: 'POST',
-        })
+        }),
       );
       expect(result).toEqual(mockResponse);
     });
@@ -245,7 +245,7 @@ describe('ApiService', () => {
         'http://localhost:8000/api/auth/profile/',
         expect.objectContaining({
           method: 'GET',
-        })
+        }),
       );
       expect(result).toEqual(mockUser);
     });
@@ -265,7 +265,7 @@ describe('ApiService', () => {
         'http://localhost:8000/api/programs/',
         expect.objectContaining({
           method: 'GET',
-        })
+        }),
       );
       expect(result).toEqual(mockPrograms);
     });
@@ -273,9 +273,7 @@ describe('ApiService', () => {
 
   describe('getFavorites', () => {
     it('should call favorites endpoint', async () => {
-      const mockFavorites = [
-        { id: 1, program: { program_id: 'TEST001', name: 'Program 1' } },
-      ];
+      const mockFavorites = [{ id: 1, program: { program_id: 'TEST001', name: 'Program 1' } }];
       fetchSpy.mockReturnValue(mockFetchResponse(mockFavorites));
 
       const result = await apiService.getFavorites();
@@ -284,7 +282,7 @@ describe('ApiService', () => {
         'http://localhost:8000/api/auth/favorites/',
         expect.objectContaining({
           method: 'GET',
-        })
+        }),
       );
       expect(result).toEqual(mockFavorites);
     });
@@ -304,7 +302,7 @@ describe('ApiService', () => {
         expect.objectContaining({
           method: 'POST',
           body: JSON.stringify({ program_id: programId }),
-        })
+        }),
       );
       expect(result).toEqual(mockResponse);
     });
@@ -323,7 +321,7 @@ describe('ApiService', () => {
         'http://localhost:8000/api/auth/favorites/TEST001/',
         expect.objectContaining({
           method: 'DELETE',
-        })
+        }),
       );
       expect(result).toEqual(mockResponse);
     });
@@ -341,7 +339,7 @@ describe('ApiService', () => {
         'http://localhost:8000/api/auth/favorites/TEST001/check/',
         expect.objectContaining({
           method: 'GET',
-        })
+        }),
       );
       expect(result).toEqual(mockResponse);
     });

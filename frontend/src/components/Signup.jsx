@@ -203,7 +203,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           helperText={errors.password_confirm}
           margin="normal"
           required
-          sx={{mb:2}}
+          sx={{ mb: 2 }}
         />
 
         <Button
@@ -219,7 +219,7 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
             mb: 1,
             color: 'secondary.contrastText',
             transition: 'all 0.2s',
-            '&:hover': {backgroundColor: 'secondary.dark',}
+            '&:hover': { backgroundColor: 'secondary.dark' },
           }}
         >
           {loading ? 'Creating Account...' : 'Sign Up'}
@@ -227,15 +227,17 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
 
         <Typography align="center">
           Already have an account?{' '}
-          <Button variant="contained" onClick={onSwitchToLogin}
-            sx={{ 
-              color: 'secondary.contrastText', 
-              backgroundColor: 'secondary.main', 
-              textTransform: 'none', 
+          <Button
+            variant="contained"
+            onClick={onSwitchToLogin}
+            sx={{
+              color: 'secondary.contrastText',
+              backgroundColor: 'secondary.main',
+              textTransform: 'none',
               borderRadius: 12,
-              '&:hover': {backgroundColor: 'secondary.dark',}
+              '&:hover': { backgroundColor: 'secondary.dark' },
             }}
-            >
+          >
             Login
           </Button>
         </Typography>
