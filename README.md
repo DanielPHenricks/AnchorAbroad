@@ -1,6 +1,6 @@
 # AnchorAbroad
 
-Anchor Abroad is a web application designed for prospective Vanderbilt study abroad students. It provides an interactive map of study abroad locations along with detailed information about each program, current student experiences, and activities. Additionally, it allows users to connect with program alumni, helping students make more informed decisions about where to study abroad.
+Anchor Abroad is a web application designed for prospective Vanderbilt study abroad students. It provides an interactive map of study abroad locations along with detailed information about each program, current student experiences, and activities. It allows for collaboration among prospective students and past alumni.
 
 ## Setup instructions
 
