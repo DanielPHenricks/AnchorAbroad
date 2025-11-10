@@ -79,6 +79,7 @@ const MapPage = ({ mapCenter }) => {
           <option value="Europe">Europe</option>
           <option value="North America">North America</option>
           <option value="South America">South America</option>
+          <option value="Australia">Australia</option>
           <option value="Oceania">Oceania</option>
         </select>
       </Box>
