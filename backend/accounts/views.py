@@ -5,7 +5,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.decorators import parser_classes
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
@@ -102,8 +103,9 @@ def check_favorite_view(request, program_id):
     is_favorite = Favorite.objects.filter(user=request.user, program_id=program_id).exists()
     return Response({'is_favorite': is_favorite}, status=status.HTTP_200_OK)
 
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT', 'PATCH'])
 @permission_classes([IsAuthenticated])
+@parser_classes([MultiPartParser, FormParser, JSONParser])
 def user_profile_view(request):
     """Get or update user profile"""
     user = request.user

@@ -119,9 +119,7 @@ describe('Home Page', () => {
       renderWithRouter(<Home />);
 
       await waitFor(() => {
-        expect(
-          screen.getByText(/no favorite programs yet/i)
-        ).toBeInTheDocument();
+        expect(screen.getByText(/no favorite programs yet/i)).toBeInTheDocument();
       });
     });
 
@@ -159,13 +157,11 @@ describe('Home Page', () => {
       await waitFor(() => {
         expect(consoleErrorSpy).toHaveBeenCalledWith(
           'Error fetching favorites:',
-          expect.any(Error)
+          expect.any(Error),
         );
       });
 
-      expect(
-        screen.getByText(/no favorite programs yet/i)
-      ).toBeInTheDocument();
+      expect(screen.getByText(/no favorite programs yet/i)).toBeInTheDocument();
 
       consoleErrorSpy.mockRestore();
     });
@@ -176,9 +172,7 @@ describe('Home Page', () => {
       renderWithRouter(<Home />);
 
       await waitFor(() => {
-        expect(
-          screen.getByText(/no favorite programs yet/i)
-        ).toBeInTheDocument();
+        expect(screen.getByText(/no favorite programs yet/i)).toBeInTheDocument();
       });
     });
   });

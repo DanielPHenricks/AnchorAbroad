@@ -19,18 +19,18 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         {/* the box is for the navbar padding so that it doesn't obscure content*/}
-        <Box sx={{ paddingTop: '64px' }}> 
-        <Router>
-          <AuthWrapper>
-            <Routes>
-              <Route path="*" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/programs/:id" element={<ProgramDetail />} />
-              <Route path="/messages/:id" element={<MessageDetail />} />
-              <Route path="/map" element={<MapPage />} />
-            </Routes>
-          </AuthWrapper>
-        </Router>
+        <Box sx={{ paddingTop: '64px' }}>
+          <Router>
+            <AuthWrapper>
+              <Routes>
+                <Route path="*" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/programs/:id" element={<ProgramDetail />} />
+                <Route path="/messages/:id" element={<MessageDetail />} />
+                <Route path="/map" element={<MapPage />} />
+              </Routes>
+            </AuthWrapper>
+          </Router>
         </Box>
       </ThemeProvider>
     </div>

@@ -12,12 +12,7 @@ global.TextEncoder = TextEncoder;
 export const renderWithRouter = (ui, { route = '/', ...renderOptions } = {}) => {
   window.history.pushState({}, 'Test page', route);
 
-  return render(
-    <BrowserRouter>
-      {ui}
-    </BrowserRouter>,
-    renderOptions
-  );
+  return render(<BrowserRouter>{ui}</BrowserRouter>, renderOptions);
 };
 
 /**
@@ -61,7 +56,7 @@ export const createMockProgram = (overrides = {}) => ({
   minimum_gpa: 3.0,
   language_prerequisite: 'None',
   latitude: 40.7128,
-  longitude: -74.0060,
+  longitude: -74.006,
   ...overrides,
 });
 

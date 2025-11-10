@@ -177,7 +177,7 @@ describe('Login Component', () => {
     it('should disable submit button while loading', async () => {
       const user = userEvent.setup();
       apiService.login.mockImplementation(
-        () => new Promise((resolve) => setTimeout(resolve, 1000))
+        () => new Promise((resolve) => setTimeout(resolve, 1000)),
       );
 
       render(<Login onSuccess={mockOnSuccess} onSwitchToSignup={mockOnSwitchToSignup} />);
@@ -195,7 +195,7 @@ describe('Login Component', () => {
     it('should show loading text while submitting', async () => {
       const user = userEvent.setup();
       apiService.login.mockImplementation(
-        () => new Promise((resolve) => setTimeout(resolve, 1000))
+        () => new Promise((resolve) => setTimeout(resolve, 1000)),
       );
 
       render(<Login onSuccess={mockOnSuccess} onSwitchToSignup={mockOnSwitchToSignup} />);
@@ -231,9 +231,7 @@ describe('Login Component', () => {
       await user.type(screen.getByLabelText(/password/i), 'password123');
       await user.click(screen.getByRole('button', { name: /login/i }));
 
-      expect(
-        await screen.findByText('Login failed. Please try again.')
-      ).toBeInTheDocument();
+      expect(await screen.findByText('Login failed. Please try again.')).toBeInTheDocument();
     });
 
     it('should re-enable submit button after failed login', async () => {

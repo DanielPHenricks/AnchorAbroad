@@ -32,7 +32,6 @@ describe('Navbar Component', () => {
       expect(screen.queryByText('Messages')).not.toBeInTheDocument();
       expect(screen.queryByText('Programs')).not.toBeInTheDocument();
     });
-
   });
 
   describe('Authenticated State', () => {
@@ -98,7 +97,7 @@ describe('Navbar Component', () => {
   describe('Responsive Behavior', () => {
     it('should render with proper spacing', () => {
       const { container } = renderWithRouter(
-        <Navbar user={createMockUser()} onLogout={jest.fn()} />
+        <Navbar user={createMockUser()} onLogout={jest.fn()} />,
       );
 
       const appBar = container.querySelector('[class*="MuiAppBar"]');
@@ -111,9 +110,7 @@ describe('Navbar Component', () => {
       const mockUser = createMockUser();
       const mockOnLogout = jest.fn();
 
-      const { container } = renderWithRouter(
-        <Navbar user={mockUser} onLogout={mockOnLogout} />
-      );
+      const { container } = renderWithRouter(<Navbar user={mockUser} onLogout={mockOnLogout} />);
 
       expect(container).toBeInTheDocument();
     });
