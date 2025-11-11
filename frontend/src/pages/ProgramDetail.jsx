@@ -313,38 +313,28 @@ export default function ProgramDetail() {
             </Box>
           )}
 
-          <Divider sx={{ mt: 4 }} />
+        {program.program_details.housing && (
+          <Box sx={{ mb: 3 }}>
+            <Typography variant="h6" gutterBottom>Housing</Typography>
+            <Typography>{program.program_details.housing}</Typography>
+          </Box>
+        )}
 
-          {availableSections.length > 0 && (
-            <Box sx={{ mt: 4 }}>
-              {availableSections.map((section, sectionIndex) => (
-                <Box
-                  key={sectionIndex}
-                  ref={(el) => (sectionRefs.current[sectionIndex] = el)}
-                  sx={{ mb: 6, p: 2, px: 8, scrollMarginTop: '64px', '& a': {color: '#B49248'}}}
-                >
-                  <Typography variant="h4" gutterBottom sx={{ fontWeight: 500, mb: 3 }}>
-                    {section.title}
-                  </Typography>
-                  {section.content.map((htmlContent, contentIndex) => (
-                    <Box
-                      key={contentIndex}
-                      dangerouslySetInnerHTML={{ __html: htmlContent }}
-                      sx={{
-                        mb: 2,
-                        fontSize: '1.4rem',
-                        textAlign: 'left',
-                        fontFamily: 'Libre Caslon Text',
-                        lineHeight: 1.5
-                      }}
-                    />
-                  ))}
-                  {sectionIndex < availableSections.length - 1 && (
-                    <Divider sx={{ mt: 4 }} />
-                  )}
-                </Box>
-              ))}
-            </Box>
+        <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+          {program.main_page_url && (
+            <Button variant="contained" href={program.main_page_url} target="_blank">
+              Vanderbilt Program
+            </Button>
+          )}
+          {program.homepage_url && (
+            <Button variant="outlined" href={program.homepage_url} target="_blank">
+              Program Homepage
+            </Button>
+          )}
+          {program.budget_page_url && (
+            <Button variant="outlined" href={program.budget_page_url} target="_blank">
+              Budget Info
+            </Button>
           )}
         </Paper>
       </Box>
