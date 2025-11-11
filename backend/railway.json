@@ -5,7 +5,7 @@
       "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput"
     },
     "deploy": {
-      "startCommand": "gunicorn your_project.wsgi --log-file -",
+      "startCommand": "gunicorn backend.wsgi --log-file -",
       "restartPolicyType": "ON_FAILURE",
       "restartPolicyMaxRetries": 10
     }
