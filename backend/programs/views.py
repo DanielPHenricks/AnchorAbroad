@@ -13,5 +13,5 @@ from .serializers import ProgramSerializer
 def list_programs(request): # List all the programs.
     programs = Program.objects.all()
     serializer = ProgramSerializer(programs, many=True)
-    print(serializer.data)
+    print("Program view")
     return JsonResponse(serializer.data, safe=False)
