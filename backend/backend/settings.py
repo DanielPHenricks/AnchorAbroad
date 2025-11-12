@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 import dj_database_url
-
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=oorkzdiz@djn=8c+j6uj0^uy)z9vxa(l!b3psnqdpdzmsvi3j'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-=oorkzdiz@djn=8c+j6uj0^uy)z9vxa(l!b3psnqdpdzmsvi3j')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
+    '.onrender.com',
     '.railway.app',
     'localhost',
     '127.0.0.1',
@@ -84,23 +83,22 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-POSTGRES_LOCAL = True
+# Database configuration
+# Use DATABASE_URL environment variable if available (Render), otherwise use SQLite
+database_url = os.environ.get('DATABASE_URL')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'anchorabroad_db',
-        'USER': 'anchorabroad_user',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',  # Or the IP/hostname of your PostgreSQL server
-        'PORT': '',           # Default PostgreSQL port is 5432, leave empty to use default
+if database_url:
+    DATABASES = {
+        'default': dj_database_url.parse(database_url, conn_max_age=600)
     }
-}
-
-# if POSTGRES_LOCAL == True:
-#     DATABASES['default'] = dj_database_url.parse("")
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+else:
+    # Local development fallback
+    DATABASES = {
+        'default': {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3"
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -133,14 +131,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'staticfiles/'
-if not DEBUG:
-    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+# Tell Django to copy static assets into a path called `staticfiles` (for deployment)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+# and renames the files with unique names for each version to support long-term caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -153,15 +150,15 @@ REST_FRAMEWORK = {
     ],
 }
 
-# Make sure these are set
+# CORS and CSRF settings
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-]
+# Get allowed origins from environment variable, fallback to localhost for development
+cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000')
+CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins.split(',')]
+
+csrf_origins = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:3000')
+CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins.split(',')]
 
 # REST Framework settings
 REST_FRAMEWORK = {

@@ -9,8 +9,9 @@ services:
     plan: free
     name: backend
     runtime: python
-    buildCommand: './backend/build.sh'
-    startCommand: 'python -m gunicorn backend.asgi:application -k uvicorn.workers.UvicornWorker'
+    rootDir: backend
+    buildCommand: './build.sh'
+    startCommand: 'gunicorn backend.asgi:application -k uvicorn.workers.UvicornWorker'
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -18,5 +19,11 @@ services:
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
-      - key: WEB_CONCURRENCY
-        value: 4
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DEBUG
+        value: False
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://your-frontend-domain.onrender.com
+      - key: CSRF_TRUSTED_ORIGINS
+        value: https://your-frontend-domain.onrender.com
