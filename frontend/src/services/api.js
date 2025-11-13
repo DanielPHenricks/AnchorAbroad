@@ -52,13 +52,6 @@ class ApiService {
       credentials: 'include',
     };
 
-    // Add CSRF token for non-GET requests
-    if (config.method && config.method !== 'GET') {
-      const csrfToken = this.getCsrfToken();
-      if (csrfToken) {
-        config.headers['X-CSRFToken'] = csrfToken;
-      }
-    }
 
     // Attach body properly
     if (options.body) {
