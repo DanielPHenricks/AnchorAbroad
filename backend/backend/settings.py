@@ -143,12 +143,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CORS_ALLOW_ALL_ORIGINS = True
 # CORS and CSRF settings
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
 
-# Get allowed origins from environment variable, fallback to localhost for development
-cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000')
-CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins.split(',')]
+# # Get allowed origins from environment variable, fallback to localhost for development
+# cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000')
+# CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins.split(',')]
 
 # csrf_origins = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:3000')
 # CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins.split(',')]
