@@ -12,25 +12,6 @@ class ApiService {
   }
 
   /**
-   * Get CSRF token from cookies
-   */
-  getCsrfToken() {
-    const name = 'csrftoken';
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === name + '=') {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
-
-  /**
    * Make HTTP request with proper headers and error handling
    */
   async request(endpoint, options = {}) {
@@ -46,19 +27,9 @@ class ApiService {
       headers['Content-Type'] = 'application/json';
     }
 
-    // Add CSRF token for state-changing requests
-    const method = options.method || 'GET';
-    if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)) {
-      const csrfToken = this.getCsrfToken();
-      if (csrfToken) {
-        headers['X-CSRFToken'] = csrfToken;
-      }
-    }
-
     const config = {
       method,
-      headers,
-      credentials: 'include',
+      headers
     };
 
 
