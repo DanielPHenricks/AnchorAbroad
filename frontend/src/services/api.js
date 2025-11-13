@@ -4,7 +4,7 @@
  */
 
 // This will need to be changed to the actual URL of the backend server when deploying.
-const API_BASE_URL =  process.env.REACT_APP_API_URL || 'http://localhost:8000/api'
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api'
 
 class ApiService {
   constructor() {
@@ -28,10 +28,10 @@ class ApiService {
     }
 
     const config = {
-      method,
-      headers
+      method: options.method || 'GET',
+      headers,
+      credentials: 'include',
     };
-
 
     // Attach body properly
     if (options.body) {
@@ -116,11 +116,6 @@ class ApiService {
     } else {
       options.body = JSON.stringify(profileData);
       options.headers = { 'Content-Type': 'application/json' };
-    }
-
-    const csrfToken = this.getCsrfToken();
-    if (csrfToken) {
-      options.headers['X-CSRFToken'] = csrfToken;
     }
 
     const response = await fetch(`${this.baseURL}/auth/profile/`, options);
