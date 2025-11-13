@@ -147,8 +147,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_CREDENTIALS = True
 
 # Get allowed origins from environment variable, fallback to localhost for development
-cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000,https://anchorabroad.onrender.com')
+# Add your Vercel domain here
+cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000,https://anchorabroad.onrender.com,https://anchor-abroad.vercel.app')
 CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins.split(',')]
+
+# Session cookie settings for cross-domain authentication
+SESSION_COOKIE_SAMESITE = 'None'  # Allow cross-site cookies
+SESSION_COOKIE_SECURE = not DEBUG  # Only require HTTPS in production
+CSRF_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SECURE = not DEBUG
 
 # csrf_origins = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:3000')
 # CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins.split(',')]
