@@ -46,8 +46,17 @@ class ApiService {
       headers['Content-Type'] = 'application/json';
     }
 
+    // Add CSRF token for state-changing requests
+    const method = options.method || 'GET';
+    if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)) {
+      const csrfToken = this.getCsrfToken();
+      if (csrfToken) {
+        headers['X-CSRFToken'] = csrfToken;
+      }
+    }
+
     const config = {
-      method: options.method || 'GET',
+      method,
       headers,
       credentials: 'include',
     };
