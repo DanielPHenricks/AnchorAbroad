@@ -1,19 +1,13 @@
-/**
- * Names: Daniel, Jacob, Maharshi, Ben
- * Time: 2 hours
- */
-
 import React, { useState } from 'react';
-import { Box, TextField, Button, Typography, Alert, Paper, Divider } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box, TextField, Button, Typography, Alert, Paper } from '@mui/material';
 import apiService from '../services/api';
 
 /**
- * Login component for user authentication
+ * Alumni login component - standalone without context
  */
-const Login = ({ onSuccess, onSwitchToSignup }) => {
+const AlumniLogin = ({ onSuccess, onSwitchToSignup }) => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
   const [errors, setErrors] = useState({});
@@ -21,7 +15,6 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
 
   /**
    * Handle input field changes
-   * @param {Event} e
    */
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,13 +34,14 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
 
   /**
    * Validate form data
-   * @returns {Object} validation errors
    */
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.username.trim()) {
-      newErrors.username = 'Username is required';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
     }
 
     if (!formData.password) {
@@ -59,7 +53,6 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
 
   /**
    * Handle form submission
-   * @param {Event} e
    */
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -74,14 +67,14 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
     setErrors({});
 
     try {
-      const response = await apiService.login(formData);
-      console.log('Login successful:', response);
+      const response = await apiService.alumniLogin(formData);
+      console.log('Alumni login successful:', response);
 
       if (onSuccess) {
-        onSuccess(response.user);
+        onSuccess(response.alumni);
       }
     } catch (error) {
-      console.error('Login failed:', error);
+      console.error('Alumni login failed:', error);
       setErrors({
         general: error.message || 'Login failed. Please try again.',
       });
@@ -93,7 +86,11 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, maxWidth: 400, mx: 'auto', mt: 4 }}>
       <Typography variant="h4" component="h1" gutterBottom align="center">
-        Login
+        Alumni Login
+      </Typography>
+
+      <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 2 }}>
+        Login to share your study abroad experience
       </Typography>
 
       <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
@@ -105,12 +102,13 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
 
         <TextField
           fullWidth
-          name="username"
-          label="Username"
-          value={formData.username}
+          name="email"
+          label="Email"
+          type="email"
+          value={formData.email}
           onChange={handleChange}
-          error={!!errors.username}
-          helperText={errors.username}
+          error={!!errors.email}
+          helperText={errors.email}
           margin="normal"
           required
         />
@@ -139,6 +137,7 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
             textTransform: 'none',
             fontSize: '1rem',
             mb: 1,
+            mt: 2,
             color: 'secondary.contrastText',
             transition: 'all 0.2s',
             '&:hover': {
@@ -146,10 +145,10 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
             },
           }}
         >
-          {loading ? 'Logging in...' : 'Login'}
+          {loading ? 'Logging in...' : 'Login as Alumni'}
         </Button>
 
-        <Typography align="center">
+        <Typography align="center" sx={{ mt: 2 }}>
           Don't have an account?{' '}
           <Button
             variant="contained"
@@ -164,25 +163,9 @@ const Login = ({ onSuccess, onSwitchToSignup }) => {
             Sign up
           </Button>
         </Typography>
-
-        <Divider sx={{ my: 2 }}>OR</Divider>
-
-        <Typography align="center" variant="body2" color="text.secondary">
-          Are you an alumni?{' '}
-          <Link
-            to="/alumni"
-            style={{
-              color: '#B49248',
-              textDecoration: 'none',
-              fontWeight: 'bold',
-            }}
-          >
-            Login as Alumni
-          </Link>
-        </Typography>
       </Box>
     </Paper>
   );
 };
 
-export default Login;
+export default AlumniLogin;

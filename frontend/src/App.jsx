@@ -10,6 +10,7 @@ import ProgramDetail from './pages/ProgramDetail';
 import MessageDetail from './pages/MessageDetail';
 import MapPage from './pages/Map';
 import Home from './pages/Home';
+import AlumniAuth from './pages/AlumniAuth';
 import theme from './theme';
 import { Box } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
@@ -21,15 +22,33 @@ function App() {
         {/* the box is for the navbar padding so that it doesn't obscure content*/}
         <Box sx={{ paddingTop: '64px' }}>
           <Router>
-            <AuthWrapper>
-              <Routes>
-                <Route path="*" element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/programs/:id" element={<ProgramDetail />} />
-                <Route path="/messages/:id" element={<MessageDetail />} />
-                <Route path="/map" element={<MapPage />} />
-              </Routes>
-            </AuthWrapper>
+            <Routes>
+              {/* Public route - Alumni auth page */}
+              <Route
+                path="/alumni"
+                element={
+                  <AuthWrapper requireAuth={false}>
+                    <AlumniAuth />
+                  </AuthWrapper>
+                }
+              />
+
+              {/* Protected routes - require student authentication */}
+              <Route
+                path="*"
+                element={
+                  <AuthWrapper requireAuth={true}>
+                    <Routes>
+                      <Route path="/home" element={<Home />} />
+                      <Route path="/programs/:id" element={<ProgramDetail />} />
+                      <Route path="/messages/:id" element={<MessageDetail />} />
+                      <Route path="/map" element={<MapPage />} />
+                      <Route path="*" element={<Home />} />
+                    </Routes>
+                  </AuthWrapper>
+                }
+              />
+            </Routes>
           </Router>
         </Box>
       </ThemeProvider>

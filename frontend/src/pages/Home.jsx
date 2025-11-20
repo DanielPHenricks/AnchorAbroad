@@ -209,69 +209,103 @@ export default function Home() {
             </Typography>
             {userProfile ? (
               <>
-                <Avatar
-                  src={
-                    userProfile.profile.profile_picture
-                    // Need to change to reflect actual backend URL, can import from the frontend api.js
-                      ? `${apiService.baseURL.replace('/api', '')}${userProfile.profile.profile_picture}`
-                      : ''
-                  }
-                  sx={{ width: 96, height: 96, mb: 1 }}
-                />
-                {editing && (
-                  <Button variant="outlined" component="label" size="small">
-                    Upload New Picture
-                    <input
-                      type="file"
-                      hidden
-                      accept="image/*"
-                      onChange={(e) => handleProfileChange('profile_picture', e.target.files[0])}
+                {/* Check if this is an alumni or student profile */}
+                {userProfile.alumni ? (
+                  /* Alumni Profile */
+                  <>
+                    <Avatar
+                      src={
+                        userProfile.alumni.profile_picture
+                          ? `${apiService.baseURL.replace('/api', '')}${userProfile.alumni.profile_picture}`
+                          : ''
+                      }
+                      sx={{ width: 96, height: 96, mb: 1 }}
                     />
-                  </Button>
-                )}
-                <Typography>
-                  <strong>Name:</strong> {userProfile.user.first_name} {userProfile.user.last_name}
-                </Typography>
-                <Typography>
-                  <strong>Username:</strong> {userProfile.user.username}
-                </Typography>
-                <Typography>
-                  <strong>Email:</strong> {userProfile.user.email}
-                </Typography>
-
-                <TextField
-                  label="Graduation Year"
-                  value={userProfile.profile.year || ''}
-                  onChange={(e) => handleProfileChange('year', e.target.value)}
-                  fullWidth
-                  sx={{ mt: 1 }}
-                  disabled={!editing}
-                />
-                <TextField
-                  label="Major"
-                  value={userProfile.profile.major || ''}
-                  onChange={(e) => handleProfileChange('major', e.target.value)}
-                  fullWidth
-                  sx={{ mt: 1 }}
-                  disabled={!editing}
-                />
-                <TextField
-                  label="Study Abroad Term"
-                  value={userProfile.profile.study_abroad_term || ''}
-                  onChange={(e) => handleProfileChange('study_abroad_term', e.target.value)}
-                  fullWidth
-                  sx={{ mt: 1 }}
-                  disabled={!editing}
-                />
-
-                {editing ? (
-                  <Button onClick={saveProfile} sx={{ mt: 2 }}>
-                    Save
-                  </Button>
+                    <Typography>
+                      <strong>Name:</strong> {userProfile.alumni.first_name} {userProfile.alumni.last_name}
+                    </Typography>
+                    <Typography>
+                      <strong>Email:</strong> {userProfile.alumni.email}
+                    </Typography>
+                    <Typography>
+                      <strong>Graduation Year:</strong> {userProfile.alumni.graduation_year}
+                    </Typography>
+                    <Typography>
+                      <strong>Study Abroad Term:</strong> {userProfile.alumni.study_abroad_term || 'N/A'}
+                    </Typography>
+                    {userProfile.alumni.bio && (
+                      <Typography sx={{ mt: 2 }}>
+                        <strong>Bio:</strong> {userProfile.alumni.bio}
+                      </Typography>
+                    )}
+                  </>
                 ) : (
-                  <Button onClick={() => setEditing(true)} sx={{ mt: 2 }}>
-                    Edit
-                  </Button>
+                  /* Student Profile */
+                  <>
+                    <Avatar
+                      src={
+                        userProfile.profile?.profile_picture
+                          ? `${apiService.baseURL.replace('/api', '')}${userProfile.profile.profile_picture}`
+                          : ''
+                      }
+                      sx={{ width: 96, height: 96, mb: 1 }}
+                    />
+                    {editing && (
+                      <Button variant="outlined" component="label" size="small">
+                        Upload New Picture
+                        <input
+                          type="file"
+                          hidden
+                          accept="image/*"
+                          onChange={(e) => handleProfileChange('profile_picture', e.target.files[0])}
+                        />
+                      </Button>
+                    )}
+                    <Typography>
+                      <strong>Name:</strong> {userProfile.user?.first_name} {userProfile.user?.last_name}
+                    </Typography>
+                    <Typography>
+                      <strong>Username:</strong> {userProfile.user?.username}
+                    </Typography>
+                    <Typography>
+                      <strong>Email:</strong> {userProfile.user?.email}
+                    </Typography>
+
+                    <TextField
+                      label="Graduation Year"
+                      value={userProfile.profile?.year || ''}
+                      onChange={(e) => handleProfileChange('year', e.target.value)}
+                      fullWidth
+                      sx={{ mt: 1 }}
+                      disabled={!editing}
+                    />
+                    <TextField
+                      label="Major"
+                      value={userProfile.profile?.major || ''}
+                      onChange={(e) => handleProfileChange('major', e.target.value)}
+                      fullWidth
+                      sx={{ mt: 1 }}
+                      disabled={!editing}
+                    />
+                    <TextField
+                      label="Study Abroad Term"
+                      value={userProfile.profile?.study_abroad_term || ''}
+                      onChange={(e) => handleProfileChange('study_abroad_term', e.target.value)}
+                      fullWidth
+                      sx={{ mt: 1 }}
+                      disabled={!editing}
+                    />
+
+                    {editing ? (
+                      <Button onClick={saveProfile} sx={{ mt: 2 }}>
+                        Save
+                      </Button>
+                    ) : (
+                      <Button onClick={() => setEditing(true)} sx={{ mt: 2 }}>
+                        Edit
+                      </Button>
+                    )}
+                  </>
                 )}
               </>
             ) : (
