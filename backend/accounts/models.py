@@ -13,7 +13,6 @@ class Alumni(models.Model):
     graduation_year = models.IntegerField()
     study_abroad_term = models.CharField(max_length=100, blank=True)
     bio = models.TextField(blank=True)
-    profile_picture = models.ImageField(upload_to='alumni_pictures/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
@@ -49,7 +48,6 @@ class Profile(models.Model):
     year = models.CharField(max_length=10, blank=True)
     major = models.CharField(max_length=100, blank=True)
     study_abroad_term = models.CharField(max_length=100, blank=True)
-    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.user.username} Profile"

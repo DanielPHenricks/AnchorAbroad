@@ -23,7 +23,6 @@ class Migration(migrations.Migration):
                 ('graduation_year', models.IntegerField()),
                 ('study_abroad_term', models.CharField(blank=True, max_length=100)),
                 ('bio', models.TextField(blank=True)),
-                ('profile_picture', models.ImageField(blank=True, null=True, upload_to='alumni_pictures/')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
                 ('program', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='alumni', to='programs.program')),
