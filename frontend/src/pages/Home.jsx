@@ -12,9 +12,12 @@ import {
   Button,
   TextField,
 } from '@mui/material';
+import { School } from '@mui/icons-material';
 import apiService from '../services/api';
+import { useAlumni } from '../contexts/AlumniContext';
 
 export default function Home() {
+  const { isAuthenticated: isAlumni } = useAlumni();
   const [favorites, setFavorites] = useState([]);
   const [messages, setMessages] = useState([]);
   const [userProfile, setUserProfile] = useState(null);
@@ -114,47 +117,49 @@ export default function Home() {
       </Box>
 
       <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
-        {/* Favorite Programs */}
-        <Grid item xs={12} md={4}>
-          <Paper
-            elevation={3}
-            sx={{
-              p: 3,
-              borderRadius: 3,
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <Typography variant="h6" fontWeight="600" mb={2}>
-              My Favorite Programs
-            </Typography>
-            <List sx={{ flexGrow: 1, overflowY: 'auto' }}>
-              {favorites.length > 0 ? (
-                favorites.map((p) => (
-                  <ListItemButton
-                    key={p.program_id}
-                    onClick={() => navigate(`/programs/${p.program_id}`)}
-                    sx={{
-                      border: '1px solid #eee',
-                      borderRadius: 2,
-                      mb: 1,
-                    }}
-                  >
-                    <ListItemText
-                      primary={p.program_details.name}
-                      secondary={p.location || p.subtitle}
-                    />
-                  </ListItemButton>
-                ))
-              ) : (
-                <Typography variant="body2" color="textSecondary" sx={{ p: 2 }}>
-                  No favorite programs yet. Explore programs and add some to your favorites!
-                </Typography>
-              )}
-            </List>
-          </Paper>
-        </Grid>
+        {/* Favorite Programs - Only show for students */}
+        {!isAlumni && (
+          <Grid item xs={12} md={4}>
+            <Paper
+              elevation={3}
+              sx={{
+                p: 3,
+                borderRadius: 3,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <Typography variant="h6" fontWeight="600" mb={2}>
+                My Favorite Programs
+              </Typography>
+              <List sx={{ flexGrow: 1, overflowY: 'auto' }}>
+                {favorites.length > 0 ? (
+                  favorites.map((p) => (
+                    <ListItemButton
+                      key={p.program_id}
+                      onClick={() => navigate(`/programs/${p.program_id}`)}
+                      sx={{
+                        border: '1px solid #eee',
+                        borderRadius: 2,
+                        mb: 1,
+                      }}
+                    >
+                      <ListItemText
+                        primary={p.program_details.name}
+                        secondary={p.location || p.subtitle}
+                      />
+                    </ListItemButton>
+                  ))
+                ) : (
+                  <Typography variant="body2" color="textSecondary" sx={{ p: 2 }}>
+                    No favorite programs yet. Explore programs and add some to your favorites!
+                  </Typography>
+                )}
+              </List>
+            </Paper>
+          </Grid>
+        )}
 
         {/* Messages */}
         <Grid item xs={12} md={4}>
@@ -233,6 +238,39 @@ export default function Home() {
                     <Typography>
                       <strong>Study Abroad Term:</strong> {userProfile.alumni.study_abroad_term || 'N/A'}
                     </Typography>
+
+                    {/* My Program Badge */}
+                    {userProfile.alumni.program && (
+                      <Box
+                        sx={{
+                          mt: 2,
+                          p: 2,
+                          borderRadius: 2,
+                          backgroundColor: '#B49248',
+                          color: 'white',
+                          textAlign: 'center',
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: 1,
+                            mb: 1,
+                          }}
+                        >
+                          <School />
+                          <Typography variant="subtitle1" fontWeight="600">
+                            My Program
+                          </Typography>
+                        </Box>
+                        <Typography variant="body2">
+                          {userProfile.alumni.program.program_details?.name || userProfile.alumni.program.name}
+                        </Typography>
+                      </Box>
+                    )}
+
                     {userProfile.alumni.bio && (
                       <Typography sx={{ mt: 2 }}>
                         <strong>Bio:</strong> {userProfile.alumni.bio}

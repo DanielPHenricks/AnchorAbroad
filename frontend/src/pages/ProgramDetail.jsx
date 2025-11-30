@@ -16,11 +16,13 @@ import {
   Divider,
   IconButton,
 } from '@mui/material';
-import { Favorite, FavoriteBorder, ChevronLeft, ChevronRight } from '@mui/icons-material';
+import { Favorite, FavoriteBorder, ChevronLeft, ChevronRight, School } from '@mui/icons-material';
 import apiService from '../services/api';
+import { useAlumni } from '../contexts/AlumniContext';
 
 export default function ProgramDetail() {
   const { id } = useParams();
+  const { isAuthenticated: isAlumni, alumni } = useAlumni();
   const [program, setProgram] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -88,6 +90,9 @@ export default function ProgramDetail() {
   const availableSections =
     program.sections?.filter((section) => section.content && section.content.length > 0) || [];
 
+  // Check if this is the alumni's program
+  const isMyProgram = isAlumni && alumni?.program?.program_id === id;
+
   return (
     <Box
       sx={{
@@ -129,22 +134,48 @@ export default function ProgramDetail() {
 
         {menuOpen && (
           <>
-            <Box sx={{ px: 2, pb: 2 }}>
-              <Button
-                fullWidth
-                variant="outlined"
-                startIcon={isFavorite ? <Favorite sx={{ color: '#B49248' }} /> : <FavoriteBorder />}
-                onClick={toggleFavorite}
-                sx={{
-                  borderRadius: 12,
-                  textTransform: 'none',
-                  color: 'primary.main',
-                  borderColor: 'primary.main',
-                }}
-              >
-                {isFavorite ? 'Favorited' : 'Add to Favorites'}
-              </Button>
-            </Box>
+            {isMyProgram && (
+              <Box sx={{ px: 2, pb: 2 }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 1,
+                    py: 1.5,
+                    px: 2,
+                    borderRadius: 12,
+                    backgroundColor: '#B49248',
+                    color: 'white',
+                    fontWeight: 600,
+                  }}
+                >
+                  <School />
+                  <Typography variant="body1" fontWeight="600">
+                    My Program
+                  </Typography>
+                </Box>
+              </Box>
+            )}
+
+            {!isAlumni && (
+              <Box sx={{ px: 2, pb: 2 }}>
+                <Button
+                  fullWidth
+                  variant="outlined"
+                  startIcon={isFavorite ? <Favorite sx={{ color: '#B49248' }} /> : <FavoriteBorder />}
+                  onClick={toggleFavorite}
+                  sx={{
+                    borderRadius: 12,
+                    textTransform: 'none',
+                    color: 'primary.main',
+                    borderColor: 'primary.main',
+                  }}
+                >
+                  {isFavorite ? 'Favorited' : 'Add to Favorites'}
+                </Button>
+              </Box>
+            )}
 
             <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)' }} />
 
