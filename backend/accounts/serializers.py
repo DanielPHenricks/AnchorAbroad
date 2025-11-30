@@ -78,7 +78,7 @@ class FavoriteSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('user', 'year', 'major', 'study_abroad_term', 'profile_picture')
+        fields = ('user', 'year', 'major', 'study_abroad_term')
 
 
 class AlumniRegistrationSerializer(serializers.ModelSerializer):
@@ -90,7 +90,7 @@ class AlumniRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Alumni
         fields = ('email', 'password', 'password_confirm', 'first_name', 'last_name',
-                  'program_id', 'graduation_year', 'study_abroad_term', 'bio', 'profile_picture')
+                  'program_id', 'graduation_year', 'study_abroad_term', 'bio')
 
     def validate(self, attrs):
         """Validate password confirmation"""
@@ -142,5 +142,5 @@ class AlumniSerializer(serializers.ModelSerializer):
     class Meta:
         model = Alumni
         fields = ('id', 'email', 'first_name', 'last_name', 'program', 'graduation_year',
-                  'study_abroad_term', 'bio', 'profile_picture', 'created_at')
+                  'study_abroad_term', 'bio', 'created_at')
         read_only_fields = ('id', 'created_at')
