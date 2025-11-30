@@ -197,6 +197,20 @@ class ApiService {
   async getAlumniByProgram(programId) {
     return this.get(`/auth/alumni/by-program/${programId}/`);
   }
+
+  /**
+   * Get all reviews by the current alumni
+   */
+  async getAlumniReviews() {
+    return this.get('/auth/alumni/reviews/');
+  }
+
+  /**
+   * Add a review for a program
+   */
+  async addReview(programId, reviewData) {
+    return this.post(`/programs/${programId}/reviews/add/`, reviewData);
+  }
 }
 
 const apiService = new ApiService();

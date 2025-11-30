@@ -7,10 +7,11 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Avatar,
+
   Box,
   Button,
   TextField,
+  Rating,
 } from '@mui/material';
 import { School } from '@mui/icons-material';
 import apiService from '../services/api';
@@ -19,32 +20,30 @@ import { useAlumni } from '../contexts/AlumniContext';
 export default function Home() {
   const { isAuthenticated: isAlumni } = useAlumni();
   const [favorites, setFavorites] = useState([]);
-  const [messages, setMessages] = useState([]);
+  const [reviews, setReviews] = useState([]);
+
   const [userProfile, setUserProfile] = useState(null);
   const [editing, setEditing] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchFavorites = async () => {
+    const fetchData = async () => {
       try {
-        const data = await apiService.getFavorites();
-        setFavorites(data.map((fav) => fav.program));
+        if (isAlumni) {
+          const data = await apiService.getAlumniReviews();
+          setReviews(data);
+        } else {
+          const data = await apiService.getFavorites();
+          setFavorites(data.map((fav) => fav.program));
+        }
       } catch (err) {
-        console.error('Error fetching favorites:', err);
-        setFavorites([]);
+        console.error('Error fetching data:', err);
       }
     };
-    fetchFavorites();
-  }, []);
+    fetchData();
+  }, [isAlumni]);
 
-  useEffect(() => {
-    setMessages([
-      { id: 1, name: 'Sophia Carter', program: 'Art History' },
-      { id: 2, name: 'Ethan Walker', program: 'Spanish Language' },
-      { id: 3, name: 'Olivia Bennett', program: 'Japanese Culture' },
-      { id: 4, name: 'Liam Harper', program: 'French Literature' },
-    ]);
-  }, []);
+
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -70,16 +69,7 @@ export default function Home() {
 
   const saveProfile = async () => {
     try {
-      const formData = new FormData();
-      const profile = userProfile.profile;
-
-      for (const key in profile) {
-        if (profile[key] !== null && profile[key] !== undefined) {
-          formData.append(key, profile[key]);
-        }
-      }
-
-      const response = await apiService.updateUserProfile(formData, true);
+      const response = await apiService.updateUserProfile(userProfile.profile);
 
       setUserProfile((prev) => ({
         ...prev,
@@ -115,51 +105,6 @@ export default function Home() {
       </Box>
 
       <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
-        {/* Favorite Programs - Only show for students */}
-        {!isAlumni && (
-          <Grid item xs={12} md={4}>
-            <Paper
-              elevation={3}
-              sx={{
-                p: 3,
-                borderRadius: 3,
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              <Typography variant="h6" fontWeight="600" mb={2}>
-                My Favorite Programs
-              </Typography>
-              <List sx={{ flexGrow: 1, overflowY: 'auto' }}>
-                {favorites.length > 0 ? (
-                  favorites.map((p) => (
-                    <ListItemButton
-                      key={p.program_id}
-                      onClick={() => navigate(`/programs/${p.program_id}`)}
-                      sx={{
-                        border: '1px solid #eee',
-                        borderRadius: 2,
-                        mb: 1,
-                      }}
-                    >
-                      <ListItemText
-                        primary={p.program_details.name}
-                        secondary={p.location || p.subtitle}
-                      />
-                    </ListItemButton>
-                  ))
-                ) : (
-                  <Typography variant="body2" color="textSecondary" sx={{ p: 2 }}>
-                    No favorite programs yet. Explore programs and add some to your favorites!
-                  </Typography>
-                )}
-              </List>
-            </Paper>
-          </Grid>
-        )}
-
-        {/* Messages */}
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
@@ -172,26 +117,107 @@ export default function Home() {
             }}
           >
             <Typography variant="h6" fontWeight="600" mb={2}>
-              Messages
+              {isAlumni ? 'My Reviews' : 'My Favorite Programs'}
             </Typography>
             <List sx={{ flexGrow: 1, overflowY: 'auto' }}>
-              {messages.map((m) => (
-                <ListItemButton
-                  key={m.id}
-                  onClick={() => navigate(`/messages/${m.id}`)}
-                  sx={{
-                    border: '1px solid #eee',
-                    borderRadius: 2,
-                    mb: 1,
-                  }}
-                >
-                  <Avatar sx={{ mr: 2 }}>{m.name[0]}</Avatar>
-                  <ListItemText primary={m.name} secondary={`Alumni, ${m.program}`} />
-                </ListItemButton>
-              ))}
+              {isAlumni ? (
+                reviews.length > 0 ? (
+                  reviews.map((r) => (
+                    <ListItemButton
+                      key={r.id}
+                      onClick={() => navigate(`/programs/${r.program}`)}
+                      sx={{
+                        border: '1px solid #eee',
+                        borderRadius: 2,
+                        mb: 1,
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
+                      }}
+                    >
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mb: 0.5 }}>
+                        <Typography variant="subtitle1" fontWeight="600">
+                          {r.program_name}
+                        </Typography>
+                        <Typography variant="caption" color="text.secondary">
+                          {new Date(r.date).toLocaleDateString()}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5 }}>
+                        <Rating value={r.rating} readOnly size="small" />
+                      </Box>
+                      <Typography variant="body2" color="text.secondary" noWrap sx={{ width: '100%' }}>
+                        {r.text}
+                      </Typography>
+                    </ListItemButton>
+                  ))
+                ) : (
+                  <Typography variant="body2" color="textSecondary" sx={{ p: 2 }}>
+                    No reviews yet. Go to your program page to leave a review!
+                  </Typography>
+                )
+              ) : favorites.length > 0 ? (
+                favorites.map((p) => {
+                  const avgRating =
+                    p.reviews && p.reviews.length > 0
+                      ? p.reviews.reduce((acc, r) => acc + r.rating, 0) / p.reviews.length
+                      : 0;
+
+                  // Get description preview
+                  let descriptionPreview = '';
+                  if (p.sections && p.sections.length > 0) {
+                    // Try to find a section with content
+                    const section = p.sections.find(s => s.content && s.content.length > 0);
+                    if (section) {
+                      const content = Array.isArray(section.content) ? section.content.join(' ') : section.content;
+                      // Strip HTML tags
+                      const text = content.replace(/<[^>]*>/g, '');
+                      descriptionPreview = text.length > 100 ? text.substring(0, 100) + '...' : text;
+                    }
+                  }
+
+                  return (
+                    <ListItemButton
+                      key={p.program_id}
+                      onClick={() => navigate(`/programs/${p.program_id}`)}
+                      sx={{
+                        border: '1px solid #eee',
+                        borderRadius: 2,
+                        mb: 1,
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
+                      }}
+                    >
+                      <ListItemText
+                        primary={p.program_details.name}
+                        secondary={p.location || p.subtitle}
+                        sx={{ width: '100%', mb: 0.5 }}
+                      />
+                      {descriptionPreview && (
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 1, width: '100%' }}>
+                          {descriptionPreview}
+                        </Typography>
+                      )}
+                      {p.reviews && p.reviews.length > 0 && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                          <Rating value={avgRating} readOnly size="small" precision={0.5} />
+                          <Typography variant="caption" color="text.secondary">
+                            ({p.reviews.length} reviews)
+                          </Typography>
+                        </Box>
+                      )}
+                    </ListItemButton>
+                  );
+                })
+              ) : (
+                <Typography variant="body2" color="textSecondary" sx={{ p: 2 }}>
+                  No favorite programs yet. Explore programs and add some to your favorites!
+                </Typography>
+              )}
             </List>
           </Paper>
         </Grid>
+
+
 
         {/* My Profile */}
         <Grid item xs={12} md={4}>
