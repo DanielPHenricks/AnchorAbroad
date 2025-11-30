@@ -212,3 +212,21 @@ def alumni_by_program_view(request, program_id):
         return Response(serializer.data, status=status.HTTP_200_OK)
     except Program.DoesNotExist:
         return Response({'error': 'Program not found'}, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+def alumni_reviews_view(request):
+    """Get all reviews by the current alumni"""
+    alumni_id = request.session.get('alumni_id')
+    if alumni_id:
+        try:
+            alumni = Alumni.objects.get(id=alumni_id)
+            # We need to import Review model here or use related name
+            reviews = alumni.reviews.all()
+            # We need to import ReviewSerializer. It's in programs.serializers
+            from programs.serializers import ReviewSerializer
+            serializer = ReviewSerializer(reviews, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Alumni.DoesNotExist:
+            return Response({'error': 'Alumni not found'}, status=status.HTTP_404_NOT_FOUND)
+    return Response({'error': 'Not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)

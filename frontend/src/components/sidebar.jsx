@@ -14,8 +14,14 @@ import {
   Collapse,
   Button,
   Link,
+  Rating,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
 } from '@mui/material';
-import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import { Favorite, FavoriteBorder, RateReview } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import { CalendarMonthOutlined, School } from '@mui/icons-material';
 import { SchoolOutlined } from '@mui/icons-material';
@@ -34,6 +40,10 @@ const drawerWidth = 400;
 const Sidebar = ({ open, onClose, selectedMarker }) => {
   const { isAuthenticated: isAlumni, alumni } = useAlumni();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [reviewDialogOpen, setReviewDialogOpen] = useState(false);
+  const [reviewText, setReviewText] = useState('');
+  const [reviewRating, setReviewRating] = useState(5);
+  const [submittingReview, setSubmittingReview] = useState(false);
 
   useEffect(() => {
     const checkFavoriteStatus = async () => {
@@ -64,6 +74,39 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       }
     } catch (err) {
       console.error('Error toggling favorite:', err);
+    }
+  };
+
+  const handleOpenReviewDialog = () => {
+    setReviewDialogOpen(true);
+  };
+
+  const handleCloseReviewDialog = () => {
+    setReviewDialogOpen(false);
+    setReviewText('');
+    setReviewRating(5);
+  };
+
+  const handleSubmitReview = async () => {
+    if (!reviewText.trim()) return;
+
+    setSubmittingReview(true);
+    try {
+      await apiService.addReview(selectedMarker.program_id, {
+        text: reviewText,
+        rating: reviewRating,
+      });
+
+      // Note: We can't easily update the selectedMarker state from here without a callback from parent.
+      // For now, we'll just close the dialog. Ideally, we should trigger a refresh.
+      alert('Review submitted successfully!');
+
+      handleCloseReviewDialog();
+    } catch (err) {
+      console.error('Error submitting review:', err);
+      alert('Failed to submit review. Please try again.');
+    } finally {
+      setSubmittingReview(false);
     }
   };
 
@@ -104,57 +147,45 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
       }}
     >
       <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Typography variant="h6" noWrap component="div">
+        <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, mr: 2 }}>
           {selectedMarker.program_details?.name || 'Program'}
         </Typography>
-        <IconButton onClick={onClose}>
-          <CloseIcon />
-        </IconButton>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {!isAlumni && (
+            <IconButton onClick={toggleFavorite} sx={{ mr: 1 }}>
+              {isFavorite ? <Favorite sx={{ color: '#B49248' }} /> : <FavoriteBorder />}
+            </IconButton>
+          )}
+          <IconButton onClick={onClose}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
       </Toolbar>
 
       <Divider />
       {isMyProgram && (
         <Box sx={{ p: 2 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 1,
-              py: 1.5,
-              px: 2,
-              borderRadius: 12,
-              backgroundColor: '#B49248',
-              color: 'white',
-              fontWeight: 600,
-            }}
-          >
-            <School />
-            <Typography variant="body1" fontWeight="600">
-              Review My Program
-            </Typography>
-          </Box>
-        </Box>
-      )}
-
-      {!isAlumni && (
-        <Box sx={{ p: 2 }}>
           <Button
             fullWidth
-            startIcon={isFavorite ? <Favorite sx={{ color: '#B49248' }} /> : <FavoriteBorder />}
-            onClick={toggleFavorite}
+            variant="contained"
+            startIcon={<RateReview />}
+            onClick={handleOpenReviewDialog}
             sx={{
               borderRadius: 12,
               textTransform: 'none',
-              color: isFavorite ? '#B49248' : 'primary.main',
-              borderColor: isFavorite ? '#B49248' : 'primary.main',
-              backgroundColor: 'secondary.main',
+              backgroundColor: '#B49248',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: '#9a7b3b',
+              },
             }}
           >
-            {isFavorite ? 'Favorited' : 'Add to Favorites'}
+            Review My Program
           </Button>
         </Box>
       )}
+
+
       <Divider />
 
       <Box sx={{ overflow: 'auto', p: 2, flexGrow: 1 }}>
@@ -193,6 +224,15 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
             Housing: {selectedMarker.program_details?.housing || '—'}
           </Typography>
         </Box>
+
+        {selectedMarker.reviews && selectedMarker.reviews.length > 0 && (
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+            <Rating value={selectedMarker.reviews.reduce((acc, r) => acc + r.rating, 0) / selectedMarker.reviews.length} readOnly size="small" precision={0.5} />
+            <Typography variant="body2" color="text.secondary">
+              ({selectedMarker.reviews.length} reviews)
+            </Typography>
+          </Box>
+        )}
 
         <Divider sx={{ mb: 2 }} />
 
@@ -260,6 +300,42 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
           More Details
         </Button>
       </Box>
+
+      <Dialog open={reviewDialogOpen} onClose={handleCloseReviewDialog} maxWidth="sm" fullWidth>
+        <DialogTitle>Write a Review</DialogTitle>
+        <DialogContent>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Typography component="legend">Rating</Typography>
+              <Rating
+                value={reviewRating}
+                onChange={(event, newValue) => {
+                  setReviewRating(newValue);
+                }}
+              />
+            </Box>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Your Review"
+              fullWidth
+              multiline
+              rows={4}
+              value={reviewText}
+              onChange={(e) => setReviewText(e.target.value)}
+              variant="outlined"
+            />
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseReviewDialog} color="inherit">
+            Cancel
+          </Button>
+          <Button onClick={handleSubmitReview} variant="contained" disabled={submittingReview || !reviewText.trim()}>
+            {submittingReview ? 'Submitting...' : 'Submit Review'}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Drawer>
   );
 };

@@ -20,4 +20,5 @@ urlpatterns = [
     path('alumni/logout/', views.alumni_logout_view, name='alumni_logout'),
     path('alumni/profile/', views.alumni_profile_view, name='alumni_profile'),
     path('alumni/by-program/<str:program_id>/', views.alumni_by_program_view, name='alumni_by_program'),
+    path('alumni/reviews/', views.alumni_reviews_view, name='alumni_reviews'),
 ]
