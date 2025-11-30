@@ -12,8 +12,13 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.shortcuts import get_object_or_404
-from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, FavoriteSerializer, ProfileSerializer
-from .models import Favorite, Profile
+from .serializers import (
+    UserRegistrationSerializer, UserLoginSerializer, UserSerializer,
+    FavoriteSerializer, ProfileSerializer,
+    AlumniRegistrationSerializer, AlumniLoginSerializer, AlumniSerializer
+)
+from .models import Favorite, Profile, Alumni
+from .permissions import IsAuthenticatedOrAlumni
 from programs.models import Program
 
 
@@ -55,17 +60,8 @@ def logout_view(request):
     return Response({'message': 'Logout successful'}, status=status.HTTP_200_OK)
 
 
-@api_view(['GET'])
-def user_profile_view(request):
-    """Get current user profile"""
-    if request.user.is_authenticated:
-        user_data = UserSerializer(request.user).data
-        return Response({'user': user_data}, status=status.HTTP_200_OK)
-    return Response({'error': 'Not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
-
-
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticatedOrAlumni])
 def favorites_view(request):
     """Handle user favorites"""
     if request.method == 'GET':
@@ -85,7 +81,7 @@ def favorites_view(request):
 
 
 @api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticatedOrAlumni])
 def remove_favorite_view(request, program_id):
     """Remove a program from favorites"""
     try:
@@ -97,17 +93,33 @@ def remove_favorite_view(request, program_id):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticatedOrAlumni])
 def check_favorite_view(request, program_id):
     """Check if a program is favorited by the user"""
     is_favorite = Favorite.objects.filter(user=request.user, program_id=program_id).exists()
     return Response({'is_favorite': is_favorite}, status=status.HTTP_200_OK)
 
 @api_view(['GET', 'PUT', 'PATCH'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticatedOrAlumni])
 @parser_classes([MultiPartParser, FormParser, JSONParser])
 def user_profile_view(request):
-    """Get or update user profile"""
+    """Get or update user profile - handles both students and alumni"""
+    
+    # Check if this is an alumni user
+    alumni_id = request.session.get('alumni_id')
+    if alumni_id:
+        # Return alumni profile
+        try:
+            alumni = Alumni.objects.get(id=alumni_id)
+            alumni_data = AlumniSerializer(alumni).data
+            return Response({'alumni': alumni_data}, status=status.HTTP_200_OK)
+        except Alumni.DoesNotExist:
+            return Response({'error': 'Alumni not found'}, status=status.HTTP_404_NOT_FOUND)
+    
+    # Otherwise, handle as student user
+    if not request.user.is_authenticated:
+        return Response({'error': 'Not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
+    
     user = request.user
     profile, _ = Profile.objects.get_or_create(user=user)
 
@@ -129,3 +141,74 @@ def user_profile_view(request):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# ============ ALUMNI ENDPOINTS ============
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def alumni_signup_view(request):
+    """Handle alumni registration"""
+    serializer = AlumniRegistrationSerializer(data=request.data)
+    if serializer.is_valid():
+        alumni = serializer.save()
+        # Store alumni ID in session
+        request.session['alumni_id'] = alumni.id
+        alumni_data = AlumniSerializer(alumni).data
+        return Response({
+            'message': 'Alumni account created successfully',
+            'alumni': alumni_data
+        }, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def alumni_login_view(request):
+    """Handle alumni login"""
+    serializer = AlumniLoginSerializer(data=request.data)
+    if serializer.is_valid():
+        alumni = serializer.validated_data['alumni']
+        # Store alumni ID in session
+        request.session['alumni_id'] = alumni.id
+        alumni_data = AlumniSerializer(alumni).data
+        return Response({
+            'message': 'Login successful',
+            'alumni': alumni_data
+        }, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def alumni_logout_view(request):
+    """Handle alumni logout"""
+    if 'alumni_id' in request.session:
+        del request.session['alumni_id']
+    return Response({'message': 'Logout successful'}, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def alumni_profile_view(request):
+    """Get current alumni profile"""
+    alumni_id = request.session.get('alumni_id')
+    if alumni_id:
+        try:
+            alumni = Alumni.objects.get(id=alumni_id)
+            alumni_data = AlumniSerializer(alumni).data
+            return Response({'alumni': alumni_data}, status=status.HTTP_200_OK)
+        except Alumni.DoesNotExist:
+            return Response({'error': 'Alumni not found'}, status=status.HTTP_404_NOT_FOUND)
+    return Response({'error': 'Not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def alumni_by_program_view(request, program_id):
+    """Get all alumni for a specific program"""
+    try:
+        program = Program.objects.get(program_id=program_id)
+        alumni = Alumni.objects.filter(program=program, is_active=True)
+        serializer = AlumniSerializer(alumni, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except Program.DoesNotExist:
+        return Response({'error': 'Program not found'}, status=status.HTTP_404_NOT_FOUND)

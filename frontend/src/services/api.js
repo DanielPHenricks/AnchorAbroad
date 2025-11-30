@@ -125,16 +125,12 @@ class ApiService {
   }
 
   async getPrograms() {
-    // Ensure the full URL is used
-    const response = await fetch(`${this.baseURL}/programs/`);
-    if (!response.ok) {
-      console.error("Failed to fetch programs:", response.statusText);
+    try {
+      return await this.get('/programs/');
+    } catch (error) {
+      console.error("Failed to fetch programs:", error);
       return [];
     }
-    const data = await response.json();
-  
-    // Ensure each program has latitude, longitude, name, id, continent
-    return data
   }
 
   /**
@@ -163,6 +159,43 @@ class ApiService {
    */
   async checkFavorite(programId) {
     return this.get(`/auth/favorites/${programId}/check/`);
+  }
+
+  // ============ ALUMNI METHODS ============
+
+  /**
+   * Alumni signup
+   */
+  async alumniSignup(alumniData) {
+    return this.post('/auth/alumni/signup/', alumniData);
+  }
+
+  /**
+   * Alumni login
+   */
+  async alumniLogin(credentials) {
+    return this.post('/auth/alumni/login/', credentials);
+  }
+
+  /**
+   * Alumni logout
+   */
+  async alumniLogout() {
+    return this.post('/auth/alumni/logout/');
+  }
+
+  /**
+   * Get current alumni profile
+   */
+  async getAlumniProfile() {
+    return this.get('/auth/alumni/profile/');
+  }
+
+  /**
+   * Get alumni by program
+   */
+  async getAlumniByProgram(programId) {
+    return this.get(`/auth/alumni/by-program/${programId}/`);
   }
 }
 
