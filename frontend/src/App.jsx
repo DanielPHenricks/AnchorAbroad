@@ -10,6 +10,7 @@ import ProgramDetail from './pages/ProgramDetail';
 import MessageDetail from './pages/MessageDetail';
 import MapPage from './pages/Map';
 import Home from './pages/Home';
+import Chat from './pages/Chat';
 import AlumniAuth from './pages/AlumniAuth';
 import theme from './theme';
 import { Box } from '@mui/material';
@@ -44,6 +45,7 @@ function App() {
                         <Route path="/home" element={<Home />} />
                         <Route path="/programs/:id" element={<ProgramDetail />} />
                         <Route path="/messages/:id" element={<MessageDetail />} />
+                        <Route path="/chat" element={<Chat />} />
                         <Route path="/map" element={<MapPage />} />
                         <Route path="*" element={<Home />} />
                       </Routes>

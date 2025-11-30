@@ -39,10 +39,10 @@ const Navbar = ({ user, onLogout }) => {
               <Button
                 color="inherit"
                 component={Link}
-                to="/messages/1"
+                to="/chat/"
                 sx={{ textTransform: 'none' }}
               >
-                Messages
+                Chat with Anchor Buddy
               </Button>
               <Button color="inherit" component={Link} to="/map" sx={{ textTransform: 'none' }}>
                 Programs
