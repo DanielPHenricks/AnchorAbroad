@@ -21,4 +21,5 @@ urlpatterns = [
     path('alumni/profile/', views.alumni_profile_view, name='alumni_profile'),
     path('alumni/by-program/<str:program_id>/', views.alumni_by_program_view, name='alumni_by_program'),
     path('alumni/reviews/', views.alumni_reviews_view, name='alumni_reviews'),
+    path('alumni/reviews/<int:review_id>/delete/', views.delete_review_view, name='delete_review'),
 ]

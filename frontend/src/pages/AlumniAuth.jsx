@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Box, Tab, Tabs } from '@mui/material';
+import { Container, Box, Tab, Tabs, Button } from '@mui/material';
+import { ArrowBack } from '@mui/icons-material';
 import AlumniLogin from '../components/AlumniLogin';
 import AlumniSignup from '../components/AlumniSignup';
 
@@ -39,6 +40,14 @@ const AlumniAuth = () => {
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
+      <Button
+        startIcon={<ArrowBack />}
+        onClick={() => navigate('/')}
+        sx={{ mb: 2, color: 'text.secondary' }}
+      >
+        Back to Student Login
+      </Button>
+
       <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
         <Tabs
           value={activeTab}

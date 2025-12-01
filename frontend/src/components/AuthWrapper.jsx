@@ -3,7 +3,7 @@
  * Time: 2 hours
  */
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import Navbar from './Navbar';
 import Login from './Login';
@@ -95,7 +95,14 @@ const AuthWrapper = ({ children, requireAuth = true }) => {
         </Box>
       )}
 
-      {(user || !requireAuth) && <Box>{children}</Box>}
+      {(user || !requireAuth) && (
+        <Box>
+          {/* Pass user prop to children */}
+          {children && typeof children.type === 'function'
+            ? React.cloneElement(children, { user })
+            : children}
+        </Box>
+      )}
     </Box>
   );
 };
