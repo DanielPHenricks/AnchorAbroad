@@ -206,6 +206,13 @@ class ApiService {
   }
 
   /**
+   * Delete a review
+   */
+  async deleteReview(reviewId) {
+    return this.request(`/auth/alumni/reviews/${reviewId}/delete/`, { method: 'DELETE' });
+  }
+
+  /**
    * Add a review for a program
    */
   async addReview(programId, reviewData) {

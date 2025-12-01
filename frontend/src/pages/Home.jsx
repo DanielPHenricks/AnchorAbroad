@@ -13,7 +13,7 @@ import {
   TextField,
   Rating,
 } from '@mui/material';
-import { School } from '@mui/icons-material';
+import { School, Delete } from '@mui/icons-material';
 import apiService from '../services/api';
 import { useAlumni } from '../contexts/AlumniContext';
 
@@ -65,6 +65,18 @@ export default function Home() {
         [field]: value,
       },
     }));
+  };
+
+  const handleDeleteReview = async (reviewId, e) => {
+    e.stopPropagation(); // Prevent navigation
+    if (window.confirm('Are you sure you want to delete this review?')) {
+      try {
+        await apiService.deleteReview(reviewId);
+        setReviews((prev) => prev.filter((r) => r.id !== reviewId));
+      } catch (err) {
+        console.error('Error deleting review:', err);
+      }
+    }
   };
 
   const saveProfile = async () => {
@@ -129,20 +141,31 @@ export default function Home() {
                       sx={{
                         border: '1px solid #eee',
                         borderRadius: 2,
-                        mb: 1,
+                        mb: 2,
                         flexDirection: 'column',
                         alignItems: 'flex-start',
                       }}
                     >
-                      <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mb: 0.5 }}>
-                        <Typography variant="subtitle1" fontWeight="600">
-                          {r.program_name}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          {new Date(r.date).toLocaleDateString()}
-                        </Typography>
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mb: 1, gap: 2 }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                          <Typography variant="subtitle1" fontWeight="600">
+                            {r.program_name}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap' }}>
+                            {new Date(r.date).toLocaleDateString()}
+                          </Typography>
+                        </Box>
+                        <Delete
+                          color="error"
+                          fontSize="small"
+                          onClick={(e) => handleDeleteReview(r.id, e)}
+                          sx={{
+                            cursor: 'pointer',
+                            '&:hover': { opacity: 0.7 }
+                          }}
+                        />
                       </Box>
-                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                         <Rating value={r.rating} readOnly size="small" />
                       </Box>
                       <Typography variant="body2" color="text.secondary" noWrap sx={{ width: '100%' }}>
@@ -182,7 +205,7 @@ export default function Home() {
                       sx={{
                         border: '1px solid #eee',
                         borderRadius: 2,
-                        mb: 1,
+                        mb: 2,
                         flexDirection: 'column',
                         alignItems: 'flex-start',
                       }}
@@ -233,7 +256,7 @@ export default function Home() {
               textAlign: 'center',
             }}
           >
-            <Typography variant="h6" fontWeight="600" mb={2}>
+            <Typography variant="h6" fontWeight="600" mb={3}>
               My Profile
             </Typography>
             {userProfile ? (
@@ -241,7 +264,7 @@ export default function Home() {
                 {/* Check if this is an alumni or student profile */}
                 {userProfile.alumni ? (
                   /* Alumni Profile */
-                  <>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
                     <Typography>
                       <strong>Name:</strong> {userProfile.alumni.first_name} {userProfile.alumni.last_name}
                     </Typography>
@@ -260,7 +283,7 @@ export default function Home() {
                       <Box
                         onClick={() => navigate(`/programs/${userProfile.alumni.program.program_id}`)}
                         sx={{
-                          mt: 2,
+                          mt: 1,
                           p: 2,
                           borderRadius: 2,
                           backgroundColor: '#B49248',
@@ -296,14 +319,14 @@ export default function Home() {
                     )}
 
                     {userProfile.alumni.bio && (
-                      <Typography sx={{ mt: 2 }}>
+                      <Typography sx={{ mt: 1 }}>
                         <strong>Bio:</strong> {userProfile.alumni.bio}
                       </Typography>
                     )}
-                  </>
+                  </Box>
                 ) : (
                   /* Student Profile */
-                  <>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
                     <Typography>
                       <strong>Name:</strong> {userProfile.user?.first_name} {userProfile.user?.last_name}
                     </Typography>
@@ -321,7 +344,6 @@ export default function Home() {
                       onChange={(e) => handleProfileChange('year', e.target.value)}
                       fullWidth
                       disabled={!editing}
-                      sx={{ mt: 1 }}
                       slotProps={{
                         input: {
                           sx: {
@@ -349,7 +371,6 @@ export default function Home() {
                       onChange={(e) => handleProfileChange('major', e.target.value)}
                       fullWidth
                       disabled={!editing}
-                      sx={{ mt: 1 }}
                       slotProps={{
                         input: {
                           sx: {
@@ -377,7 +398,6 @@ export default function Home() {
                       onChange={(e) => handleProfileChange('study_abroad_term', e.target.value)}
                       fullWidth
                       disabled={!editing}
-                      sx={{ mt: 1 }}
                       slotProps={{
                         input: {
                           sx: {
@@ -400,15 +420,15 @@ export default function Home() {
                     />
 
                     {editing ? (
-                      <Button onClick={saveProfile} sx={{ mt: 2 }}>
+                      <Button onClick={saveProfile} sx={{ mt: 1 }}>
                         Save
                       </Button>
                     ) : (
-                      <Button onClick={() => setEditing(true)} sx={{ mt: 2 }}>
+                      <Button onClick={() => setEditing(true)} sx={{ mt: 1 }}>
                         Edit
                       </Button>
                     )}
-                  </>
+                  </Box>
                 )}
               </>
             ) : (
