@@ -26,8 +26,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import { CalendarMonthOutlined, School } from '@mui/icons-material';
 import { SchoolOutlined } from '@mui/icons-material';
 import { LanguageOutlined } from '@mui/icons-material';
-import { ApartmentOutlined } from '@mui/icons-material';
+import HouseIcon from '@mui/icons-material/House';
 import { AccountBalanceOutlined } from '@mui/icons-material';
+import { AttachMoneyOutlined } from '@mui/icons-material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -193,35 +194,43 @@ const Sidebar = ({ open, onClose, selectedMarker }) => {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
           <AccountBalanceOutlined fontSize="small" />
           <Typography variant="body2">
-            Program Type: {selectedMarker.program_details?.program_type || '—'}
+            {selectedMarker.program_details?.program_type || 'Program type unknown'}
           </Typography>
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
           <CalendarMonthOutlined fontSize="small" />
           <Typography variant="body2">
-            Academic Calendar: {selectedMarker.program_details?.academic_calendar || '—'}
+            {selectedMarker.program_details?.academic_calendar || '—'}
           </Typography>
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
           <SchoolOutlined fontSize="small" />
           <Typography variant="body2">
-            Minimum GPA: {selectedMarker.program_details?.minimum_gpa || '—'}
+            {selectedMarker.program_details?.minimum_gpa || 'No'} minimum GPA
           </Typography>
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
           <LanguageOutlined fontSize="small" />
           <Typography variant="body2">
-            Language Prerequisite: {selectedMarker.program_details?.language_prerequisite || '—'}
+            {selectedMarker.program_details?.language_prerequisite == 'Yes' ? 'Language Prerequisite' : 'No language prerequisite' || '—'}
           </Typography>
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-          <ApartmentOutlined fontSize="small" />
+          <HouseIcon fontSize="small" />
           <Typography variant="body2">
-            Housing: {selectedMarker.program_details?.housing || '—'}
+            {selectedMarker.program_details?.housing || '—'}
+          </Typography>
+        </Box>
+
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+          <AttachMoneyOutlined fontSize="small" />
+          <Typography variant="body2">
+             {selectedMarker.budget_info?.spring_2025?.total_estimated_cost || 'Not Available'}
           </Typography>
         </Box>
 

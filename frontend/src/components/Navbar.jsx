@@ -23,7 +23,7 @@ const Navbar = ({ user, onLogout }) => {
           </Link>
 
           <Typography variant="h6" component="div" sx={{ fontWeight: 500 }}>
-            <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
               Anchor Abroad
             </Link>
           </Typography>
