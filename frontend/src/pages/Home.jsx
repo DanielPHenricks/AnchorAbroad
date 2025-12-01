@@ -312,21 +312,25 @@ export default function Home() {
                       value={userProfile.profile?.year || ''}
                       onChange={(e) => handleProfileChange('year', e.target.value)}
                       fullWidth
+                      disabled={!editing}
                       sx={{ mt: 1 }}
                       slotProps={{
                         input: {
                           sx: {
                             color: 'black',
-                            '& input': { color: 'black !important' },
-                            '& .MuiInputLabel-root': { color: 'black !important' },
-                            '& .Mui-disabled': { color: 'black !important' }
+                            '&.Mui-disabled': {
+                              color: 'black !important',
+                              '-webkit-text-fill-color': 'black !important',
+                            },
+                            '& input': {
+                              color: 'black !important',
+                              '-webkit-text-fill-color': 'black !important',
+                            },
+                            '& .MuiInputLabel-root': { color: 'black !important' }
                           }
                         },
                         inputLabel: {
                           sx: { color: 'black !important' }
-                        },
-                        htmlInput: {
-                          readOnly: !editing
                         }
                       }}
                     />
@@ -336,21 +340,25 @@ export default function Home() {
                       value={userProfile.profile?.major || ''}
                       onChange={(e) => handleProfileChange('major', e.target.value)}
                       fullWidth
+                      disabled={!editing}
                       sx={{ mt: 1 }}
                       slotProps={{
                         input: {
                           sx: {
                             color: 'black',
-                            '& input': { color: 'black !important' },
-                            '& .MuiInputLabel-root': { color: 'black !important' },
-                            '& .Mui-disabled': { color: 'black !important' }
+                            '&.Mui-disabled': {
+                              color: 'black !important',
+                              '-webkit-text-fill-color': 'black !important',
+                            },
+                            '& input': {
+                              color: 'black !important',
+                              '-webkit-text-fill-color': 'black !important',
+                            },
+                            '& .MuiInputLabel-root': { color: 'black !important' }
                           }
                         },
                         inputLabel: {
                           sx: { color: 'black !important' }
-                        },
-                        htmlInput: {
-                          readOnly: !editing
                         }
                       }}
                     />
@@ -360,21 +368,25 @@ export default function Home() {
                       value={userProfile.profile?.study_abroad_term || ''}
                       onChange={(e) => handleProfileChange('study_abroad_term', e.target.value)}
                       fullWidth
+                      disabled={!editing}
                       sx={{ mt: 1 }}
                       slotProps={{
                         input: {
                           sx: {
                             color: 'black',
-                            '& input': { color: 'black !important' },
-                            '& .MuiInputLabel-root': { color: 'black !important' },
-                            '& .Mui-disabled': { color: 'black !important' }
+                            '&.Mui-disabled': {
+                              color: 'black !important',
+                              '-webkit-text-fill-color': 'black !important',
+                            },
+                            '& input': {
+                              color: 'black !important',
+                              '-webkit-text-fill-color': 'black !important',
+                            },
+                            '& .MuiInputLabel-root': { color: 'black !important' }
                           }
                         },
                         inputLabel: {
                           sx: { color: 'black !important' }
-                        },
-                        htmlInput: {
-                          readOnly: !editing
                         }
                       }}
                     />

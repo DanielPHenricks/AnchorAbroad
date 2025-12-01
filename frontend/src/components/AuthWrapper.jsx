@@ -10,6 +10,8 @@ import Login from './Login';
 import Signup from './Signup';
 import apiService from '../services/api';
 
+import { useAlumni } from '../contexts/AlumniContext';
+
 /**
  * Authentication wrapper component
  * - Always shows Navbar
@@ -20,6 +22,7 @@ const AuthWrapper = ({ children, requireAuth = true }) => {
   const [user, setUser] = useState(null);
   const [authMode, setAuthMode] = useState('login'); // 'login' or 'signup'
   const [loading, setLoading] = useState(true);
+  const { logout: alumniLogout } = useAlumni();
 
   // Check auth status on load
   useEffect(() => {
@@ -53,10 +56,11 @@ const AuthWrapper = ({ children, requireAuth = true }) => {
 
   const handleLogout = async () => {
     try {
-      // Call the appropriate logout endpoint based on user type
-      if (user?.userType === 'alumni') {
-        await apiService.alumniLogout();
-      } else {
+      // Always clear alumni state to prevent persistence issues
+      await alumniLogout();
+
+      // If user was a student, also call student logout
+      if (user?.userType !== 'alumni') {
         await apiService.logout();
       }
     } catch (error) {
