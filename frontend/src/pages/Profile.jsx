@@ -137,7 +137,7 @@ function ProfilePage() {
                   reviews.map((r) => (
                     <ListItemButton
                       key={r.id}
-                      onClick={() => navigate(`/programs/${r.program}`)}
+                      onClick={() => navigate(`/programs/${r.program}#reviews`)}
                       sx={{
                         border: '1px solid #eee',
                         borderRadius: 2,
