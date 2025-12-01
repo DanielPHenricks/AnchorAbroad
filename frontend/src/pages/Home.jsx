@@ -258,6 +258,7 @@ export default function Home() {
                     {/* My Program Badge */}
                     {userProfile.alumni.program && (
                       <Box
+                        onClick={() => navigate(`/programs/${userProfile.alumni.program.program_id}`)}
                         sx={{
                           mt: 2,
                           p: 2,
@@ -265,6 +266,13 @@ export default function Home() {
                           backgroundColor: '#B49248',
                           color: 'white',
                           textAlign: 'center',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease-in-out',
+                          '&:hover': {
+                            backgroundColor: '#9a7b3a',
+                            transform: 'translateY(-2px)',
+                            boxShadow: 2
+                          }
                         }}
                       >
                         <Box
