@@ -12,7 +12,7 @@ const Navbar = ({ user, onLogout }) => {
       <Toolbar sx={{ minHeight: 64, paddingLeft: 2, paddingRight: 2 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <Link
-            to="/home"
+            to="/"
             style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
           >
             <img
@@ -33,8 +33,8 @@ const Navbar = ({ user, onLogout }) => {
         <Box sx={{ marginLeft: 'auto', display: 'flex', gap: 2 }}>
           {user && (
             <>
-              <Button color="inherit" component={Link} to="/home" sx={{ textTransform: 'none' }}>
-                Home
+              <Button color="inherit" component={Link} to="/profile" sx={{ textTransform: 'none' }}>
+                Profile
               </Button>
               <Button color="inherit" component={Link} to="/map" sx={{ textTransform: 'none' }}>
                 Programs

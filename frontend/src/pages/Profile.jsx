@@ -17,7 +17,7 @@ import { School } from '@mui/icons-material';
 import apiService from '../services/api';
 import { useAlumni } from '../contexts/AlumniContext';
 
-export default function Home() {
+function ProfilePage() {
   const { isAuthenticated: isAlumni } = useAlumni();
   const [favorites, setFavorites] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -412,3 +412,5 @@ export default function Home() {
     </Box>
   );
 }
+
+export default ProfilePage;
