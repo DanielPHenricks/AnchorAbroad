@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { Box, TextField, IconButton, Paper, Typography, Avatar } from '@mui/material';
-import { Send, SmartToy, Person } from '@mui/icons-material';
+import { Box, TextField, IconButton, Paper, Typography, Avatar, Card, CardContent, CardActionArea, Chip } from '@mui/material';
+import { Send, SmartToy, Person, ArrowForward } from '@mui/icons-material';
 import { marked } from 'marked';
+import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api';
 
 export default function Chat() {
@@ -18,6 +19,7 @@ export default function Chat() {
     const [programs, setPrograms] = useState([]);
     const messagesEndRef = useRef(null);
     const chatContainerRef = useRef(null);
+    const navigate = useNavigate();
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -39,6 +41,21 @@ export default function Chat() {
         };
         fetchPrograms();
     }, []);
+
+    // Extract recommended programs from bot message
+    const extractRecommendedPrograms = (messageText) => {
+        const recommendedPrograms = [];
+
+        programs.forEach(program => {
+            const programName = program.program_details?.name;
+            if (programName && messageText.includes(programName)) {
+                recommendedPrograms.push(program);
+            }
+        });
+
+        // Return up to 3 unique programs
+        return recommendedPrograms.slice(0, 3);
+    };
 
     const generateBotResponse = async (userMessage) => {
         // Create a trimmed version of programs for the AI
@@ -63,7 +80,8 @@ Key guidelines:
 - Be encouraging and supportive
 - Format all responses in Markdown for better readability
 - Keep responses concise but informative
-- When recommending programs, provide 2-3 options with brief explanations and include the program name
+- When recommending programs, provide 2-3 options with brief explanations
+- **IMPORTANT**: Always use the EXACT program name from the list when mentioning a program (this enables automatic program cards to appear)
 - Rate program matches on a scale of 1-10 based on the student's stated preferences
 - Reference specific programs from the list below when making recommendations
 
@@ -76,7 +94,7 @@ The student's message: ${userMessage}`;
             console.log(process.env.REACT_APP_GEMINI_API_KEY);
             const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
             const response = await fetch(
-                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`,
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`,
                 {
                     method: 'POST',
                     headers: {
@@ -197,71 +215,140 @@ The student's message: ${userMessage}`;
                         backgroundColor: '#f8f9fa',
                     }}
                 >
-                    {messages.map((message) => (
-                        <Box
-                            key={message.id}
-                            sx={{
-                                display: 'flex',
-                                justifyContent: message.sender === 'user' ? 'flex-end' : 'flex-start',
-                                alignItems: 'flex-start',
-                                gap: 1,
-                            }}
-                        >
-                            {message.sender === 'bot' && (
-                                <Avatar
-                                    sx={{
-                                        bgcolor: '#B49248',
-                                        width: 36,
-                                        height: 36,
-                                    }}
-                                >
-                                    <SmartToy fontSize="small" />
-                                </Avatar>
-                            )}
+                    {messages.map((message) => {
+                        const recommendedPrograms = message.sender === 'bot' ? extractRecommendedPrograms(message.text) : [];
 
-                            <Paper
-                                elevation={1}
-                                sx={{
-                                    maxWidth: '70%',
-                                    p: 2,
-                                    borderRadius: 2,
-                                    backgroundColor: message.sender === 'user' ? '#B49248' : 'white',
-                                    color: message.sender === 'user' ? 'white' : '#333',
-                                    borderBottomRightRadius: message.sender === 'user' ? 4 : 16,
-                                    borderBottomLeftRadius: message.sender === 'bot' ? 4 : 16,
-                                }}
-                            >
+                        return (
+                            <Box key={message.id}>
                                 <Box
                                     sx={{
-                                        '& p': { m: 0, mb: 1, '&:last-child': { mb: 0 } },
-                                        '& ul, & ol': { m: 0, pl: 2.5, mb: 1 },
-                                        '& li': { mb: 0.5 },
-                                        '& strong': { fontWeight: 600 },
-                                        '& h1, & h2, & h3': { mt: 1, mb: 0.5, fontWeight: 600 },
-                                        '& code': {
-                                            backgroundColor: message.sender === 'user' ? 'rgba(255,255,255,0.2)' : '#f1f3f4',
-                                            padding: '2px 6px',
-                                            borderRadius: 1,
-                                            fontSize: '0.9em',
-                                        },
-                                    }}
-                                    dangerouslySetInnerHTML={{ __html: marked.parse(message.text) }}
-                                />
-                            </Paper>
-
-                            {message.sender === 'user' && (
-                                <Avatar
-                                    sx={{
-                                        bgcolor: 'secondary.main',
-                                        width: 36,
-                                        height: 36,
+                                        display: 'flex',
+                                        justifyContent: message.sender === 'user' ? 'flex-end' : 'flex-start',
+                                        alignItems: 'flex-start',
+                                        gap: 1,
                                     }}
                                 >
-                                    <Person fontSize="small" />
-                                </Avatar>
-                            )}
-                        </Box>
-                    ))}
+                                    {message.sender === 'bot' && (
+                                        <Avatar
+                                            sx={{
+                                                bgcolor: '#B49248',
+                                                width: 36,
+                                                height: 36,
+                                            }}
+                                        >
+                                            <SmartToy fontSize="small" />
+                                        </Avatar>
+                                    )}
+
+                                    <Paper
+                                        elevation={1}
+                                        sx={{
+                                            maxWidth: '70%',
+                                            p: 2,
+                                            borderRadius: 2,
+                                            backgroundColor: message.sender === 'user' ? '#B49248' : 'white',
+                                            color: message.sender === 'user' ? 'white' : '#333',
+                                            borderBottomRightRadius: message.sender === 'user' ? 4 : 16,
+                                            borderBottomLeftRadius: message.sender === 'bot' ? 4 : 16,
+                                        }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                '& p': { m: 0, mb: 1, '&:last-child': { mb: 0 } },
+                                                '& ul, & ol': { m: 0, pl: 2.5, mb: 1 },
+                                                '& li': { mb: 0.5 },
+                                                '& strong': { fontWeight: 600 },
+                                                '& h1, & h2, & h3': { mt: 1, mb: 0.5, fontWeight: 600 },
+                                                '& code': {
+                                                    backgroundColor: message.sender === 'user' ? 'rgba(255,255,255,0.2)' : '#f1f3f4',
+                                                    padding: '2px 6px',
+                                                    borderRadius: 1,
+                                                    fontSize: '0.9em',
+                                                },
+                                            }}
+                                            dangerouslySetInnerHTML={{ __html: marked.parse(message.text) }}
+                                        />
+                                    </Paper>
+
+                                    {message.sender === 'user' && (
+                                        <Avatar
+                                            sx={{
+                                                bgcolor: 'secondary.main',
+                                                width: 36,
+                                                height: 36,
+                                            }}
+                                        >
+                                            <Person fontSize="small" />
+                                        </Avatar>
+                                    )}
+                                </Box>
+
+                                {/* Featured Programs Cards */}
+                                {recommendedPrograms.length > 0 && (
+                                    <Box
+                                        sx={{
+                                            ml: 5,
+                                            mt: 1,
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: 1,
+                                            maxWidth: '65%',
+                                        }}
+                                    >
+                                        <Typography variant="caption" sx={{ color: '#666', fontWeight: 600, mb: 0.5 }}>
+                                            Featured Programs:
+                                        </Typography>
+                                        {recommendedPrograms.map((program) => (
+                                            <Card
+                                                key={program.program_id}
+                                                elevation={2}
+                                                sx={{
+                                                    borderRadius: 2,
+                                                    border: '1px solid #e0e0e0',
+                                                    transition: 'all 0.2s',
+                                                    '&:hover': {
+                                                        transform: 'translateY(-2px)',
+                                                        boxShadow: 3,
+                                                        borderColor: '#B49248',
+                                                    },
+                                                }}
+                                            >
+                                                <CardActionArea onClick={() => navigate(`/programs/${program.program_id}`)}>
+                                                    <CardContent sx={{ p: 2 }}>
+                                                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
+                                                            <Typography variant="subtitle2" fontWeight="600" sx={{ flex: 1, color: '#B49248' }}>
+                                                                {program.program_details?.name}
+                                                            </Typography>
+                                                            <ArrowForward fontSize="small" sx={{ color: '#B49248', ml: 1 }} />
+                                                        </Box>
+                                                        <Typography variant="caption" sx={{ color: '#666', display: 'block', mb: 1 }}>
+                                                            📍 {program.location || 'Location TBD'}
+                                                        </Typography>
+                                                        <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+                                                            {program.program_details?.minimum_gpa && (
+                                                                <Chip
+                                                                    label={`GPA: ${program.program_details.minimum_gpa}`}
+                                                                    size="small"
+                                                                    sx={{ height: 20, fontSize: '0.7rem' }}
+                                                                />
+                                                            )}
+                                                            {program.program_details?.program_type && (
+                                                                <Chip
+                                                                    label={program.program_details.program_type}
+                                                                    size="small"
+                                                                    sx={{ height: 20, fontSize: '0.7rem' }}
+                                                                />
+                                                            )}
+                                                        </Box>
+                                                    </CardContent>
+                                                </CardActionArea>
+                                            </Card>
+                                        ))}
+                                    </Box>
+                                )}
+                            </Box>
+                        );
+                    })}
 
                     {isTyping && (
                         <Box
