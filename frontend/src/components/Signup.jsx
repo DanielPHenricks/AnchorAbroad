@@ -4,7 +4,8 @@
  */
 
 import React, { useState } from 'react';
-import { Box, TextField, Button, Typography, Alert, Paper, Grid } from '@mui/material';
+import { Box, TextField, Button, Typography, Alert, Paper, Grid, Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
 import apiService from '../services/api';
 
 /**
@@ -240,6 +241,22 @@ const Signup = ({ onSuccess, onSwitchToLogin }) => {
           >
             Login
           </Button>
+        </Typography>
+
+        <Divider sx={{ my: 2 }}>OR</Divider>
+
+        <Typography align="center" variant="body2" color="text.secondary">
+          Are you an alumni?{' '}
+          <Link
+            to="/alumni"
+            style={{
+              color: '#B49248',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+            }}
+          >
+            Sign up as Alumni
+          </Link>
         </Typography>
       </Box>
     </Paper>

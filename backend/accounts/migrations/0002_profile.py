@@ -20,7 +20,6 @@ class Migration(migrations.Migration):
                 ('year', models.CharField(blank=True, max_length=20)),
                 ('major', models.CharField(blank=True, max_length=100)),
                 ('study_abroad_term', models.CharField(blank=True, max_length=50)),
-                ('profile_picture', models.ImageField(blank=True, null=True, upload_to='profile_pictures/')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='profile', to=settings.AUTH_USER_MODEL)),
             ],
         ),

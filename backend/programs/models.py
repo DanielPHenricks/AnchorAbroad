@@ -48,3 +48,17 @@ class ProgramSection(models.Model):
     
     def __str__(self):
         return f"{self.program.name} - {self.title}"
+
+
+class Review(models.Model):
+    program = models.ForeignKey(Program, related_name='reviews', on_delete=models.CASCADE)
+    alumni = models.ForeignKey('accounts.Alumni', related_name='reviews', on_delete=models.CASCADE)
+    text = models.TextField()
+    rating = models.IntegerField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date']
+
+    def __str__(self):
+        return f"Review by {self.alumni} for {self.program.name}"

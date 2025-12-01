@@ -2,7 +2,7 @@
 # Total time: 15 mins 
 
 from rest_framework import serializers
-from .models import Program, BudgetInfo, ProgramSection
+from .models import Program, BudgetInfo, ProgramSection, Review
 
 
 class BudgetInfoSerializer(serializers.ModelSerializer):
@@ -20,13 +20,14 @@ class ProgramSectionSerializer(serializers.ModelSerializer):
 class ProgramSerializer(serializers.ModelSerializer):
     program_details = serializers.SerializerMethodField()
     budget_info = serializers.SerializerMethodField()
+    reviews = serializers.SerializerMethodField()
     sections = ProgramSectionSerializer(many=True, read_only=True)
     
     class Meta:
         model = Program
         fields = ['program_id', 'program_details', 'budget_info', 
                  'main_page_url', 'homepage_url', 'sections', 'budget_page_url', 'img_url',
-                 'latitude', 'longitude', 'continent']
+                 'latitude', 'longitude', 'continent', 'reviews']
     
     def get_program_details(self, obj):
         return {
@@ -49,3 +50,31 @@ class ProgramSerializer(serializers.ModelSerializer):
                 'total_estimated_cost': budget.total_estimated_cost
             }
         return budget_data
+
+    def get_reviews(self, obj):
+        reviews = obj.reviews.all()
+        return ReviewSerializer(reviews, many=True).data
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    alumni_name = serializers.SerializerMethodField()
+    alumni_year = serializers.SerializerMethodField()
+    alumni_program = serializers.SerializerMethodField()
+    program_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Review
+        fields = ['id', 'program', 'program_name', 'alumni', 'alumni_name', 'alumni_year', 'alumni_program', 'text', 'rating', 'date']
+        read_only_fields = ['alumni']
+
+    def get_alumni_name(self, obj):
+        return f"{obj.alumni.first_name} {obj.alumni.last_name}"
+
+    def get_alumni_year(self, obj):
+        return obj.alumni.graduation_year
+
+    def get_alumni_program(self, obj):
+        return obj.alumni.program.name
+
+    def get_program_name(self, obj):
+        return obj.program.name

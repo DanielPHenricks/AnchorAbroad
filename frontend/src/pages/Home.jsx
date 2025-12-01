@@ -7,43 +7,43 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Avatar,
+
   Box,
   Button,
   TextField,
+  Rating,
 } from '@mui/material';
+import { School } from '@mui/icons-material';
 import apiService from '../services/api';
+import { useAlumni } from '../contexts/AlumniContext';
 
 export default function Home() {
+  const { isAuthenticated: isAlumni } = useAlumni();
   const [favorites, setFavorites] = useState([]);
-  const [messages, setMessages] = useState([]);
+  const [reviews, setReviews] = useState([]);
+
   const [userProfile, setUserProfile] = useState(null);
   const [editing, setEditing] = useState(false);
-  const [profilePictureFile, setProfilePictureFile] = useState(null);
-
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchFavorites = async () => {
+    const fetchData = async () => {
       try {
-        const data = await apiService.getFavorites();
-        setFavorites(data.map((fav) => fav.program));
+        if (isAlumni) {
+          const data = await apiService.getAlumniReviews();
+          setReviews(data);
+        } else {
+          const data = await apiService.getFavorites();
+          setFavorites(data.map((fav) => fav.program));
+        }
       } catch (err) {
-        console.error('Error fetching favorites:', err);
-        setFavorites([]);
+        console.error('Error fetching data:', err);
       }
     };
-    fetchFavorites();
-  }, []);
+    fetchData();
+  }, [isAlumni]);
 
-  useEffect(() => {
-    setMessages([
-      { id: 1, name: 'Sophia Carter', program: 'Art History' },
-      { id: 2, name: 'Ethan Walker', program: 'Spanish Language' },
-      { id: 3, name: 'Olivia Bennett', program: 'Japanese Culture' },
-      { id: 4, name: 'Liam Harper', program: 'French Literature' },
-    ]);
-  }, []);
+
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -69,16 +69,7 @@ export default function Home() {
 
   const saveProfile = async () => {
     try {
-      const formData = new FormData();
-      const profile = userProfile.profile;
-
-      for (const key in profile) {
-        if (profile[key] !== null && profile[key] !== undefined) {
-          formData.append(key, profile[key]);
-        }
-      }
-
-      const response = await apiService.updateUserProfile(formData, true);
+      const response = await apiService.updateUserProfile(userProfile.profile);
 
       setUserProfile((prev) => ({
         ...prev,
@@ -114,7 +105,6 @@ export default function Home() {
       </Box>
 
       <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
-        {/* Favorite Programs */}
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
@@ -127,26 +117,97 @@ export default function Home() {
             }}
           >
             <Typography variant="h6" fontWeight="600" mb={2}>
-              My Favorite Programs
+              {isAlumni ? 'My Reviews' : 'My Favorite Programs'}
             </Typography>
             <List sx={{ flexGrow: 1, overflowY: 'auto' }}>
-              {favorites.length > 0 ? (
-                favorites.map((p) => (
-                  <ListItemButton
-                    key={p.program_id}
-                    onClick={() => navigate(`/programs/${p.program_id}`)}
-                    sx={{
-                      border: '1px solid #eee',
-                      borderRadius: 2,
-                      mb: 1,
-                    }}
-                  >
-                    <ListItemText
-                      primary={p.program_details.name}
-                      secondary={p.location || p.subtitle}
-                    />
-                  </ListItemButton>
-                ))
+              {isAlumni ? (
+                reviews.length > 0 ? (
+                  reviews.map((r) => (
+                    <ListItemButton
+                      key={r.id}
+                      onClick={() => navigate(`/programs/${r.program}`)}
+                      sx={{
+                        border: '1px solid #eee',
+                        borderRadius: 2,
+                        mb: 1,
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
+                      }}
+                    >
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mb: 0.5 }}>
+                        <Typography variant="subtitle1" fontWeight="600">
+                          {r.program_name}
+                        </Typography>
+                        <Typography variant="caption" color="text.secondary">
+                          {new Date(r.date).toLocaleDateString()}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5 }}>
+                        <Rating value={r.rating} readOnly size="small" />
+                      </Box>
+                      <Typography variant="body2" color="text.secondary" noWrap sx={{ width: '100%' }}>
+                        {r.text}
+                      </Typography>
+                    </ListItemButton>
+                  ))
+                ) : (
+                  <Typography variant="body2" color="textSecondary" sx={{ p: 2 }}>
+                    No reviews yet. Go to your program page to leave a review!
+                  </Typography>
+                )
+              ) : favorites.length > 0 ? (
+                favorites.map((p) => {
+                  const avgRating =
+                    p.reviews && p.reviews.length > 0
+                      ? p.reviews.reduce((acc, r) => acc + r.rating, 0) / p.reviews.length
+                      : 0;
+
+                  // Get description preview
+                  let descriptionPreview = '';
+                  if (p.sections && p.sections.length > 0) {
+                    // Try to find a section with content
+                    const section = p.sections.find(s => s.content && s.content.length > 0);
+                    if (section) {
+                      const content = Array.isArray(section.content) ? section.content.join(' ') : section.content;
+                      // Strip HTML tags
+                      const text = content.replace(/<[^>]*>/g, '');
+                      descriptionPreview = text.length > 100 ? text.substring(0, 100) + '...' : text;
+                    }
+                  }
+
+                  return (
+                    <ListItemButton
+                      key={p.program_id}
+                      onClick={() => navigate(`/programs/${p.program_id}`)}
+                      sx={{
+                        border: '1px solid #eee',
+                        borderRadius: 2,
+                        mb: 1,
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
+                      }}
+                    >
+                      <ListItemText
+                        primary={p.program_details.name}
+                        secondary={p.location || p.subtitle}
+                        sx={{ width: '100%', mb: 0.5 }}
+                      />
+                      {descriptionPreview && (
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 1, width: '100%' }}>
+                          {descriptionPreview}
+                        </Typography>
+                      )}
+                      {p.reviews && p.reviews.length > 0 && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                          <Rating value={avgRating} readOnly size="small" precision={0.5} />
+                          <Typography variant="caption" color="text.secondary">
+                            ({p.reviews.length} reviews)
+                          </Typography>
+                        </Box>
+                      )}
+                    </ListItemButton>
+                  );
+                })
               ) : (
                 <Typography variant="body2" color="textSecondary" sx={{ p: 2 }}>
                   No favorite programs yet. Explore programs and add some to your favorites!
@@ -156,39 +217,7 @@ export default function Home() {
           </Paper>
         </Grid>
 
-        {/* Messages */}
-        <Grid item xs={12} md={4}>
-          <Paper
-            elevation={3}
-            sx={{
-              p: 3,
-              borderRadius: 3,
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <Typography variant="h6" fontWeight="600" mb={2}>
-              Messages
-            </Typography>
-            <List sx={{ flexGrow: 1, overflowY: 'auto' }}>
-              {messages.map((m) => (
-                <ListItemButton
-                  key={m.id}
-                  onClick={() => navigate(`/messages/${m.id}`)}
-                  sx={{
-                    border: '1px solid #eee',
-                    borderRadius: 2,
-                    mb: 1,
-                  }}
-                >
-                  <Avatar sx={{ mr: 2 }}>{m.name[0]}</Avatar>
-                  <ListItemText primary={m.name} secondary={`Alumni, ${m.program}`} />
-                </ListItemButton>
-              ))}
-            </List>
-          </Paper>
-        </Grid>
+
 
         {/* My Profile */}
         <Grid item xs={12} md={4}>
@@ -209,69 +238,157 @@ export default function Home() {
             </Typography>
             {userProfile ? (
               <>
-                <Avatar
-                  src={
-                    userProfile.profile.profile_picture
-                    // Need to change to reflect actual backend URL, can import from the frontend api.js
-                      ? `${apiService.baseURL.replace('/api', '')}${userProfile.profile.profile_picture}`
-                      : ''
-                  }
-                  sx={{ width: 96, height: 96, mb: 1 }}
-                />
-                {editing && (
-                  <Button variant="outlined" component="label" size="small">
-                    Upload New Picture
-                    <input
-                      type="file"
-                      hidden
-                      accept="image/*"
-                      onChange={(e) => handleProfileChange('profile_picture', e.target.files[0])}
-                    />
-                  </Button>
-                )}
-                <Typography>
-                  <strong>Name:</strong> {userProfile.user.first_name} {userProfile.user.last_name}
-                </Typography>
-                <Typography>
-                  <strong>Username:</strong> {userProfile.user.username}
-                </Typography>
-                <Typography>
-                  <strong>Email:</strong> {userProfile.user.email}
-                </Typography>
+                {/* Check if this is an alumni or student profile */}
+                {userProfile.alumni ? (
+                  /* Alumni Profile */
+                  <>
+                    <Typography>
+                      <strong>Name:</strong> {userProfile.alumni.first_name} {userProfile.alumni.last_name}
+                    </Typography>
+                    <Typography>
+                      <strong>Email:</strong> {userProfile.alumni.email}
+                    </Typography>
+                    <Typography>
+                      <strong>Graduation Year:</strong> {userProfile.alumni.graduation_year}
+                    </Typography>
+                    <Typography>
+                      <strong>Study Abroad Term:</strong> {userProfile.alumni.study_abroad_term || 'N/A'}
+                    </Typography>
 
-                <TextField
-                  label="Graduation Year"
-                  value={userProfile.profile.year || ''}
-                  onChange={(e) => handleProfileChange('year', e.target.value)}
-                  fullWidth
-                  sx={{ mt: 1 }}
-                  disabled={!editing}
-                />
-                <TextField
-                  label="Major"
-                  value={userProfile.profile.major || ''}
-                  onChange={(e) => handleProfileChange('major', e.target.value)}
-                  fullWidth
-                  sx={{ mt: 1 }}
-                  disabled={!editing}
-                />
-                <TextField
-                  label="Study Abroad Term"
-                  value={userProfile.profile.study_abroad_term || ''}
-                  onChange={(e) => handleProfileChange('study_abroad_term', e.target.value)}
-                  fullWidth
-                  sx={{ mt: 1 }}
-                  disabled={!editing}
-                />
+                    {/* My Program Badge */}
+                    {userProfile.alumni.program && (
+                      <Box
+                        sx={{
+                          mt: 2,
+                          p: 2,
+                          borderRadius: 2,
+                          backgroundColor: '#B49248',
+                          color: 'white',
+                          textAlign: 'center',
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: 1,
+                            mb: 1,
+                          }}
+                        >
+                          <School />
+                          <Typography variant="subtitle1" fontWeight="600">
+                            My Program
+                          </Typography>
+                        </Box>
+                        <Typography variant="body2">
+                          {userProfile.alumni.program.program_details?.name || userProfile.alumni.program.name}
+                        </Typography>
+                      </Box>
+                    )}
 
-                {editing ? (
-                  <Button onClick={saveProfile} sx={{ mt: 2 }}>
-                    Save
-                  </Button>
+                    {userProfile.alumni.bio && (
+                      <Typography sx={{ mt: 2 }}>
+                        <strong>Bio:</strong> {userProfile.alumni.bio}
+                      </Typography>
+                    )}
+                  </>
                 ) : (
-                  <Button onClick={() => setEditing(true)} sx={{ mt: 2 }}>
-                    Edit
-                  </Button>
+                  /* Student Profile */
+                  <>
+                    <Typography>
+                      <strong>Name:</strong> {userProfile.user?.first_name} {userProfile.user?.last_name}
+                    </Typography>
+                    <Typography>
+                      <strong>Username:</strong> {userProfile.user?.username}
+                    </Typography>
+                    <Typography>
+                      <strong>Email:</strong> {userProfile.user?.email}
+                    </Typography>
+
+                    <TextField
+                      variant={editing ? 'outlined' : 'filled'}
+                      label="Graduation Year"
+                      value={userProfile.profile?.year || ''}
+                      onChange={(e) => handleProfileChange('year', e.target.value)}
+                      fullWidth
+                      sx={{ mt: 1 }}
+                      slotProps={{
+                        input: {
+                          sx: {
+                            color: 'black',
+                            '& input': { color: 'black !important' },
+                            '& .MuiInputLabel-root': { color: 'black !important' },
+                            '& .Mui-disabled': { color: 'black !important' }
+                          }
+                        },
+                        inputLabel: {
+                          sx: { color: 'black !important' }
+                        },
+                        htmlInput: {
+                          readOnly: !editing
+                        }
+                      }}
+                    />
+                    <TextField
+                      variant={editing ? 'outlined' : 'filled'}
+                      label="Major"
+                      value={userProfile.profile?.major || ''}
+                      onChange={(e) => handleProfileChange('major', e.target.value)}
+                      fullWidth
+                      sx={{ mt: 1 }}
+                      slotProps={{
+                        input: {
+                          sx: {
+                            color: 'black',
+                            '& input': { color: 'black !important' },
+                            '& .MuiInputLabel-root': { color: 'black !important' },
+                            '& .Mui-disabled': { color: 'black !important' }
+                          }
+                        },
+                        inputLabel: {
+                          sx: { color: 'black !important' }
+                        },
+                        htmlInput: {
+                          readOnly: !editing
+                        }
+                      }}
+                    />
+                    <TextField
+                      variant={editing ? 'outlined' : 'filled'}
+                      label="Study Abroad Term"
+                      value={userProfile.profile?.study_abroad_term || ''}
+                      onChange={(e) => handleProfileChange('study_abroad_term', e.target.value)}
+                      fullWidth
+                      sx={{ mt: 1 }}
+                      slotProps={{
+                        input: {
+                          sx: {
+                            color: 'black',
+                            '& input': { color: 'black !important' },
+                            '& .MuiInputLabel-root': { color: 'black !important' },
+                            '& .Mui-disabled': { color: 'black !important' }
+                          }
+                        },
+                        inputLabel: {
+                          sx: { color: 'black !important' }
+                        },
+                        htmlInput: {
+                          readOnly: !editing
+                        }
+                      }}
+                    />
+
+                    {editing ? (
+                      <Button onClick={saveProfile} sx={{ mt: 2 }}>
+                        Save
+                      </Button>
+                    ) : (
+                      <Button onClick={() => setEditing(true)} sx={{ mt: 2 }}>
+                        Edit
+                      </Button>
+                    )}
+                  </>
                 )}
               </>
             ) : (

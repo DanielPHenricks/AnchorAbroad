@@ -36,14 +36,6 @@ const Navbar = ({ user, onLogout }) => {
               <Button color="inherit" component={Link} to="/home" sx={{ textTransform: 'none' }}>
                 Home
               </Button>
-              <Button
-                color="inherit"
-                component={Link}
-                to="/messages/1"
-                sx={{ textTransform: 'none' }}
-              >
-                Messages
-              </Button>
               <Button color="inherit" component={Link} to="/map" sx={{ textTransform: 'none' }}>
                 Programs
               </Button>
