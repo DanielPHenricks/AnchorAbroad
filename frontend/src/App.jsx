@@ -14,6 +14,7 @@ import theme from './theme';
 import { Box } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { AlumniProvider } from './contexts/AlumniContext';
+import Chat from './pages/Chat';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
                         <Route path="/programs/:id" element={<ProgramDetail />} />
                         <Route path="/map" element={<MapPage />} />
                         <Route path="*" element={<Home />} />
+                        <Route path="/chat" element={<Chat />} />
                       </Routes>
                     </AuthWrapper>
                   }

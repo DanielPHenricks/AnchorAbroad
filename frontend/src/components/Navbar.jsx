@@ -39,6 +39,9 @@ const Navbar = ({ user, onLogout }) => {
               <Button color="inherit" component={Link} to="/map" sx={{ textTransform: 'none' }}>
                 Programs
               </Button>
+              <Button color="inherit" component={Link} to="/chat" sx={{ textTransform: 'none' }}>
+                Chat
+              </Button>
             </>
           )}
           <Button
