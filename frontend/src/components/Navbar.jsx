@@ -34,10 +34,10 @@ const Navbar = ({ user, onLogout }) => {
           {user && (
             <>
               <Button color="inherit" component={Link} to="/profile" sx={{ textTransform: 'none' }}>
-                Profile
+                Dashboard
               </Button>
               <Button color="inherit" component={Link} to="/map" sx={{ textTransform: 'none' }}>
-                Programs
+                Discover
               </Button>
               <Button color="inherit" component={Link} to="/chat" sx={{ textTransform: 'none' }}>
                 Chat

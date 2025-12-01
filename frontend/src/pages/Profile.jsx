@@ -96,25 +96,7 @@ function ProfilePage() {
 
   return (
     <Box sx={{ p: 4, minHeight: '100vh', backgroundColor: '#f5f6fa' }}>
-      {/* Explore Programs button */}
-      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="large"
-          sx={{
-            borderRadius: 12,
-            textTransform: 'none',
-            px: 4,
-            py: 1.5,
-            fontWeight: 600,
-            boxShadow: 0,
-          }}
-          onClick={() => navigate('/map')}
-        >
-          Explore Programs
-        </Button>
-      </Box>
+
 
       <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
         <Grid item xs={12} md={4}>

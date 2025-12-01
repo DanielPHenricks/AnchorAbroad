@@ -202,7 +202,7 @@ const LandingPage = ({ user }) => {
               },
               {
                 icon: <AttachMoney fontSize="large" />,
-                title: 'Compare Budgets',
+                title: 'View Budgets',
                 desc: 'Transparent cost estimates to help you plan ahead.',
               },
               {
@@ -212,8 +212,8 @@ const LandingPage = ({ user }) => {
               },
               {
                 icon: <People fontSize="large" />,
-                title: 'Connect with Alumni',
-                desc: 'Reach out to past participants for advice.',
+                title: 'Chat with Anchor Buddy',
+                desc: 'Connect with Anchor Buddy for personalized advice.',
               },
             ].map((item, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
