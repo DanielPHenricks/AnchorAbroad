@@ -230,3 +230,23 @@ def alumni_reviews_view(request):
         except Alumni.DoesNotExist:
             return Response({'error': 'Alumni not found'}, status=status.HTTP_404_NOT_FOUND)
     return Response({'error': 'Not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
+@api_view(['DELETE'])
+def delete_review_view(request, review_id):
+    """Delete a review by the current alumni"""
+    alumni_id = request.session.get('alumni_id')
+    if not alumni_id:
+        return Response({'error': 'Not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
+    
+    try:
+        # Import Review model
+        from programs.models import Review
+        review = Review.objects.get(id=review_id)
+        
+        # Check if the review belongs to the current alumni
+        if review.alumni.id != alumni_id:
+            return Response({'error': 'Permission denied'}, status=status.HTTP_403_FORBIDDEN)
+            
+        review.delete()
+        return Response({'message': 'Review deleted successfully'}, status=status.HTTP_200_OK)
+    except Review.DoesNotExist:
+        return Response({'error': 'Review not found'}, status=status.HTTP_404_NOT_FOUND)
