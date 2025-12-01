@@ -3,7 +3,7 @@
  * Time: 30 mins
  */
 
-import { useParams } from 'react-router';
+import { useParams, useLocation } from 'react-router';
 import { useState, useEffect, useRef } from 'react';
 import { Favorite, FavoriteBorder, ChevronLeft, ChevronRight, School, RateReview } from '@mui/icons-material';
 import {
@@ -29,6 +29,7 @@ import { useAlumni } from '../contexts/AlumniContext';
 
 export default function ProgramDetail() {
   const { id } = useParams();
+  const location = useLocation();
   const { isAuthenticated: isAlumni, alumni } = useAlumni();
   const [program, setProgram] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -40,6 +41,7 @@ export default function ProgramDetail() {
   const [reviewRating, setReviewRating] = useState(5);
   const [submittingReview, setSubmittingReview] = useState(false);
   const sectionRefs = useRef([]);
+  const reviewsRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,6 +61,19 @@ export default function ProgramDetail() {
     };
     fetchData();
   }, [id]);
+
+  // Handle hash scrolling
+  useEffect(() => {
+    if (program && location.hash === '#reviews') {
+      // Small timeout to ensure rendering is complete
+      setTimeout(() => {
+        reviewsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Calculate index for reviews section
+        const sectionsCount = program.sections?.filter((section) => section.content && section.content.length > 0).length || 0;
+        setActiveSection(sectionsCount);
+      }, 100);
+    }
+  }, [program, location.hash]);
 
   const toggleFavorite = async () => {
     try {
@@ -181,7 +196,7 @@ export default function ProgramDetail() {
         {menuOpen && (
           <>
             {isMyProgram && (
-              <Box sx={{ px: 2, pb: 2 }}>
+              <Box sx={{ px: 2, pb: 1 }}>
                 <Box
                   sx={{
                     display: 'flex',
@@ -205,7 +220,7 @@ export default function ProgramDetail() {
             )}
 
             {!isAlumni && (
-              <Box sx={{ px: 2, pb: 2 }}>
+              <Box sx={{ px: 2, pb: 1 }}>
                 <Button
                   fullWidth
                   variant="outlined"
@@ -223,8 +238,8 @@ export default function ProgramDetail() {
               </Box>
             )}
 
-            {isAlumni && (
-              <Box sx={{ px: 2, pb: 2 }}>
+            {isAlumni && isMyProgram && (
+              <Box sx={{ px: 2, pb: 1 }}>
                 <Button
                   fullWidth
                   variant="outlined"
@@ -244,53 +259,81 @@ export default function ProgramDetail() {
 
             <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)' }} />
 
-            {availableSections.length > 0 && (
-              <Box sx={{ overflow: 'hidden' }}>
-                <Box sx={{ px: 2, py: 2 }}>
-                  <List sx={{ overflow: 'visible' }}>
-                    {availableSections.map((section, index) => (
-                      <ListItemButton
-                        key={index}
-                        selected={activeSection === index}
-                        onClick={() => scrollToSection(index)}
-                        sx={{
-                          borderRadius: 1,
-                          backgroundColor: activeSection === index ? 'primary.main' : 'transparent',
-                          color:
-                            activeSection === index
-                              ? 'primary.contrastText'
-                              : 'secondary.contrastText',
-                          transition: 'all 0.2s',
-                          '&:hover': {
-                            backgroundColor:
-                              activeSection === index ? 'primary.dark' : 'secondary.dark',
-                            transform: 'translateX(4px)',
-                            boxShadow: activeSection === index ? 2 : 1,
-                          },
-                          '&.Mui-selected': {
-                            backgroundColor: 'primary.main',
-                            '&:hover': { backgroundColor: 'primary.dark' },
-                          },
-                        }}
-                      >
-                        <ListItemText primary={section.title} />
-                      </ListItemButton>
-                    ))}
-                  </List>
-                </Box>
+            <Box sx={{ overflow: 'hidden' }}>
+              <Box sx={{ px: 2, py: 1 }}>
+                <List sx={{ overflow: 'visible' }}>
+                  {availableSections.map((section, index) => (
+                    <ListItemButton
+                      key={index}
+                      selected={activeSection === index}
+                      onClick={() => scrollToSection(index)}
+                      sx={{
+                        borderRadius: 1,
+                        backgroundColor: activeSection === index ? 'primary.main' : 'transparent',
+                        color:
+                          activeSection === index
+                            ? 'primary.contrastText'
+                            : 'secondary.contrastText',
+                        transition: 'all 0.2s',
+                        '&:hover': {
+                          backgroundColor:
+                            activeSection === index ? 'primary.dark' : 'secondary.dark',
+                          transform: 'translateX(4px)',
+                          boxShadow: activeSection === index ? 2 : 1,
+                        },
+                        '&.Mui-selected': {
+                          backgroundColor: 'primary.main',
+                          '&:hover': { backgroundColor: 'primary.dark' },
+                        },
+                      }}
+                    >
+                      <ListItemText primary={section.title} />
+                    </ListItemButton>
+                  ))}
+
+                  <ListItemButton
+                    selected={activeSection === availableSections.length}
+                    onClick={() => {
+                      setActiveSection(availableSections.length);
+                      reviewsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
+                    sx={{
+                      borderRadius: 1,
+                      backgroundColor: activeSection === availableSections.length ? 'primary.main' : 'transparent',
+                      color:
+                        activeSection === availableSections.length
+                          ? 'primary.contrastText'
+                          : 'secondary.contrastText',
+                      transition: 'all 0.2s',
+                      '&:hover': {
+                        backgroundColor:
+                          activeSection === availableSections.length ? 'primary.dark' : 'secondary.dark',
+                        transform: 'translateX(4px)',
+                        boxShadow: activeSection === availableSections.length ? 2 : 1,
+                      },
+                      '&.Mui-selected': {
+                        backgroundColor: 'primary.main',
+                        '&:hover': { backgroundColor: 'primary.dark' },
+                      },
+                    }}
+                  >
+                    <ListItemText primary="Reviews" />
+                  </ListItemButton>
+                </List>
               </Box>
-            )}
+            </Box>
 
             <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)' }} />
 
-            <Box sx={{ px: 2, py: 2, overflow: 'visible' }}>
+            <Box sx={{ py: 1, overflow: 'visible' }}>
               <Typography
                 variant="subtitle2"
-                sx={{ color: 'secondary.contrastText', mb: 1, px: 1, fontWeight: 600 }}
+                sx={{ color: 'secondary.contrastText', mb: 1, px: 3, fontWeight: 600 }}
               >
                 Quick Links
               </Typography>
-              <List sx={{ overflow: 'visible' }}>
+              <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)', mb: 1 }} />
+              <List sx={{ overflow: 'visible', px: 2 }}>
                 {program.main_page_url && (
                   <ListItemButton
                     component="a"
@@ -452,7 +495,7 @@ export default function ProgramDetail() {
 
           <Divider sx={{ mt: 4 }} />
 
-          <Box sx={{ mt: 6, px: 8 }}>
+          <Box sx={{ mt: 6, px: 8 }} ref={reviewsRef}>
             <Typography variant="h4" gutterBottom sx={{ fontWeight: 500, mb: 3 }}>
               Reviews
             </Typography>
