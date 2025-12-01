@@ -1,11 +1,26 @@
 // frontend/src/pages/Map.jsx
 import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Box } from '@mui/material';
+import { Box, Autocomplete, TextField } from '@mui/material';
 import { MarkerManager } from '../components/marker';
 import Sidebar from '../components/sidebar';
 import apiService from '../services/api';
+
+// Component to handle map view changes
+function MapController({ location }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (location) {
+      map.flyTo(location, 10, {
+        duration: 1.5
+      });
+    }
+  }, [location, map]);
+
+  return null;
+}
 
 const MapPage = ({ mapCenter }) => {
   const [selectedMarker, setSelectedMarker] = useState(null);
@@ -13,6 +28,7 @@ const MapPage = ({ mapCenter }) => {
   const [markers, setMarkers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [continentFilter, setContinentFilter] = useState('All');
+  const [flyToLocation, setFlyToLocation] = useState(null);
 
   // Fetch markers from API
   useEffect(() => {
@@ -28,6 +44,16 @@ const MapPage = ({ mapCenter }) => {
   const handleMarkerClick = (marker) => {
     setSelectedMarker(marker);
     setSidebarOpen(true);
+    // Also zoom to marker when clicked directly
+    setFlyToLocation([marker.latitude, marker.longitude]);
+  };
+
+  const handleProgramSelect = (program) => {
+    if (program) {
+      setSelectedMarker(program);
+      setSidebarOpen(true);
+      setFlyToLocation([program.latitude, program.longitude]);
+    }
   };
 
   const handleSidebarClose = () => {
@@ -39,7 +65,8 @@ const MapPage = ({ mapCenter }) => {
 
   // Filter markers based on search and continent
   const filteredMarkers = markers.filter((marker) => {
-    const matchesName = marker.program_details.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const name = marker.program_details?.name || marker.name || '';
+    const matchesName = name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesContinent = continentFilter === 'All' || marker.continent === continentFilter;
     return matchesName && matchesContinent;
   });
@@ -58,20 +85,50 @@ const MapPage = ({ mapCenter }) => {
           zIndex: 1000,
           display: 'flex',
           gap: 1,
+          alignItems: 'center',
+          boxShadow: 3,
         }}
       >
-        <input
-          type="text"
-          placeholder="Search program..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ padding: '4px 8px', borderRadius: '4px', border: '1px solid #ccc' }}
+        <Autocomplete
+          freeSolo
+          options={markers}
+          getOptionLabel={(option) => {
+            // Handle both object option and string input (from freeSolo)
+            if (typeof option === 'string') return option;
+            return option.program_details?.name || option.name || '';
+          }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              placeholder="Search program..."
+              variant="standard"
+              InputProps={{
+                ...params.InputProps,
+                disableUnderline: true,
+                style: { padding: '4px 8px' }
+              }}
+            />
+          )}
+          onChange={(event, newValue) => {
+            if (newValue && typeof newValue !== 'string') {
+              handleProgramSelect(newValue);
+            }
+          }}
+          onInputChange={(event, newInputValue) => {
+            setSearchTerm(newInputValue);
+          }}
+          sx={{ width: 300 }}
         />
 
         <select
           value={continentFilter}
           onChange={(e) => setContinentFilter(e.target.value)}
-          style={{ padding: '4px 8px', borderRadius: '4px', border: '1px solid #ccc' }}
+          style={{
+            padding: '8px',
+            borderRadius: '4px',
+            border: '1px solid #ccc',
+            height: '100%'
+          }}
         >
           <option value="All">All Continents</option>
           <option value="Africa">Africa</option>
@@ -94,6 +151,7 @@ const MapPage = ({ mapCenter }) => {
           attribution="&copy; OpenStreetMap contributors &copy; CARTO"
           url="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png"
         />
+        <MapController location={flyToLocation} />
         <MarkerManager markers={filteredMarkers} onMarkerClick={handleMarkerClick} />
       </MapContainer>
 
