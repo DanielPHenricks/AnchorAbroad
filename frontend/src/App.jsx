@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AuthWrapper from './components/AuthWrapper';
 import ProgramDetail from './pages/ProgramDetail';
 import MessageDetail from './pages/MessageDetail';
+import NewHome from './pages/newHome';
 import MapPage from './pages/Map';
 import Home from './pages/Home';
 import theme from './theme';
@@ -23,7 +24,7 @@ function App() {
           <Router>
             <AuthWrapper>
               <Routes>
-                <Route path="*" element={<Home />} />
+                <Route path="*" element={<NewHome />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/programs/:id" element={<ProgramDetail />} />
                 <Route path="/messages/:id" element={<MessageDetail />} />
