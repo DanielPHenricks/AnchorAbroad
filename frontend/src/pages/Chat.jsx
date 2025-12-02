@@ -123,7 +123,7 @@ ${programsJson}`;
         }
 
         try {
-            const apiKey = 'AIzaSyBPq6j2C4gj6DP7XuJi0-a5FFYWPws8OrA'; // Using the key you provided
+            const apiKey = process.env.REACT_APP_GEMINI_API_KEY; // Using the key you provided
             const response = await fetch(
                 `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`,
                 {
