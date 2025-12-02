@@ -67,11 +67,12 @@ export default function Chat() {
             minimum_gpa: p.program_details?.minimum_gpa,
             language_prerequisite: p.program_details?.language_prerequisite,
             academic_calendar: p.program_details?.academic_calendar,
+            general_info: p.sections?.[0]
         }));
 
         const programsJson = JSON.stringify(trimmedPrograms, null, 2);
 
-        const prompt = `You are an AI study abroad advisor for Vanderbilt University's Anchor Abroad program. Your role is to help students find the perfect study abroad program based on their interests, academic goals, location preferences, and other criteria.
+        const systemPrompt = `You are an AI study abroad advisor for Vanderbilt University's Anchor Abroad program. Your role is to help students find the perfect study abroad program based on their interests, academic goals, location preferences, and other criteria.
 
 Key guidelines:
 - Provide thoughtful, personalized recommendations
@@ -86,13 +87,43 @@ Key guidelines:
 - Reference specific programs from the list below when making recommendations
 
 Here is the list of available study abroad programs:
-${programsJson}
+${programsJson}`;
 
-The student's message: ${userMessage}`;
+        // Construct the history for the API
+        const history = messages.map(msg => ({
+            role: msg.sender === 'user' ? 'user' : 'model',
+            parts: [{ text: msg.text }]
+        }));
+
+        // Add the current user message
+        history.push({
+            role: 'user',
+            parts: [{ text: userMessage }]
+        });
+
+        let apiContents = [];
+
+        // prepend system prompt to history
+
+        if (history.length > 0 && history[0].role === 'user') {
+            const firstMsg = history[0];
+            apiContents = [
+                {
+                    role: 'user',
+                    parts: [{ text: systemPrompt + "\n\nUser: " + firstMsg.parts[0].text }]
+                },
+                ...history.slice(1)
+            ];
+        } else {
+            apiContents = [
+                { role: 'user', parts: [{ text: systemPrompt }] },
+                { role: 'model', parts: [{ text: "Understood." }] },
+                ...history
+            ];
+        }
 
         try {
-            console.log(process.env.REACT_APP_GEMINI_API_KEY);
-            const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
+            const apiKey = 'AIzaSyBPq6j2C4gj6DP7XuJi0-a5FFYWPws8OrA'; // Using the key you provided
             const response = await fetch(
                 `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`,
                 {
@@ -101,15 +132,7 @@ The student's message: ${userMessage}`;
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        contents: [
-                            {
-                                parts: [
-                                    {
-                                        text: prompt,
-                                    },
-                                ],
-                            },
-                        ],
+                        contents: apiContents
                     }),
                 }
             );
@@ -250,6 +273,7 @@ The student's message: ${userMessage}`;
                                             color: message.sender === 'user' ? 'white' : '#333',
                                             borderBottomRightRadius: message.sender === 'user' ? 4 : 16,
                                             borderBottomLeftRadius: message.sender === 'bot' ? 4 : 16,
+                                            textAlign: 'left',
                                         }}
                                     >
                                         <Box
